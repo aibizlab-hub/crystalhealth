@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-HK" data-page-node-id="XEAn12danPjm4AtcULELcw">
+<head data-page-node-id="8FLiKRAMcG3GFsrvpHVF44">
+<meta charset="UTF-8" data-page-node-id="ndxDcCQH2ZxdeyDn8GlosG">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzA0MjIyRSIvPjxwYXRoIGQ9Ik0xNiA1QzIwIDkgMjMgMTMgMjMgMThhNyA3IDAgMCAxLTE0IDBDOSAxMyAxMiA5IDE2IDVaIiBmaWxsPSIjMmY4ZjdmIi8+PHBhdGggZD0iTTE2IDl2MTQiIHN0cm9rZT0iI2Q5YjM2YSIgc3Ryb2tlLXdpZHRoPSIxLjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="m2s5BidZXGYVpq1HoTZbyt">
+<title>康科尚品購物平台 — Crystal Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="JIBX5rg2P8BJml1SoGaXAU">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="swLEYo5GvJjXZNZEPrfzOW">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Noto+Serif+HK:wght@500;700;900&family=Noto+Sans+HK:wght@300;400;500;700;900&display=swap" rel="stylesheet" data-page-node-id="ROnrgQmLWBUmUybWWjNs9S">
+<link rel="stylesheet" href="css/style.css?v=20260915c" data-page-node-id="bEYcH37T0L7bv860WQjiO4">
+</head>
+<body class="home" data-page-node-id="V9WK706EEJJpQGPel11mef">
+
+<!-- ===== 首頁 · 整頁動態背景（原本幅 hero_water.mp4）=====
+     同產品／關於／常見問題／聯絡頁共用同一套背景層，
+     只換 ① --bg 底圖（bg_home.jpg）② 影片 src。
+     四層保證「一定郁」：影片 → 底圖漂移 → 水光斑＋陽光柱 → 氣泡。 -->
+<div class="coral-bg is-scene" id="coralBg" style="--bg:url(../img/bg/bg_home.jpg)" aria-hidden="true">
+  <div class="coral-still"></div>
+  <video class="coral-light" id="coralVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="img/hero_water_poster.jpg">
+    <source src="img/hero_water_hd.mp4" type="video/mp4">
+  </video>
+  <div class="coral-tint"></div>
+  <div class="coral-glow"></div>
+  <div class="coral-caustics"></div>
+  <div class="coral-shafts"></div>
+  <div class="coral-vignette"></div>
+  <div class="hero-shimmer" id="heroShimmer"></div>
+  <div class="coral-bubbles" id="coralBubbles"></div>
+</div>
+
+<div class="demo-flag" data-i18n="demo.flag" data-page-node-id="jh5qnGMzUOWBxS56dRjIKX"></div>
+
+<nav data-page-node-id="w9EORAqANbW5zm2IcLdQvw">
+  <div class="wrap" data-page-node-id="msFkXLqsE7ECTAMV1sSj00">
+    <a class="brand" href="index.html" data-page-node-id="mO80Rf1VQtOV8N50SoQJed"><span class="mk" data-page-node-id="m9ZmDuABsCliB6ebu5SDN2">康</span><div data-page-node-id="9BocYanc84kwHhBis6gCG2"><span class="nm" data-page-node-id="PxYLBXHtXEhmyUCEQ7mPCF">康科尚品</span><small data-page-node-id="UFlFyeUjOiqSIwA6OEzBMK">CRYSTAL HEALTH GLOBAL TECH</small></div></a>
+    <div class="nav-links" data-page-node-id="7arOjkH41N296AkFfBe408">
+      <a href="index.html" data-i18n="nav.home" data-page-node-id="YQEvD4Y2nyx0AZayg1RF1y"></a>
+      <a href="products.html" data-i18n="nav.products" data-page-node-id="xnyWKOzvAq74jBBk7NLMDj"></a>
+      <a href="about.html" data-i18n="nav.about" data-page-node-id="oa6W5x52YYFnUQvmGCnJcg"></a>
+      <a href="contact.html" data-i18n="nav.contact" data-page-node-id="AJ8JIP804d7iYjUU5AsDdR"></a>
+      <a href="faq.html" data-i18n="nav.faq" data-page-node-id="Z1TWCIE6pcdmgGvY7HXwAg"></a>
+    </div>
+    <div class="nav-right" data-page-node-id="CCCO0BEpJ08p0PJXOZKQJ6">
+      <div class="lang-switch" data-page-node-id="FC3UT95yBhIcpTnCeqbMMw">
+        <button data-lang="zh" onclick="applyLang('zh')" data-page-node-id="puynLaz7aN6wgCDBCpqb4H">中</button>
+        <button data-lang="cn" onclick="applyLang('cn')" data-page-node-id="hREMPfJnnkGKtUNaefbZ3K">简</button>
+        <button data-lang="en" onclick="applyLang('en')" data-page-node-id="sU1JCUjG9HkTMcInA1WWM5">EN</button>
+      </div>
+      <button class="share-btn" onclick="shareSite()" data-i18n="nav.share" data-page-node-id="0wIg2BzfOKj6K9HgVWlHkx"></button>
+      <button class="wa-btn" onclick="openWa()" data-page-node-id="UfwbFHQRScGSxQ5MRJVw8Q"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> <span data-i18n="nav.whatsapp" data-page-node-id="QvnfnykgvqQXMWZZY3S6yi"></span></button>
+      <button class="wx-btn" onclick="openWx()" data-page-node-id="iax9qZ6Zbxjmc9P5t652Gc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11v.5z"/><circle cx="8.6" cy="11.6" r=".95" fill="currentColor" stroke="none"/><circle cx="12" cy="11.6" r=".95" fill="currentColor" stroke="none"/><circle cx="15.4" cy="11.6" r=".95" fill="currentColor" stroke="none"/></svg> <span data-i18n="nav.wechat" data-page-node-id="gDEhOc4ZV5KgYi9h7kgT7X"></span></button>
+      <button class="cart-btn" onclick="openCart()" data-page-node-id="2mbz1BILTU3fJTmU9DynsH"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> <span data-i18n="nav.cart" data-page-node-id="qc9WsCduAaseyTvT5dDDUm"></span> <span class="badge" id="badge" data-page-node-id="zcyJNB6UBKbIdGfkdGDnOy">0</span></button>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="menu" data-page-node-id="5XhiWCM3bgm6lkQ3BhXuH7"><span data-page-node-id="X64ADUov3pPhbBzrlyxGcv"></span><span data-page-node-id="T0a9na0vAwQZaJqMcercnz"></span><span data-page-node-id="nyHqJHMDvcgW15xEQbyVa7"></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="marquee" data-page-node-id="mqWrap">
+  <div class="mq-track" data-page-node-id="mqTrack">
+    <span data-i18n="marquee" data-page-node-id="mqT1"></span><span data-i18n="marquee" data-page-node-id="mqT2"></span>
+  </div>
+</div>
+
+<header class="hero" data-page-node-id="BTipiaCX3cuRIOLbHtCxfC">
+  <!-- 影片／光效已交畀上面嘅全頁背景層（.coral-bg.is-scene）：
+       原本只覆蓋 hero 半頁，現在成頁都係呢幅動態水景 -->
+  <div class="wrap" data-page-node-id="gOFhHSM4DmVc6Ld5hGCkUE">
+    <div class="tcol" data-page-node-id="2W8Sw5PIWUIQndEmFYuLHi">
+      <div class="eyebrow" data-i18n="hero.eyebrow" data-page-node-id="41PhDP5DKmR4BIMAvzl3Hr"></div>
+      <h1 data-i18n="hero.h1" data-page-node-id="x0MYs6eFsnX4mQrZpujNDf"></h1>
+      <p data-i18n="hero.p" data-page-node-id="EnFLMLihyQyGadAY2GAYxP"></p>
+      <div class="cta" data-page-node-id="QW9l760OlzI31G9Deasuam">
+        <button class="btn btn-gold" onclick="goProducts()" data-i18n="hero.cta1" data-page-node-id="ImSNP9BJj1hnyEXBmtA7mH"></button>
+        <button class="btn btn-ghost" onclick="openWa()" data-i18n="hero.cta2" data-page-node-id="6vdn4HXNsBo7YYKSiz9VLl"></button>
+      </div>
+      <div class="pulse-badge" data-page-node-id="lax33dHAemlOHwzNWUFhAt"><span class="pulse-dot" data-page-node-id="qOVkF9ZVn1btfCYpqMYXJI"></span><span data-i18n="hero.live" data-page-node-id="zgkcCC03LGbqs1nki6HAGG"></span></div>
+    </div>
+    <div class="scol" data-page-node-id="zJr3bjG9rYptFYHlCCP2WL">
+      <div class="scard" data-page-node-id="Nirz9dgKxBWMm6xz1Ii2Fc">
+        <div class="num" data-i18n="hero.num1" data-page-node-id="vT26OYG0NXd371rgPG7Jog"></div>
+        <div class="lbl" data-i18n="hero.lbl1" data-page-node-id="ZK0GnPeB2xJtlQSNLyDDge"></div>
+        <div class="div" data-page-node-id="7zHzflpOey1hsjsifqj1TE"></div>
+        <div class="num" data-i18n="hero.num2" data-page-node-id="6d2pITUk4p3Bpb9pT05eQX"></div>
+        <div class="lbl" data-i18n="hero.lbl2" data-page-node-id="hDWlTElsoeMudu4wHeAi1c"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 首頁底部「服務特色」標籤條（唔係按鈕，用分隔線區分） -->
+<div class="hero-foot">
+  <div class="pillrow" data-page-node-id="QjiSTtyWc9FcmuzWStkvub">
+    <span class="pill" data-page-node-id="5X9bFGvDysZ18rlAIfvBGA"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20c0-8.8 6.2-14.5 16-14.5C20 14.3 13.8 20 4 20z"/><path d="M4 20c4.2-5.4 7.8-8.6 11.5-10.6"/></svg> <span data-i18n="hero.pill1" data-page-node-id="cKDywWhN4gkZwomUsLWOY7"></span></span>
+    <span class="pill" data-page-node-id="c10CBvCGlGDPND9lxxEsCV"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> <span data-i18n="hero.pill2" data-page-node-id="A7yyWEHJjhdsyZ1UTLexIC"></span></span>
+    <span class="pill" data-page-node-id="65xlRwjEU6CAeYKGFvEgBF"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> <span data-i18n="hero.pill3" data-page-node-id="u8hG2i0Zr9X6DxHDVDX4Ke"></span></span>
+  </div>
+</div>
+
+<div class="strip" data-i18n="strip" data-page-node-id="W7UuE6tBYa0wR2LyN1MkSZ"></div>
+
+<section id="showcase" data-page-node-id="0G5RrqDRG9OJTXppk9VHVN">
+  <div class="wrap" data-page-node-id="3Qe8jHpkQgnkY24mxH7uB6">
+    <h2 style="text-align:center" data-i18n="show.title" data-page-node-id="6ORKgqKRcwJUzxbswpOZMH"></h2>
+    <p class="sub" style="margin-left:auto;margin-right:auto;text-align:center" data-i18n="show.sub" data-page-node-id="TNQ4aHi94Vc4fKyImaEY9V"></p>
+    <div class="carousel" id="carousel" data-page-node-id="VFDWEClhEMlzDBepODv3fQ">
+      <div class="carousel-track" id="carTrack" data-page-node-id="zXQSLnCSG4cPRK9YC0X8VH">
+        <div class="carousel-slide real" data-page-node-id="7nUmIs5jJyTvDCxWBXCVws">
+          <img src="img/products/joint-uc2-1.jpg" alt="關節衛士UCII" data-page-node-id="5aCEYQIssOdd6oa8HVH8SQ">
+          <div class="carousel-cap" data-page-node-id="Bmnfx12luUGyY1MB1Qn6BY"><div class="cn" data-page-node-id="KDDdT1CvUysuQSpDzI0MFA">關節衛士UCII</div><div class="cd" data-page-node-id="kfTGqMMNB14uCE1irr5XEV">UC-II 關節配方 · 客戶真品</div><div class="cp" data-page-node-id="X7GQD0ZWwQkVrm8kxzHSuy">價錢查詢</div></div>
+        </div>
+        <div class="carousel-slide real" data-page-node-id="rjhhTdSt3cqsKbqHPVIS7L">
+          <img src="img/products/omega3-pure-1.jpg" alt="智關心特純Omega3" data-page-node-id="AacZsx15fgiMyJ1GBnDhsY">
+          <div class="carousel-cap" data-page-node-id="tkKxUMh5mgzL3G8TO2zvC3"><div class="cn" data-page-node-id="xcjJPCKSG41F5MCW69FA5c">智關心特純Omega3</div><div class="cd" data-page-node-id="IDT91BaECJMg5Ga77ZqITJ">特純 Omega-3 · EPA／DHA · 客戶真品</div><div class="cp" data-page-node-id="f0QcC84xOhmZiWTgHDmbXq">價錢查詢</div></div>
+        </div>
+        <div class="carousel-slide real" data-page-node-id="JGXtVAJY8qaOKBKKwQ8jCF">
+          <img src="img/products/probiotic-p-1.jpg" alt="Puffin Pets寵物益生菌" data-page-node-id="kTG5pglv9G8jlapW9ECOe5">
+          <div class="carousel-cap" data-page-node-id="5VkZTziYTshUeg2Tz9UDlO"><div class="cn" data-page-node-id="jMCYaooSCEmVlQ8xL5rGiz">Puffin Pets寵物益生菌</div><div class="cd" data-page-node-id="J6QjhPXwFLzeUR11VrxMxr">5 合 1 益生菌 · 寵物腸道健康 · 客戶真品</div><div class="cp" data-page-node-id="SD9vqGFFkwbokmx6heaojO">價錢查詢</div></div>
+        </div>
+      </div>
+      <button class="carousel-btn l" onclick="cgo(-1)" aria-label="上一張" data-page-node-id="QOqjqEyBmNR3ssiLEjx8A6">‹</button>
+      <button class="carousel-btn r" onclick="cgo(1)" aria-label="下一張" data-page-node-id="b0Cn0O5iipY6zHrczV9qcg">›</button>
+    </div>
+    <div class="carousel-dots" id="carDots" data-page-node-id="VkcgMMYLmGs4QFpS2cgkIn"></div>
+    <div class="promo-band" data-i18n="promo.band" data-page-node-id="promoBand"></div>
+  </div>
+</section>
+
+<section id="ecg" class="ecg-section" data-page-node-id="ecgSec">
+  <div class="wrap" data-page-node-id="ecgWrap">
+    <p class="ecg-cap" data-i18n="ecg.cap" data-page-node-id="ecgCap"></p>
+    <div class="ecg-band" aria-hidden="true" data-page-node-id="GYJgOPSybUpIbMwy4Fjd8G">
+      <svg class="ecg-svg" viewBox="0 0 1200 80" preserveAspectRatio="none" data-page-node-id="EwqXC0Q2HBwd2nY4ew7UQH">
+        <path class="ecg-path" d="M0,40 L90,40 L100,52 L110,10 L120,68 L130,40 L150,30 L170,40 L200,40 L290,40 L300,52 L310,10 L320,68 L330,40 L350,30 L370,40 L400,40 L490,40 L500,52 L510,10 L520,68 L530,40 L550,30 L570,40 L600,40 L690,40 L700,52 L710,10 L720,68 L730,40 L750,30 L770,40 L800,40 L890,40 L900,52 L910,10 L920,68 L930,40 L950,30 L970,40 L1000,40 L1090,40 L1100,52 L1110,10 L1120,68 L1130,40 L1150,30 L1170,40 L1200,40" data-page-node-id="A59vCANMmCI20RLDhJJCzA"/>
+      </svg>
+      <span class="ecg-scan" data-page-node-id="DWc4psFCjCys5mFfJpEQPD"></span>
+    </div>
+  </div>
+</section>
+
+<section id="pillars" data-page-node-id="JeFlZ2hDF6qv7vMlHC0r1m">
+  <div class="wrap" data-page-node-id="XMBn95sHmmyaoEStz5Kjmc">
+    <h2 style="text-align:center" data-i18n="pillars.title" data-page-node-id="BisLg1uPTzlxlL8XmOcB7u"></h2>
+    <p class="sub" style="margin-left:auto;margin-right:auto;text-align:center" data-i18n="pillars.sub" data-page-node-id="f6NUalgCR8HlYwMFUivxGW"></p>
+    <div class="pillars" data-page-node-id="4bs3gppbqt3D4THohVxDg8">
+      <div class="pil" data-page-node-id="J8ZBnuc6mD4mr7e6SKf3TK"><div class="n" data-page-node-id="7B9Vn9Hpju41vsJoV3zskK">01</div><h3 data-i18n="p1.n" data-page-node-id="LqvsVvBcFcmmbOREJXWIcn"></h3><p data-i18n="p1.d" data-page-node-id="fKEbMzfh9J4cjGJ9BI8KPq"></p></div>
+      <div class="pil" data-page-node-id="PUmQdHwZo8NQNPLKQstLkF"><div class="n" data-page-node-id="sEWMEafNHVe0a1ebDg9kHR">02</div><h3 data-i18n="p2.n" data-page-node-id="jaGQQ7uVM7B7HlLDHU3V17"></h3><p data-i18n="p2.d" data-page-node-id="BlQVoHZnyMRNtV8PR54xDe"></p></div>
+      <div class="pil" data-page-node-id="LlBH3klesH2YOBKKRK3OdH"><div class="n" data-page-node-id="8AY2HfpzZXiseuuIBGUDCf">03</div><h3 data-i18n="p3.n" data-page-node-id="RguecpA7VN1jeS0EcVzEwo"></h3><p data-i18n="p3.d" data-page-node-id="EIG7DIcM4mLvcO1jv0yFhR"></p></div>
+    </div>
+    <div style="text-align:center;margin-top:40px" data-page-node-id="dLgWwgXy2BGqXOxZNiVBpo">
+      <button class="btn btn-gold" onclick="goProducts()" data-i18n="idx.cta" data-page-node-id="mcAAM6we1QPqikn0H8yLRu"></button>
+    </div>
+  </div>
+</section>
+
+
+<footer data-page-node-id="lxg3mtB16uacdxplEcE2jp">
+  <div class="wrap" data-page-node-id="E64kUQU6kdwV8Vx9J0bbbo">
+    <div data-i18n="footer.left" data-page-node-id="ggMAlZguFuZSX3GWwPMM3R"></div>
+    <div data-i18n="footer.right" data-page-node-id="1UBJsiM1XSSL6gJEmAdUzM"></div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()" data-page-node-id="0nVSxaqutex0EHp1W8XFRo"></div>
+<aside class="drawer" id="drawer" data-page-node-id="yWWzgta4bfKWIzHnNJQKVB">
+  <header data-page-node-id="FbIjbih73HhKKMhxeEKjWI"><h3 data-i18n="cart.title" data-page-node-id="0sFaDsKuzY69lv40qArbQm"></h3><button class="closex" onclick="closeCart()" data-page-node-id="R9Ak6yHBRelPnUR2I1mbq5">×</button></header>
+  <div class="citems" id="citems" data-page-node-id="WY6ddLxlXV5eVFEmpD7HYH"></div>
+  <div class="cfoot" data-page-node-id="uxQGM3tBX0ngLmIpx1AtLZ">
+    <div class="csum" data-page-node-id="csumWrap">
+      <div class="crow" data-page-node-id="csubrow"><span data-i18n="cart.sub" data-page-node-id="csublbl"></span><span id="csub" data-page-node-id="csubval">$0</span></div>
+      <div class="crow disc" id="cdiscrow" style="display:none" data-page-node-id="cdiscrowEl"><span data-i18n="cart.disc" data-page-node-id="cdiscLbl"></span><span id="cdisc" data-page-node-id="cdiscVal">−$0</span></div>
+      <div class="crow" data-page-node-id="cshiprow"><span data-i18n="cart.ship" data-page-node-id="cshipLbl"></span><span id="cship" data-page-node-id="cshipVal">$0</span></div>
+    </div>
+    <div class="cshipnote" id="cshipnote" data-page-node-id="cshipnoteEl"></div>
+    <div class="ctotal" data-page-node-id="6efuKfJ5tmLzHiMkfojoVG"><span data-i18n="cart.total" data-page-node-id="uLEw029Oj8ZENB7d70ga7x"></span><span id="ctotal" data-page-node-id="Ol8Wfi7PpzB1w7v8CeHhb5">$0</span></div>
+    <div class="field" data-page-node-id="FXmwLYFOtcObarZAimjUFN"><label data-i18n="cart.nameLabel" data-page-node-id="sRI28WD4Ulex1OSfXtnKcD"></label><input id="oname" placeholder="" data-page-node-id="sezp9fvGrn87RjAWDjQoBP"></div>
+    <div class="field" data-page-node-id="fBFQGhYPRRhtoEz1URxwRK"><label data-i18n="cart.phoneLabel" data-page-node-id="OCQBOAzzan2QXh9vUtu60E"></label><input id="ophone" placeholder="9XXXXXXX" data-page-node-id="o2d6nIenvdhpAu1DlxxvYX"></div>
+    <button class="wa-order-btn" onclick="waOrder()" data-i18n="cart.orderBtn" data-page-node-id="2iNnyip9CqTB1OTKi6FCtB"></button>
+  </div>
+</aside>
+<div id="toast" data-page-node-id="jVyFiVYHrmdgrVUGWTja1q"></div>
+
+<div class="modal" id="wxModal" onclick="if(event.target===this)closeWx()" data-page-node-id="jVnIk5EZ6jA37oXPz4wgW9">
+  <div class="modal-box" data-page-node-id="lfjz7YBIBPJCW7QfzHmelj">
+    <button class="closex" onclick="closeWx()" data-page-node-id="sZXSPx1v98brFp08ADXVIw">×</button>
+    <div class="wxqr" data-page-node-id="mDPLgvjheXODqx3FeWU79Z"></div>
+    <div class="wxt" data-i18n="wx.modal.t" data-page-node-id="lIVBmuNWvX65x953QHnOpn"></div>
+    <div class="wxid" id="wxIdText" data-page-node-id="DKI9EsfsVOG9KRZtTw5A5d">aibizlab</div>
+    <div class="wxnote" data-i18n="wx.modal.note" data-page-node-id="kIefdyY9OSpBYY2VeC6mjx"></div>
+    <button class="copy" onclick="copyWx()" data-i18n="wx.modal.copy" data-page-node-id="lHv4DndPfUb8GTqLu4WWs9"></button>
+  </div>
+</div>
+
+<script src="js/app.js?v=20260915c"></script>
+<button class="motion-toggle" onclick="toggleCoralMotion(this)" aria-pressed="false">暫停背景動態</button>
+</body>
+</html>

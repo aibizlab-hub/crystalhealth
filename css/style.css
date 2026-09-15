@@ -1,0 +1,682 @@
+:root{
+  /* ===== 淺綠主色（第1項升級 · B 青瓷綠 Celadon）=====
+     想換色：改下面呢幾個值一次過全站變色
+     --sage-d  = 深綠（掣／標題／頁腳，對比用）
+     --sage    = 中青綠（hover／active）
+     --gold-l  = 淺綠底（highlight）
+  */
+  --ivory:#FBFDFC; --card:#FFFFFF; --ink:#1f3329; --muted:#5f7268;
+  --sage:#7FC4A8; --sage-d:#2E7D5E; --gold:#2E7D5E; --gold-l:#DFF1E9;
+  --line:#E2EFE9; --coral:#E5534B; --glow:rgba(46,125,94,.5);
+  --ink-d:#143026; --glass-bg:rgba(255,255,255,.74); --glass-brd:rgba(255,255,255,.6);
+  --glass-shadow:0 14px 38px rgba(8,42,32,.12); --gold-line:#C9A86A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+
+/* ============================================================
+   圖示系統 · 全站零 emoji
+   所有原本嘅 emoji 已換成統一線條 SVG（24×24，stroke=currentColor）
+   改顏色：icon 會自動跟返文字色，唔使另外設定
+   ============================================================ */
+.ic{width:1em;height:1em;flex:0 0 auto;display:inline-block;vertical-align:-.14em;
+  fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* 導覽掣：稍為加粗，15px 先至睇得清 */
+.wa-btn .ic,.wx-btn .ic,.cart-btn .ic{width:15px;height:15px;stroke-width:2.05;vertical-align:-.16em}
+.cart-btn{display:inline-flex;align-items:center;gap:7px}
+/* 首頁三個 pill：低調少少 */
+.pill{display:inline-flex;align-items:center;gap:7px}
+.pill .ic{width:14px;height:14px;stroke-width:1.9;opacity:.72}
+/* 聯絡卡片標題（flex 已有 gap） */
+.ccard h3 .ic{width:19px;height:19px;stroke-width:1.7;stroke:var(--sage-d)}
+/* 付款方式大圖示 */
+.paycard .ic{width:34px;height:34px;stroke-width:1.35;stroke:var(--sage-d);vertical-align:0;margin-bottom:2px}
+/* 優惠橫額 */
+.promo-band .ic{width:17px;height:17px;stroke-width:1.9;vertical-align:-.2em;margin-right:1px}
+/* 免責聲明警告 */
+.disc .ic{width:16px;height:16px;stroke-width:2;vertical-align:-.18em;margin-right:2px}
+body{font-family:"Noto Sans HK","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;background:var(--ivory);color:var(--ink);line-height:1.85;-webkit-font-smoothing:antialiased;font-weight:300;font-size:17px}
+.serif{font-family:"Noto Serif HK","Playfair Display",serif}
+.latin{font-family:"Playfair Display",serif}
+a{color:var(--sage-d);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+:target{scroll-margin-top:90px}
+
+/* demo flag */
+.demo-flag{background:var(--sage-d);color:#eafaf1;font-size:13px;font-weight:700;text-align:center;padding:8px 14px;letter-spacing:.3px}
+.demo-flag b{color:#fff}
+
+/* nav */
+nav{position:sticky;top:0;background:rgba(251,253,252,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:60}
+nav{background:rgba(251,253,252,.94)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:14px;max-width:1200px}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border:1px solid var(--line);background:#fff;border-radius:11px;cursor:pointer;padding:0 11px;flex-shrink:0}
+.nav-toggle span{display:block;height:2px;background:var(--ink);border-radius:2px;width:100%}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand .mk{width:38px;height:38px;border:1.5px solid var(--sage-d);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-size:17px;color:var(--sage-d);font-weight:600}
+.brand .nm{font-family:"Noto Serif HK",serif;font-weight:700;font-size:19px;color:var(--ink);letter-spacing:.5px;line-height:1.15}
+.brand small{display:block;font-size:9px;letter-spacing:2px;color:var(--muted);font-weight:500;line-height:1.2}
+.ver{margin-left:10px;background:#EAF5EF;border:1px solid var(--sage);color:var(--sage-d);font-size:11px;font-weight:800;padding:5px 12px;border-radius:99px;white-space:nowrap;display:none}
+.nav-links{display:flex;gap:20px;font-size:14.5px;color:#3a5049;font-weight:500;flex-wrap:nowrap}
+.nav-links a:hover{color:var(--sage-d)}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.lang-switch{display:flex;border:1px solid var(--line);border-radius:99px;overflow:hidden;flex-shrink:0}
+.lang-switch button{background:transparent;border:none;padding:8px 11px;font-size:12.5px;font-weight:800;cursor:pointer;color:var(--muted)}
+.lang-switch button.active{background:#1E4D3B;color:#fff}
+.wa-btn{display:inline-flex;align-items:center;gap:7px;background:#25D366;color:#fff;border:none;padding:10px 16px;border-radius:99px;font-weight:800;cursor:pointer;font-size:13.5px;transition:filter .2s,transform .2s}
+.wa-btn:hover{background:#1ebe5b;filter:brightness(1.04);transform:translateY(-1px)}
+.wx-btn{display:inline-flex;align-items:center;gap:7px;background:#07C160;color:#fff;border:none;padding:10px 16px;border-radius:99px;font-weight:800;cursor:pointer;font-size:13.5px;transition:filter .2s,transform .2s}
+.wx-btn:hover{background:#06ad56;filter:brightness(1.04);transform:translateY(-1px)}
+.share-btn{background:transparent;border:1px solid var(--line);color:var(--ink);padding:9px 13px;border-radius:99px;font-weight:700;cursor:pointer;font-size:13px}
+.cart-btn{position:relative;background:transparent;border:1px solid var(--line);color:var(--ink);padding:9px 15px;border-radius:99px;cursor:pointer;font-size:14px;font-weight:700}
+.cart-btn .badge{position:absolute;top:-7px;right:-7px;background:#C4413A;color:#fff;border-radius:50%;width:21px;height:21px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
+
+/* hero（雪光 × 淺綠 融合 · 全幅影片背景） */
+.hero{position:relative;overflow:hidden;color:#fff;background:#0f2a20;min-height:640px;display:flex;align-items:center}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:saturate(1.04) brightness(1.04) contrast(.98)}
+/* 雪光 tint：將冷藍改為品牌青綠，頂底壓暗保文字清晰 */
+.hero-tint{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(160deg, rgba(16,52,38,.55) 0%, rgba(16,52,38,.16) 42%, rgba(16,52,38,.16) 60%, rgba(6,26,18,.64) 100%)}
+.hero-glow{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:soft-light;background:radial-gradient(120% 85% at 50% 28%, rgba(127,196,168,.55), rgba(95,211,196,.14) 58%, transparent)}
+.hero-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 46%, rgba(0,30,22,0) 36%, rgba(0,20,14,.18) 82%, rgba(0,12,8,.5) 100%)}
+.hero-shimmer{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.spark{position:absolute;bottom:-26px;width:3px;height:3px;border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,.95), rgba(180,240,220,.25) 70%, transparent);opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0) scale(1);opacity:0}15%{opacity:.85}85%{opacity:.55}100%{transform:translateY(-104vh) scale(.6);opacity:0}}
+
+.hero .wrap{position:relative;z-index:2;padding:100px 24px 108px;display:flex;gap:50px;align-items:center}
+.hero .tcol{flex:1.15;min-width:0}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:4px;color:#BFE9D6;text-transform:uppercase;font-weight:600;margin-bottom:20px}
+.hero .eyebrow::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--gold-line),rgba(201,168,106,.15))}
+.hero h1{font-family:"Noto Serif HK",serif;font-weight:700;font-size:46px;line-height:1.3;word-break:keep-all;color:#fff;text-shadow:0 3px 22px rgba(0,0,0,.35)}
+.hero h1 em{font-style:italic;color:#9FE7C9;font-family:"Playfair Display",serif}
+.hero p{font-size:17px;font-weight:300;opacity:.95;max-width:520px;margin-top:20px;color:rgba(255,255,255,.9);line-height:1.9;text-shadow:0 2px 14px rgba(0,0,0,.3)}
+.hero .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:15px 30px;border-radius:99px;font-weight:800;font-size:15px;cursor:pointer;border:none;display:inline-block;letter-spacing:.3px;line-height:1}
+.btn-gold{background:linear-gradient(135deg,#3E9B7E,var(--sage-d));color:#ffffff;transition:filter .2s,transform .2s}
+.btn-gold:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn-ghost{background:transparent;border:1px solid rgba(46,125,94,.4);color:var(--sage-d)}
+.btn-ghost:hover{border-color:var(--sage-d)}
+.hero .btn-ghost{border-color:rgba(255,255,255,.6);color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.hero .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+.hero .scol{flex:.85;min-width:0}
+.hero .scard{background:transparent;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0}
+.scard .num{font-family:"Playfair Display",serif;font-size:42px;color:#9FE7C9;line-height:1.1;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+.scard .lbl{font-size:13.5px;color:rgba(255,255,255,.92);margin-top:8px;font-weight:300;line-height:1.7;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+.scard .div{height:1px;background:rgba(255,255,255,.3);margin:20px 0}
+.hero .pulse-badge{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35);color:#eafff5}
+.hero .pulse-badge .pulse-dot,.hero .pulse-badge .pulse-dot::after{background:#7FE3C4}
+
+/* 脉搏 pulse 健康指示 */
+.pulse-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(46,125,94,.08);border:1px solid rgba(46,125,94,.22);padding:8px 16px;border-radius:99px;font-size:13px;color:#2f4a3e;font-weight:500;margin-top:22px}
+.pulse-dot{width:12px;height:12px;border-radius:50%;background:#2E9B73;position:relative;flex-shrink:0}
+.pulse-dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:#2E9B73;animation:pulse-ring 1.8s ease-out infinite}
+@keyframes pulse-ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+/* 会喐嘅脉搏 ECG 波线 */
+.ecg-band{position:relative;margin-top:22px;height:74px;border-radius:16px;overflow:hidden;display:flex;align-items:center;background:linear-gradient(90deg,rgba(46,125,94,.10),rgba(46,125,94,.04),rgba(46,125,94,.10));border:1px solid rgba(46,125,94,.12);box-shadow:inset 0 0 24px rgba(46,125,94,.06)}
+.ecg-svg{position:absolute;left:0;top:0;height:100%;width:1200px;animation:ecg-scroll 3.2s linear infinite}
+.ecg-path{fill:none;stroke:#3E9B7E;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(46,125,94,.5))}
+@keyframes ecg-scroll{from{transform:translateX(0)}to{transform:translateX(-600px)}}
+.ecg-scan{position:absolute;top:6px;bottom:6px;width:2px;left:0;background:linear-gradient(#2E7D5E,transparent);box-shadow:0 0 14px 3px rgba(46,125,94,.6);animation:ecg-scan 3.2s linear infinite}
+@keyframes ecg-scan{from{left:0}to{left:100%}}
+
+/* 首頁底部「服務特色」標籤條：分隔線樣式，明顯唔係按鈕、亦同真掣分開
+   （全部 scope 落 .hero-foot，唔影響 palette.html 等其他頁面嘅 .pill） */
+.hero-foot{position:relative;z-index:2;display:flex;justify-content:center;margin-top:6px;padding:24px 24px 0;border-top:1px solid rgba(255,255,255,.22)}
+.hero-foot .pillrow{display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;max-width:940px}
+.hero-foot .pill{display:inline-flex;align-items:center;gap:9px;padding:7px 24px;color:#eafff5;font-size:14px;font-weight:400;white-space:nowrap;letter-spacing:.3px;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.hero-foot .pill + .pill{border-left:1px solid rgba(255,255,255,.30)}
+.hero-foot .pill .ic{width:16px;height:16px;stroke-width:1.8;opacity:.95;color:#7FE3C4;flex-shrink:0}
+@media (max-width:560px){
+  .hero-foot{padding:20px 16px 0}
+  .hero-foot .pillrow{flex-direction:column;gap:1px}
+  .hero-foot .pill{padding:5px 0;font-size:12.5px;gap:7px}
+  .hero-foot .pill + .pill{border-left:0}
+  .hero-foot .pill .ic{width:14px;height:14px}
+}
+
+/* strip */
+.strip{background:var(--sage-d);color:#dcefe7;padding:18px 0;font-size:14.5px;text-align:center;font-weight:400;line-height:1.7}
+.strip b{color:#fff}
+
+section{padding:96px 0}
+h2{font-family:"Noto Serif HK",serif;font-size:34px;font-weight:700;letter-spacing:-.3px;line-height:1.3}
+.sub{color:var(--muted);font-size:16px;margin-top:12px;margin-bottom:38px;max-width:680px;font-weight:300;line-height:1.85}
+
+/* marquee 跑馬燈（第7項 · 文字改 app.js 嘅 "marquee" 三語即可） */
+.marquee{position:relative;overflow:hidden;background:var(--sage-d);color:#eaf7f1;padding:9px 0;font-size:13.5px;font-weight:400;letter-spacing:.4px;border-bottom:1px solid rgba(255,255,255,.12)}
+.mq-track{display:flex;width:max-content;animation:mq-scroll 38s linear infinite;white-space:nowrap}
+.mq-track span{padding-right:70px}
+.marquee:hover .mq-track{animation-play-state:paused}
+@keyframes mq-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* promo-band 滿額優惠提示（第5/6項列明） */
+.promo-band{margin:34px auto 0;max-width:900px;text-align:center;background:linear-gradient(135deg,rgba(46,125,94,.10),rgba(46,125,94,.04));border:1px solid rgba(46,125,94,.20);border-radius:14px;padding:16px 22px;font-size:15.5px;color:#2f4a3e;line-height:1.7}
+.promo-band b{color:var(--sage-d);font-weight:800}
+
+/* 購物車明細（小計 / 會員折扣 / 運費） */
+.csum{border-top:1px solid rgba(46,125,94,.14);padding-top:14px;margin-bottom:12px}
+.crow{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#4a5e54;padding:5px 0}
+.crow.disc span:last-child{color:var(--sage-d);font-weight:800}
+.cshipnote{font-size:12.5px;color:var(--sage-d);background:rgba(46,125,94,.08);border-radius:9px;padding:8px 12px;margin-bottom:12px;line-height:1.5}
+.cshipnote:empty{display:none}
+
+/* ecg-section（移去「三件我們堅持的小事」上面） */
+.ecg-section{padding:60px 0 8px;text-align:center}
+.ecg-cap{font-family:"Noto Serif HK",serif;font-size:18px;font-weight:700;color:var(--sage-d);margin:0 0 20px;letter-spacing:.5px}
+.ecg-section .ecg-band{margin-top:0;max-width:760px;margin-left:auto;margin-right:auto}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
+.pil{padding:14px}
+.pil .n{font-family:"Playfair Display",serif;font-size:40px;color:var(--sage-d);line-height:1}
+.pil h3{font-family:"Noto Serif HK",serif;font-size:21px;font-weight:700;margin:14px 0 8px;line-height:1.4}
+.pil p{color:var(--muted);font-size:15px;font-weight:300;line-height:1.8}
+
+/* page header (sub-pages) */
+.page-head{background:linear-gradient(150deg,#EAF6F0,#CFEADB);color:var(--ink);padding:64px 0 56px}
+.page-head .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:4px;color:var(--sage-d);text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.page-head .eyebrow::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--gold-line),rgba(201,168,106,.15))}
+.page-head h1{font-family:"Noto Serif HK",serif;font-weight:700;font-size:40px;line-height:1.3}
+.page-head p{font-size:16px;font-weight:300;opacity:.95;max-width:620px;margin-top:14px;color:#335045;line-height:1.9}
+.crumbs{font-size:13px;color:var(--muted);margin-bottom:8px}
+.crumbs a:hover{color:var(--sage-d)}
+
+/* store / products */
+.store-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:26px}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;color:var(--muted);padding:9px 18px;border-radius:99px;font-size:14px;font-weight:600;cursor:pointer;transition:.15s;line-height:1}
+.chip:hover{border-color:var(--sage)}
+.chip.on{background:var(--sage-d);color:#fff;border-color:var(--sage-d)}
+.store{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.prod{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.prod:hover{transform:translateY(-6px);box-shadow:0 22px 54px rgba(31,79,66,.12)}
+.prod .ph{height:220px;background:#F4F6F3;display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.prod .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 70%,rgba(244,246,243,.65) 100%);pointer-events:none}
+.prod .ph img.phimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .35s}
+.prod:hover .ph img.phimg{transform:scale(1.04)}
+.prod .ph .phtag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);backdrop-filter:blur(4px);color:#1E4D3B;font-size:10px;font-weight:800;padding:4px 12px;border-radius:99px;letter-spacing:.6px;text-transform:uppercase;border:1px solid var(--line);box-shadow:0 2px 8px rgba(31,79,66,.08)}
+.prod .ph .cat{position:absolute;top:12px;right:12px;background:rgba(30,77,59,.94);color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:99px;letter-spacing:.3px}
+.prod .body{padding:22px;display:flex;flex-direction:column;flex:1}
+.prod h3{font-family:"Noto Serif HK",serif;font-size:18px;font-weight:700;line-height:1.4}
+.prod .spec{font-size:13px;color:var(--sage-d);font-weight:700;margin:4px 0 8px}
+.prod .desc{font-size:13.5px;color:var(--muted);margin-bottom:16px;flex:1;font-weight:300;line-height:1.75}
+.prod .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.prod .price{font-family:"Playfair Display",serif;font-size:26px;font-weight:600;color:var(--sage-d)}
+.prod .price small{font-family:"Noto Sans HK";font-size:12px;color:var(--muted);font-weight:600}
+.add-btn{background:var(--sage-d);color:#fff;border:none;padding:11px 18px;border-radius:99px;font-weight:800;cursor:pointer;font-size:14px;white-space:nowrap;transition:.15s}
+.add-btn:hover{background:#256a4f;box-shadow:0 0 18px rgba(46,125,94,.5)}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about img{width:100%;border-radius:26px;box-shadow:0 24px 60px rgba(31,79,66,.1);display:block;background:#F7F5EF}
+.about p{color:var(--muted);font-size:16px;margin-bottom:16px;font-weight:300;line-height:1.85}
+.about .lead{font-family:"Noto Serif HK",serif;font-size:24px;font-weight:700;color:var(--ink);line-height:1.55;margin-bottom:18px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px}
+.ccard h3{font-family:"Noto Serif HK",serif;font-size:20px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;line-height:1.4}
+.ccard p{color:var(--muted);font-size:15px;font-weight:300;line-height:1.8}
+.ccard .big{font-size:24px;font-weight:900;color:var(--sage-d);margin-top:6px;letter-spacing:.5px;line-height:1.4}
+.ccard .pend{display:inline-block;margin-top:8px;background:#F3EEDF;color:#8a6d1f;font-weight:800;font-size:12px;padding:4px 12px;border-radius:99px}
+
+/* payment */
+.paygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.paycard{background:var(--ivory);border:1px solid var(--line);border-radius:18px;padding:28px;text-align:center}
+.paycard .ic{font-size:32px}
+.paycard h3{font-family:"Noto Serif HK",serif;font-size:19px;font-weight:700;margin:10px 0 6px;line-height:1.4}
+.paycard p{font-size:14px;color:var(--muted);font-weight:300;line-height:1.8}
+.paycard .pend{display:inline-block;margin-top:12px;background:#F3EEDF;color:#8a6d1f;font-weight:800;font-size:12px;padding:4px 14px;border-radius:99px}
+
+/* faq */
+.q{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:12px}
+.q b{font-weight:800;color:var(--ink);font-size:16px}
+.q p{color:var(--muted);font-size:14.5px;margin-top:6px;font-weight:300;line-height:1.85}
+
+/* disclaimer */
+.disc{background:#FBF3E2;border:1px solid #ecd9a8;border-radius:16px;padding:22px;font-size:14px;color:#6b5a2e;font-weight:300;line-height:1.9}
+.disc b{color:#8a6d1f;font-weight:800}
+
+footer{background:#1E4D3B;color:#a9c6bd;padding:42px 0;font-size:14px;margin-top:30px;border-top:1px solid var(--gold-line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;line-height:1.9}
+
+/* cart drawer */
+.overlay{position:fixed;inset:0;background:rgba(15,42,35,.45);display:none;z-index:100}
+.overlay.open{display:block}
+.drawer{position:fixed;top:0;right:0;height:100%;width:440px;max-width:95vw;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);z-index:101;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.18)}
+.drawer.open{transform:translateX(0)}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:22px;border-bottom:1px solid var(--line)}
+.drawer header h3{font-size:19px;font-family:"Noto Serif HK",serif;font-weight:700}
+.closex{background:none;border:none;font-size:26px;cursor:pointer;color:var(--muted)}
+.citems{flex:1;overflow:auto;padding:16px 22px}
+.citem{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.citem .nm{font-size:14.5px;font-weight:700}
+.citem .pr{font-size:14.5px;color:var(--sage-d);font-weight:800}
+.qty{display:flex;align-items:center;gap:9px;margin-top:7px}
+.qty button{width:28px;height:28px;border:1px solid var(--line);background:#f7fbfa;border-radius:7px;cursor:pointer;font-weight:800;font-size:15px}
+.qty span{min-width:22px;text-align:center}
+.empty{padding:46px 20px;text-align:center;color:var(--muted);line-height:1.8}
+.cfoot{padding:20px 22px;border-top:1px solid var(--line);background:#fafdfc}
+.ctotal{display:flex;justify-content:space-between;font-size:19px;font-weight:900;margin-bottom:12px}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:12.5px;font-weight:700;margin-bottom:4px;color:var(--muted)}
+.field input{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:15px}
+.wa-order-btn{width:100%;background:#25D366;color:#fff;border:none;padding:15px;border-radius:13px;font-weight:900;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:filter .2s,transform .2s}
+.wa-order-btn:hover{background:#1ebe5b;filter:brightness(1.04);transform:translateY(-1px)}
+#toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(80px);background:#1E4D3B;color:#fff;padding:14px 24px;border-radius:14px;font-weight:700;font-size:15px;z-index:200;opacity:0;transition:.3s;box-shadow:0 12px 30px rgba(0,0,0,.25);line-height:1.5}
+#toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* ===== 首頁輪播（第4項升級）===== */
+.carousel{position:relative;border-radius:22px;overflow:hidden;background:#EAF6F0;box-shadow:0 22px 54px rgba(31,79,66,.14)}
+.carousel-track{display:flex;transition:transform .6s ease}
+.carousel-slide{min-width:100%;position:relative;background:#EAF6F0}
+.carousel-slide img{width:100%;height:420px;object-fit:contain;display:block;background:#EAF6F0}
+.carousel-cap{position:absolute;left:0;right:0;bottom:0;padding:30px 34px 26px;background:linear-gradient(0deg,rgba(20,50,40,.82),rgba(20,50,40,0));color:#fff;pointer-events:none}
+.carousel-cap .cn{font-family:"Noto Serif HK",serif;font-size:27px;font-weight:700;line-height:1.3}
+.carousel-cap .cd{font-size:15px;opacity:.92;margin-top:5px}
+.carousel-cap .cp{display:inline-block;margin-top:12px;background:rgba(255,255,255,.2);padding:6px 18px;border-radius:99px;font-size:15px;font-weight:800}
+.carousel-dots{display:flex;gap:9px;justify-content:center;margin-top:16px}
+.carousel-dot{width:11px;height:11px;border-radius:50%;background:#cbd8d2;cursor:pointer;border:none;padding:0;transition:.2s}
+.carousel-dot.on{background:var(--sage-d);width:28px;border-radius:99px}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(20,50,40,.45);color:#fff;border:0;font-size:22px;width:42px;height:42px;border-radius:50%;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center}
+.carousel-btn:hover{background:rgba(20,50,40,.7)}
+.carousel-btn.l{left:14px}.carousel-btn.r{right:14px}
+
+/* ===== WeChat 彈窗（第3項升級）===== */
+.modal{position:fixed;inset:0;background:rgba(15,42,35,.5);display:none;z-index:150;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-box{background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-radius:20px;max-width:380px;width:100%;padding:30px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.25);position:relative}
+.modal-box .closex{position:absolute;top:14px;right:18px;font-size:26px;line-height:1}
+.modal-box .wxqr{width:184px;height:184px;margin:16px auto 10px;background:repeating-conic-gradient(#1f3329 0 25%,#fff 0 50%) 0/24px 24px;border:6px solid #fff;box-shadow:0 0 0 1px var(--line);border-radius:12px}
+.modal-box .wxt{font-size:15px;color:var(--muted);font-weight:500}
+.modal-box .wxid{font-size:22px;font-weight:900;color:var(--sage-d);margin-top:6px;letter-spacing:.5px}
+.modal-box .wxnote{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.7}
+.modal-box .copy{margin-top:16px;background:#07C160;color:#fff;border:none;padding:12px 24px;border-radius:99px;font-weight:800;cursor:pointer;font-size:14px;width:100%}
+.modal-box .copy:hover{background:#06ad56}
+
+/* ===== 平板 / iPad（横屏 768–1024） ===== */
+@media(max-width:1024px){
+  .store{grid-template-columns:repeat(2,1fr)}
+  .paygrid{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:40px}
+  .wrap{max-width:960px}
+}
+/* ===== 手机 / 竖屏小平板（≤860） ===== */
+@media(max-width:860px){
+  .wrap{padding:0 18px}
+  nav .wrap{height:auto;padding-top:11px;padding-bottom:11px;flex-wrap:wrap}
+  /* ★ 修復手機導覽「撳唔到」：原本 nav 同頁面內容同層（都係 z-index 1），
+     後出現嘅內容會蓋住 nav 嘅下拉選單 → 手指撳落去撞到下面內容。
+     解決：① 提高 nav 層級令整個 stacking context 高於內文
+           ② 加遮罩令底下內容變暗同唔可撳
+           ③ 漢堡掣變成 × 並鎖住背景滾動 */
+  body > nav{z-index:90}
+  .nav-toggle{display:flex}
+  .nav-toggle span{transition:transform .22s,opacity .22s}
+  body.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.nav-open .nav-toggle span:nth-child(2){opacity:0}
+  body.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-links{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    flex-direction:column;gap:0;background:rgba(251,253,252,.98);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+    box-shadow:0 18px 40px rgba(9,31,24,.18);border-top:1px solid var(--line);
+    padding:6px 0 calc(env(safe-area-inset-bottom,0px) + 10px);
+    max-height:calc(100vh - 110px);overflow-y:auto;overscroll-behavior:contain;
+    z-index:95
+  }
+  body.nav-open .nav-links{display:flex}
+  .nav-links a{padding:0 24px;min-height:56px;display:flex;align-items:center;
+    border-bottom:1px solid var(--line);font-size:17px;color:var(--ink);font-weight:600}
+  .nav-links a:last-child{border-bottom:none}
+  body.nav-open{overflow:hidden}
+  section{padding:60px 0}
+  .nav-scrim{position:fixed;inset:0;background:rgba(4,30,44,.45);z-index:89;
+    opacity:0;transition:opacity .22s}
+  .nav-scrim.on{opacity:1}
+  .nav-right{gap:7px}
+  .share-btn,.wa-btn,.wx-btn{display:none}
+  .lang-switch button{padding:7px 9px;font-size:12px}
+  .cart-btn{padding:8px 13px;font-size:13px}
+  .hero .wrap{flex-direction:column;align-items:flex-start;gap:26px;padding:54px 18px 60px}
+  .hero .scol{display:block;width:100%}
+  .hero h1{font-size:30px}
+  .hero p{font-size:16px}
+  .ecg-band{margin-top:18px}
+  .pillars,.store,.paygrid,.contact,.about .wrap{grid-template-columns:1fr}
+  .store{gap:18px}
+  .page-head h1{font-size:28px}
+  .ver{display:none}
+  .hero::before,.hero::after{display:none}
+  .carousel-slide img{height:300px}
+}
+/* ===== 超窄屏（≤420） ===== */
+@media(max-width:420px){
+  .hero h1{font-size:25px}
+  .prod .body{padding:18px}
+  .cta{flex-direction:column;align-items:stretch}
+  .cta .btn{width:100%}
+  .store-head{flex-direction:column;align-items:flex-start}
+}
+
+/* ============================================================
+   全頁動態背景（首頁 + 產品 + 關於 + 常見問題 + 聯絡 · 共用一套）
+   ── 每個分頁只換兩樣：① --bg 底圖 ② 影片 src
+   ── 首頁 .is-scene：原幅 hero_water.mp4 做整頁場景（不再只佔半頁）
+   ── 其他分頁：底圖 Ken Burns 漂移 + 陽光柱影片 screen 疊加
+   四層保證「一定郁」：
+     ① 真實影片（h264 High / yuv420p → 硬解／iPad 都播到）
+     ② 影片失敗自動退場 → 底圖 Ken Burns 漂移（26s，肉眼明顯）
+     ③ 水光斑漂移（12s）＋ 陽光柱掃動（20s）
+     ④ 氣泡上升（26 粒）
+   可讀性：內容一律白卡／玻璃卡，長者在任何底圖上都睇得清
+   ============================================================ */
+.coral-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:#04222E;
+  --bg:url(../img/bg/bg_products.jpg)}
+/* ① 底圖（每頁用 inline style 指定 --bg；影片失敗時頂上，自己漂移） */
+.coral-still{position:absolute;inset:-3%;
+  background:var(--bg) center 50%/cover no-repeat;
+  filter:saturate(1.06) brightness(1.05) contrast(1.05);
+  animation:kenburns 26s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenburns{
+  0%{transform:scale(1.0) translate3d(0,0,0)}
+  100%{transform:scale(1.07) translate3d(-1.6%,-1.2%,0)}
+}
+/* ② 陽光柱影片（h264 High / yuv420p / 1280x720 —— 同首頁 hero 同款編碼 → 硬解／iPad 都播到）
+      用 screen 混合疊喺底圖上面：真實光線會流動，而用戶揀嘅魚群畫面照樣保留 */
+.coral-light{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;
+  filter:brightness(1.14) contrast(1.34) saturate(.58);
+  mix-blend-mode:screen;opacity:.58;transform:scale(1.06);transition:opacity .6s}
+.coral-bg.video-failed .coral-light{opacity:0}
+/* 海藍 tint：壓暗幅度收輕（背景整體調亮），底部保留 ≥.46 護住小屏文字 */
+.coral-tint{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(4,30,44,.26) 0%,rgba(4,30,44,.08) 36%,rgba(4,30,44,.14) 70%,rgba(2,16,24,.40) 100%)}
+.coral-glow{position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;
+  background:
+    radial-gradient(90% 60% at 50% 0%,rgba(190,240,255,.58),transparent 62%),
+    radial-gradient(120% 90% at 28% 30%,rgba(127,196,168,.48),rgba(95,211,196,.12) 58%,transparent)}
+.coral-vignette{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 46% 40%,rgba(0,26,36,0) 46%,rgba(0,20,28,.10) 82%,rgba(0,10,16,.28) 100%)}
+/* ③ 水面光斑：漂移 12s，明顯見到水喺郁 */
+.coral-caustics{position:absolute;inset:-16%;pointer-events:none;opacity:.50;mix-blend-mode:overlay;
+  background:
+    radial-gradient(38% 30% at 22% 24%,rgba(220,255,250,.9),transparent 62%),
+    radial-gradient(30% 24% at 68% 18%,rgba(200,250,244,.78),transparent 60%),
+    radial-gradient(42% 34% at 52% 76%,rgba(186,246,238,.72),transparent 64%),
+    radial-gradient(26% 22% at 84% 62%,rgba(220,255,250,.62),transparent 60%);
+  animation:caustics 12s ease-in-out infinite alternate}
+@keyframes caustics{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(-4.5%,3%,0) scale(1.08)}
+  100%{transform:translate3d(3.8%,-3%,0) scale(1.04)}
+}
+/* ③b 陽光柱：由水面慢慢掃過（20s） */
+.coral-shafts{position:absolute;inset:-10%;pointer-events:none;opacity:.42;mix-blend-mode:screen;
+  background:linear-gradient(102deg,
+    transparent 8%,rgba(190,240,255,.34) 18%,transparent 30%,
+    transparent 44%,rgba(190,240,255,.26) 54%,transparent 66%,
+    transparent 78%,rgba(190,240,255,.30) 88%,transparent 100%);
+  animation:shafts 20s ease-in-out infinite alternate}
+@keyframes shafts{
+  0%{transform:translate3d(-3%,0,0) skewX(-2deg)}
+  100%{transform:translate3d(3%,1.5%,0) skewX(2deg)}
+}
+/* ④ 氣泡層：全頁上升 */
+.coral-bubbles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.bub{position:absolute;bottom:-40px;border-radius:50%;opacity:0;animation:bubRise linear infinite;
+  background:radial-gradient(circle at 34% 30%,rgba(255,255,255,.95),rgba(200,244,255,.35) 58%,rgba(170,230,250,.06) 78%);
+  box-shadow:inset 0 0 4px rgba(255,255,255,.5)}
+@keyframes bubRise{
+  0%{transform:translateY(0) translateX(0) scale(.7);opacity:0}
+  12%{opacity:.75}
+  50%{transform:translateY(-30vh) translateX(12px) scale(1)}
+  88%{opacity:.45}
+  100%{transform:translateY(-105vh) translateX(-10px) scale(1.12);opacity:0}
+}
+/* 內容層壓喺背景之上（5 頁共用；fixed 元素如 drawer/modal 唔喺呢張單） */
+.demo-flag,nav,.page-head,.strip,#store,#showcase,#ecg,#pillars,#faq-sec,
+#about-sec,#contact-sec,#pay-sec,.marquee,footer{position:relative;z-index:1}
+/* 產品區：透明，露出海底背景 */
+#store{background:transparent;border-bottom:1px solid rgba(255,255,255,.16)}
+/* 產品卡：白底實色 + 明顯陰影，喺海底背景上一樣清楚 */
+#store .prod{position:relative;background:#fff;box-shadow:0 14px 38px rgba(0,20,14,.30)}
+#store .prod:hover{box-shadow:0 24px 60px rgba(0,20,14,.44)}
+#store .prod::after{content:"";position:absolute;inset:0;border-radius:22px;pointer-events:none;opacity:0;transition:opacity .35s;
+  background:linear-gradient(118deg,rgba(127,196,168,0) 34%,rgba(127,196,168,.16) 50%,rgba(127,196,168,0) 66%)}
+#store .prod:hover::after{opacity:1}
+/* 分類掣：白底，深色背景上一樣睇得清 */
+#store .chip{background:rgba(255,255,255,.94);border-color:rgba(255,255,255,.6);color:var(--muted)}
+#store .chip.on{background:var(--sage-d);border-color:var(--sage-d);color:#fff}
+/* 標題區：透明底，文字靠陰影保清晰 */
+.page-head.coral-head{position:relative;display:flex;align-items:center;min-height:340px;padding:0;
+  color:#fff;background:transparent}
+/* ★ 文字保護層：背景整體調亮之後，白色標題壓喺亮底上會唔夠對比 →
+   只喺「文字所在嘅左／上半」加一層柔和暗漸變（右／下保持明亮通透），
+   兼顧「背景明亮」同「文字睇得清」，唔會成條黑帶咁硬。 */
+.page-head.coral-head::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(102deg,rgba(3,22,32,.50) 0%,rgba(3,22,32,.36) 38%,rgba(3,22,32,.12) 70%,rgba(3,22,32,0) 100%),
+    linear-gradient(180deg,rgba(3,22,32,.26) 0%,rgba(3,22,32,0) 74%)}
+.coral-head .wrap{position:relative;z-index:2;width:100%;padding:70px 24px 66px}
+.coral-head .crumbs,.coral-head .crumbs a{color:rgba(255,255,255,.86)}
+.coral-head .crumbs a:hover{color:#fff}
+.coral-head .eyebrow{color:#BFE9D6}
+.coral-head .eyebrow::before{background:linear-gradient(90deg,var(--gold-line),rgba(201,168,106,.15))}
+.coral-head h1{color:#fff;text-shadow:0 3px 26px rgba(0,0,0,.5)}
+.coral-head p{color:rgba(255,255,255,.94);text-shadow:0 2px 18px rgba(0,0,0,.42)}
+/* 停止動態掣：fixed 常駐右下，全頁任何位置都撳到 */
+.motion-toggle{position:fixed;right:22px;bottom:18px;z-index:70;cursor:pointer;font-family:inherit;
+  background:#0D2A33;border:1px solid rgba(255,255,255,.42);
+  color:#fff;font-size:12.5px;font-weight:700;padding:9px 16px;border-radius:99px;transition:.2s;box-shadow:0 8px 22px rgba(4,22,30,.3)}
+.motion-toggle:hover{background:rgba(13,42,51,1)}
+/* 用戶自己撳「停止背景動態」 */
+body.no-motion .coral-light{opacity:.42}
+body.no-motion .coral-still,
+body.no-motion .coral-caustics,
+body.no-motion .coral-shafts{animation:none!important}
+body.no-motion .coral-bubbles{display:none}
+body.no-motion .coral-bg.is-scene .coral-light{opacity:.64}
+/* 系統「減少動態」：收慢漂移層，但影片照播（客戶明確要求背景要郁）。
+   ※ 修正舊 bug：以前呢度寫咗 .coral-video{display:none}，會令整條片消失變死圖。 */
+@media (prefers-reduced-motion: reduce){
+  .coral-still,
+  .coral-caustics,
+  .coral-shafts{animation:none!important}
+  .coral-bubbles{display:none}
+  .coral-light{opacity:.58}
+}
+@media(max-width:860px){
+  .coral-head{min-height:280px}
+  .coral-head .wrap{padding:54px 20px 52px}
+  .coral-head h1{font-size:30px}
+  .coral-head p{font-size:15px}
+  .motion-toggle{right:14px;bottom:12px;font-size:11.5px;padding:8px 13px}
+}
+
+/* ============================================================
+   首頁 · 整頁場景模式（is-scene）
+   由「hero 半頁有片」改成「成頁都係原本幅 hero_water.mp4」
+   ============================================================ */
+.coral-bg.is-scene{background:#0d2a33}
+.coral-bg.is-scene .coral-light{mix-blend-mode:normal;opacity:1;
+  filter:saturate(1.14) brightness(1.04) contrast(1.09);
+  object-position:center 50%;transform:scale(1.02)}
+.coral-bg.is-scene .coral-still{animation-duration:32s}
+.coral-bg.is-scene .coral-tint{background:linear-gradient(180deg,
+  rgba(6,34,44,.20) 0%,rgba(6,34,44,.08) 22%,rgba(6,34,44,.08) 50%,rgba(3,16,24,.40) 100%)}
+.coral-bg.is-scene .coral-glow{background:
+  radial-gradient(80% 52% at 50% 0%,rgba(190,240,255,.58),transparent 64%),
+  radial-gradient(110% 80% at 26% 34%,rgba(127,196,168,.40),rgba(95,211,196,.10) 58%,transparent)}
+.coral-bg.is-scene .coral-vignette{background:radial-gradient(ellipse at 50% 42%,
+  rgba(0,26,36,0) 48%,rgba(0,20,28,.10) 80%,rgba(0,10,16,.28) 100%)}
+.coral-bg.is-scene .coral-caustics{opacity:.44}
+.coral-bg.is-scene .coral-shafts{opacity:.36}
+/* 底圖本身偏亮／偏白嘅分頁（例如水面俯拍）→ 用較輕 tint，保留水嘅通透感 */
+.coral-bg.tint-soft .coral-tint{background:linear-gradient(180deg,
+  rgba(4,30,44,.34) 0%,rgba(4,30,44,.12) 30%,rgba(4,30,44,.18) 68%,rgba(2,16,24,.56) 100%)}
+.coral-bg.tint-soft .coral-vignette{background:radial-gradient(ellipse at 46% 40%,
+  rgba(0,26,36,0) 38%,rgba(0,20,28,.15) 82%,rgba(0,10,16,.42) 100%)}
+
+/* 首頁：hero 本身唔再自帶影片，交晒畀全頁背景層 */
+body.home .hero{background:transparent;min-height:0;overflow:visible}
+body.home .hero .wrap{padding:118px 24px 86px}
+/* ★ 首頁文字背墊：背景調亮之後，喺標題／內文後面加一團極柔和嘅暗霧（只佔左半，
+   右邊同其他位置完全保持明亮），令白字對比由 ~4.0 回到 ~4.8 以上。 */
+body.home .hero .wrap::before{content:"";position:absolute;left:0;top:8%;
+  width:min(720px,92%);height:76%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at 26% 44%,rgba(3,22,32,.34) 0%,rgba(3,22,32,.17) 52%,rgba(3,22,32,0) 78%)}
+body.home .hero::before,body.home .hero::after{display:none}
+/* 首頁：深底上的文字／卡片可讀性 */
+body.home h2{color:#fff;text-shadow:0 3px 24px rgba(0,0,0,.42)}
+body.home .sub{color:rgba(255,255,255,.88);text-shadow:0 2px 16px rgba(0,0,0,.38)}
+body.home .promo-band{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.30);
+  color:#eafaf3;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+body.home .promo-band b{color:#fff}
+body.home .ecg-cap{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.42)}
+body.home .ecg-band{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.26);
+  box-shadow:inset 0 0 24px rgba(127,227,196,.10)}
+body.home .ecg-path{stroke:#8FF0CB;filter:drop-shadow(0 0 6px rgba(127,227,196,.7))}
+body.home .ecg-scan{background:linear-gradient(#8FF0CB,transparent);
+  box-shadow:0 0 14px 3px rgba(127,227,196,.7)}
+/* 首頁三柱：去白卡，直接喺水景上用亮字，更乾淨高級 */
+body.home .pil{background:transparent;border:0;box-shadow:none;padding:14px}
+body.home .pil .n{color:#9FE7C9;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+body.home .pil h3{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+body.home .pil p{color:rgba(255,255,255,.86);text-shadow:0 1px 12px rgba(0,0,0,.4)}
+body.home .carousel{box-shadow:0 26px 62px rgba(0,20,14,.36)}
+body.home .carousel-dot{background:rgba(255,255,255,.45)}
+body.home .carousel-dot.on{background:#fff}
+body.home .strip{background:rgba(20,60,46,.74);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+body.home footer{background:rgba(16,48,36,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+/* ============================================================
+   內頁（關於／常見問題／聯絡）· 對齊首頁深色水景質感
+   —— 棄用「淺青底＋模糊相＋深字」（太光／低清／唔高質），
+      改為同首頁一樣：深海底色 + 高清水景影片（hero_water_hd.mp4）
+      + 亮字，三頁風格一致、睇落高級。
+   ============================================================ */
+/* ① 背景層：深底，模糊相壓暗做 fallback，高清水景影片做主角（同首頁 is-scene 一致） */
+body.has-bg .coral-bg{background:#0a2731}
+body.has-bg .coral-still{filter:saturate(1.02) brightness(.60) contrast(1.14);opacity:.5}
+body.has-bg .coral-light{mix-blend-mode:normal;opacity:1;filter:saturate(1.14) brightness(1.04) contrast(1.09);
+  object-position:center 50%;transform:scale(1.02)}
+body.has-bg .coral-tint{background:linear-gradient(180deg,rgba(6,34,44,.30) 0%,rgba(6,34,44,.12) 24%,rgba(6,34,44,.12) 52%,rgba(3,16,24,.54) 100%)}
+body.has-bg .coral-glow{opacity:.50}
+body.has-bg .coral-vignette{opacity:.95}
+body.has-bg .coral-caustics{opacity:.42}
+body.has-bg .coral-shafts{opacity:.34}
+body.has-bg .coral-bg.tint-soft .coral-tint{background:linear-gradient(180deg,rgba(6,34,44,.34) 0%,rgba(6,34,44,.15) 30%,rgba(6,34,44,.18) 68%,rgba(3,16,24,.58) 100%)}
+body.has-bg .coral-bg.tint-soft .coral-vignette{background:radial-gradient(ellipse at 46% 40%,rgba(0,26,36,0) 38%,rgba(0,20,28,.16) 82%,rgba(0,10,16,.42) 100%)}
+
+/* ② 頁頭：深底上用亮字（同首頁一致） */
+body.has-bg .coral-head{color:#fff}
+body.has-bg .coral-head::before{background:
+  linear-gradient(102deg,rgba(3,22,32,.50) 0%,rgba(3,22,32,.34) 38%,rgba(3,22,32,.10) 70%,rgba(3,22,32,0) 100%),
+  linear-gradient(180deg,rgba(3,22,32,.26) 0%,rgba(3,22,32,0) 74%)}
+body.has-bg .coral-head .crumbs,body.has-bg .coral-head .crumbs a{color:rgba(255,255,255,.86)}
+body.has-bg .coral-head .crumbs a:hover{color:#fff}
+body.has-bg .coral-head .eyebrow{color:#BFE9D6}
+body.has-bg .coral-head .eyebrow::before{background:linear-gradient(90deg,var(--gold-line),rgba(201,168,106,.15))}
+body.has-bg .coral-head h1{color:#fff;text-shadow:0 3px 26px rgba(0,0,0,.5)}
+body.has-bg .coral-head p{color:rgba(255,255,255,.92);text-shadow:0 2px 18px rgba(0,0,0,.45)}
+
+/* ③ 內容：去白卡，深底＋亮字；必要分組用極淡磨砂玻璃（唔係白卡），保持高級通透 */
+body.has-bg .about .wrap{background:transparent;border-radius:0;padding:48px 0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+body.has-bg .about img{background:#0c3038;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+body.has-bg .about h2{color:#fff;text-shadow:0 3px 24px rgba(0,0,0,.42)}
+body.has-bg .about .lead{color:#eafaf3;text-shadow:0 2px 16px rgba(0,0,0,.4)}
+body.has-bg .about p{color:rgba(255,255,255,.88);text-shadow:0 1px 12px rgba(0,0,0,.38)}
+body.has-bg .q{background:rgba(7,28,22,.42);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:18px 22px;box-shadow:0 12px 32px rgba(0,15,10,.3);margin-bottom:12px}
+body.has-bg .q b{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.4)}
+body.has-bg .q p{color:rgba(255,255,255,.82);font-weight:300;line-height:1.85;text-shadow:0 1px 10px rgba(0,0,0,.32)}
+body.has-bg .disc{background:rgba(7,28,22,.40);border:0;border-left:3px solid #E7C879;border-radius:0;padding:6px 0 6px 18px;box-shadow:0 12px 32px rgba(0,15,10,.28);color:rgba(255,255,255,.86);font-weight:300;line-height:1.9}
+body.has-bg .disc b{color:#E7C879;font-weight:800}
+body.has-bg .ccard{background:rgba(7,28,22,.42);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.16);border-radius:18px;box-shadow:0 14px 36px rgba(0,15,10,.32);padding:26px 28px}
+body.has-bg .ccard h3{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.4)}
+body.has-bg .ccard p{color:rgba(255,255,255,.82);font-weight:300;line-height:1.8}
+body.has-bg .ccard .big{color:#9FE7C9;text-shadow:0 2px 12px rgba(0,0,0,.4);letter-spacing:.5px;line-height:1.4}
+body.has-bg .ccard .pend{display:inline-block;margin-top:8px;background:rgba(231,200,121,.18);color:#E7C879;border:1px solid rgba(231,200,121,.42);font-weight:800;font-size:12px;padding:4px 12px;border-radius:99px}
+body.has-bg .paycard{background:rgba(7,28,22,.42);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.16);border-radius:18px;box-shadow:0 14px 36px rgba(0,15,10,.32);padding:26px 28px;text-align:center}
+body.has-bg .paycard .ic{color:#9FE7C9}
+body.has-bg .paycard h3{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.4);margin:10px 0 6px;line-height:1.4}
+body.has-bg .paycard p{color:rgba(255,255,255,.82);font-weight:300;line-height:1.8}
+body.has-bg .paycard .pend{display:inline-block;margin-top:12px;background:rgba(231,200,121,.18);color:#E7C879;border:1px solid rgba(231,200,121,.42);font-weight:800;font-size:12px;padding:4px 14px;border-radius:99px}
+body.has-bg #pay-sec{background:transparent!important;border:0!important}
+body.has-bg #pay-sec .wrap{background:transparent;border-radius:0;padding:48px 0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+body.has-bg .pay h2{color:#fff;text-shadow:0 3px 24px rgba(0,0,0,.42)}
+body.has-bg .pay .sub{color:rgba(255,255,255,.88);text-shadow:0 2px 16px rgba(0,0,0,.4)}
+body.has-bg .sub{color:rgba(255,255,255,.88);text-shadow:0 1px 12px rgba(0,0,0,.34)}
+
+/* ===== 聯絡頁專屬：收斂過亮影片＋強化底圖清晰感 =====
+   contact 卡片較疏，影片層(coral-light)原 opacity:1 會穿透半透明卡片與間隙，
+   令背景顯得「太光又太朦」。以下只針對 contact，不影響 about/faq。 */
+body.has-bg.page-contact .coral-light{opacity:.46;filter:saturate(1.06) brightness(.86) contrast(1.07)}
+body.has-bg.page-contact .coral-still{filter:saturate(1.10) brightness(.86) contrast(1.22);opacity:.72}
+body.has-bg.page-contact .coral-tint{background:linear-gradient(180deg,rgba(6,34,44,.50) 0%,rgba(6,34,44,.34) 28%,rgba(6,34,44,.40) 64%,rgba(3,16,24,.70) 100%)}
+body.has-bg.page-contact .coral-vignette{opacity:1}
+body.has-bg.page-contact .coral-shafts{opacity:.22}
+body.has-bg.page-contact .coral-caustics{opacity:.34}
+body.has-bg.page-contact .ccard,
+body.has-bg.page-contact .paycard{background:rgba(7,28,22,.62);box-shadow:0 18px 44px rgba(0,12,8,.42)}
+
+
+
+@media(max-width:860px){
+  body.home .hero .wrap{padding:78px 18px 54px}
+  body.has-bg .about .wrap{padding:30px 0}
+  body.has-bg #pay-sec .wrap{padding:34px 0}
+}
+
+/* ===== 客戶真品：真實相片 + 多角度 + 放大 ===== */
+.prod .ph.real{background:#fff}
+.prod .ph.real::after{display:none}
+.prod .ph.real img.phimg{object-fit:contain;padding:10px 10px 42px;background:#fff}
+.prod .ph .phtag.real{background:rgba(46,125,94,.94);color:#fff;border-color:rgba(46,125,94,.94)}
+.prod .ph .thumbs{position:absolute;left:0;right:0;bottom:0;display:flex;gap:6px;padding:7px 10px;
+  background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.96) 45%);z-index:2}
+.prod .ph .thumbs img{width:38px;height:38px;object-fit:cover;border-radius:7px;border:1.5px solid var(--line);
+  background:#fff;cursor:pointer;transition:.15s}
+.prod .ph .thumbs img:hover{border-color:var(--sage-d);transform:translateY(-2px)}
+.prod .ph img.phimg{cursor:zoom-in}
+.prod .price.enq{font-size:19px;color:var(--muted);letter-spacing:.04em}
+.add-btn.enq-btn{background:#fff;color:var(--sage-d);border:1.5px solid var(--sage-d);padding:9.5px 16px}
+.add-btn.enq-btn:hover{background:var(--sage-d);color:#fff}
+
+/* 放大檢視 */
+.lightbox{position:fixed;inset:0;z-index:9999;background:rgba(12,22,18,.9);backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;padding:24px}
+.lightbox.on{display:flex}
+.lightbox figure{margin:0;max-width:min(1100px,94vw);max-height:92vh;display:flex;flex-direction:column;gap:12px;align-items:center}
+.lightbox img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:14px;background:#fff;padding:10px}
+.lightbox figcaption{color:#eaf5ef;font-size:14px;font-weight:600;letter-spacing:.02em}
+.lightbox .lb-x,.lightbox .lb-p,.lightbox .lb-n{position:absolute;border:none;cursor:pointer;
+  background:rgba(255,255,255,.14);color:#fff;border-radius:99px;line-height:1;transition:.15s}
+.lightbox .lb-x{top:20px;right:22px;width:44px;height:44px;font-size:26px}
+.lightbox .lb-p,.lightbox .lb-n{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:34px}
+.lightbox .lb-p{left:22px}
+.lightbox .lb-n{right:22px}
+.lightbox .lb-x:hover,.lightbox .lb-p:hover,.lightbox .lb-n:hover{background:rgba(255,255,255,.3)}
+body.lb-open{overflow:hidden}
+@media(max-width:640px){
+  .lightbox .lb-p{left:8px}
+  .lightbox .lb-n{right:8px}
+  .prod .ph.real img.phimg{padding:10px 10px 42px}
+}
+
+/* 首頁輪播：客戶真品（白底相片） */
+.carousel-slide.real,.carousel-slide.real img{background:#fff}
+.carousel-slide.real img{padding:18px 18px 0}
+
+/* ===== 高級化 · 微互動（ Premium micro-interactions ）===== */
+.btn,.chip,.add-btn,.q{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s cubic-bezier(.2,.7,.2,1)}
+.btn-gold:hover,.chip:hover,.add-btn:hover,.q:hover{transform:translateY(-3px)}
+@media (prefers-reduced-motion: reduce){
+  .btn,.chip,.add-btn,.q{transition:none!important}
+  .btn-gold:hover,.chip:hover,.add-btn:hover,.q:hover{transform:none!important}
+}
+
+/* ===== nav 塞爆修正（1080 容器下 5 連結＋5 掣 → 常見問題掉行）=====
+   大屏加闊到 1200；平板上先收窄間距 + 收起次要掣（分享／WeChat） */
+@media(min-width:861px) and (max-width:1180px){.brand small{display:none}.nav-links{gap:14px}.nav-right{gap:7px}}
+@media(min-width:861px) and (max-width:1080px){.nav-right .share-btn{display:none}}
+@media(min-width:861px) and (max-width:980px){.nav-right .wx-btn{display:none}}

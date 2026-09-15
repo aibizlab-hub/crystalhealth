@@ -1,0 +1,58 @@
+{
+  "_說明": "全站 5 個分頁嘅背景圖設定。要換邊幅圖放邊一頁，只需改下面 pages 嘅值（填圖嘅 id），全站即時生效，唔需要改 HTML。",
+  "_圖片選項": "bg_home / bg_products / bg_about / bg_contact / bg_faq（對應 img/bg/ 內同名 .jpg）",
+  "images": [
+    {
+      "id": "bg_home",
+      "code": "圖1",
+      "name": "溪流雪光",
+      "source": "首頁原圖（landscape_poster / hero_water.mp4 同一場景）",
+      "tone": "森林綠 · 冷調",
+      "file": "img/bg/bg_home.jpg",
+      "thumb": "img/bg/thumb_bg_home.jpg"
+    },
+    {
+      "id": "bg_products",
+      "code": "圖2",
+      "name": "淺灘魚群",
+      "source": "Pinterest pin 6WxCqhjlZ",
+      "tone": "青藍 · 明亮",
+      "file": "img/bg/bg_products.jpg",
+      "thumb": "img/bg/thumb_bg_products.jpg"
+    },
+    {
+      "id": "bg_about",
+      "code": "圖3",
+      "name": "海天一線·魚群珊瑚",
+      "source": "Pinterest pin 1XLfWu9cO",
+      "tone": "湛藍 · 通透",
+      "file": "img/bg/bg_about.jpg",
+      "thumb": "img/bg/thumb_bg_about.jpg"
+    },
+    {
+      "id": "bg_contact",
+      "code": "圖4",
+      "name": "岩石拱門·水下半水",
+      "source": "Pinterest pin 511za8ZMS",
+      "tone": "藍綠 · 對比強",
+      "file": "img/bg/bg_contact.jpg",
+      "thumb": "img/bg/thumb_bg_contact.jpg"
+    },
+    {
+      "id": "bg_faq",
+      "code": "圖5",
+      "name": "水面俯拍波紋",
+      "source": "Pinterest pin 31laMfAmT",
+      "tone": "淺青白 · 乾淨",
+      "file": "img/bg/bg_faq.jpg",
+      "thumb": "img/bg/thumb_bg_faq.jpg"
+    }
+  ],
+  "pages": [
+    { "key": "index.html", "label": "首頁", "note": "動態影片為主（原幅 hero_water.mp4），此圖為影片載入失敗時的底圖", "bg": "bg_home" },
+    { "key": "products.html", "label": "產品選集", "note": "白底產品卡，深底最突出", "bg": "bg_products" },
+    { "key": "about.html", "label": "關於我們", "note": "單一白色內容卡，任何底圖都清楚", "bg": "bg_about" },
+    { "key": "faq.html", "label": "常見問題", "note": "多張白色問答卡，底圖宜乾淨", "bg": "bg_faq" },
+    { "key": "contact.html", "label": "聯絡我們", "note": "卡片較少，可用對比強嘅圖", "bg": "bg_contact" }
+  ]
+}

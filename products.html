@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-HK" data-page-node-id="Q977SJhE0ke8f8M2HAhazR">
+<head data-page-node-id="cda3Gs4AJt47FVLyqqLzE5">
+<meta charset="UTF-8" data-page-node-id="zGXO9gmcC64fs9DIbIuK97">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="7pc5DYRO0GlBoEzxOsBJN1">
+<title>產品選集 — Crystal Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="NUM3OWahFOQzHmVdm2aU6u">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="unXgHJJ81NVGfCv0RjQb1O">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Noto+Serif+HK:wght@500;700;900&family=Noto+Sans+HK:wght@300;400;500;700;900&display=swap" rel="stylesheet" data-page-node-id="J2tMH611cmCBbOrUJA9Ync">
+<link rel="stylesheet" href="css/style.css?v=20260915c" data-page-node-id="3CWE8ZOlpCCE0E9uiLg6Tb">
+</head>
+<body data-page-node-id="3zAUtbFfAou96CTR4S0s8g">
+
+<!-- ===== 全頁海底珊瑚礁背景（fixed，覆蓋成個產品頁）=====
+     三層保證「一定郁」：① 真實影片 ② 影片失敗自動退場，底圖 Ken Burns 漂移
+     ③ 水光斑 + 氣泡常駐。長者可撳右下角「暫停背景動態」。 -->
+<div class="coral-bg" id="coralBg" style="--bg:url(../img/bg/bg_products.jpg)" aria-hidden="true">
+  <div class="coral-still"></div>
+  <video class="coral-light" id="coralVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="img/sea_light_poster.jpg">
+    <source src="img/sea_light.mp4" type="video/mp4">
+  </video>
+  <div class="coral-tint"></div>
+  <div class="coral-glow"></div>
+  <div class="coral-caustics"></div>
+  <div class="coral-shafts"></div>
+  <div class="coral-vignette"></div>
+  <div class="coral-bubbles" id="coralBubbles"></div>
+</div>
+
+<div class="demo-flag" data-i18n="demo.flag" data-page-node-id="NupXdf79JeUKjxMe090yK6"></div>
+
+<nav data-page-node-id="klZGBBUQETjs901LoJ7vkk">
+  <div class="wrap" data-page-node-id="eOk2UftVqELaCBNNv09fne">
+    <a class="brand" href="index.html" data-page-node-id="cjd3RjKgQUfyXC14epsfrX"><span class="mk" data-page-node-id="hzijDDRGoNlpCCaJWsHFqB">康</span><div data-page-node-id="G7c4UG14cTNpIo4dD3T11L"><span class="nm" data-page-node-id="rkBp4pvkWHVrxDLHT6u408">康科尚品</span><small data-page-node-id="xz8O2I414eUkjDLTChnVXN">CRYSTAL HEALTH GLOBAL TECH</small></div></a>
+    <div class="nav-links" data-page-node-id="uSazEOtEgOJFfrcCFgGsey">
+      <a href="index.html" data-i18n="nav.home" data-page-node-id="pMjOAehlpfWltzqtWJYxRa"></a>
+      <a href="products.html" data-i18n="nav.products" data-page-node-id="KnLcmkfZwqjG9wCJCxrg3T"></a>
+      <a href="about.html" data-i18n="nav.about" data-page-node-id="9dX3Wm2PRiTDe4lNRYPum7"></a>
+      <a href="contact.html" data-i18n="nav.contact" data-page-node-id="Sf5Dt5ugc8Da8fVw2Ot3we"></a>
+      <a href="faq.html" data-i18n="nav.faq" data-page-node-id="Coaf11ybgUaUzJlYTtQODg"></a>
+    </div>
+    <div class="nav-right" data-page-node-id="HkYUhgrdjx97KjeDXcGOGg">
+      <div class="lang-switch" data-page-node-id="hWz5OHma5uZXTdBW1joawv">
+        <button data-lang="zh" onclick="applyLang('zh')" data-page-node-id="Jk0QyVEU3O1EATThENUmKN">中</button>
+        <button data-lang="cn" onclick="applyLang('cn')" data-page-node-id="LmGmEVENgFfmTBxf7o7tcM">简</button>
+        <button data-lang="en" onclick="applyLang('en')" data-page-node-id="gc6pxqZSALkQdEy0uYw5xY">EN</button>
+      </div>
+      <button class="share-btn" onclick="shareSite()" data-i18n="nav.share" data-page-node-id="9NdQCAFkdZFsozJguqN0XR"></button>
+      <button class="wa-btn" onclick="openWa()" data-page-node-id="rNC9N6FpVaeRLmYKBzmwfQ"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> <span data-i18n="nav.whatsapp" data-page-node-id="5puz29EQHO1Vjn2HqNu8zL"></span></button>
+      <button class="cart-btn" onclick="openCart()" data-page-node-id="CfEeraFo5Mx2fZwEFBRDj3"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> <span data-i18n="nav.cart" data-page-node-id="F6s90lVTn2AU6gQcqjSs4L"></span> <span class="badge" id="badge" data-page-node-id="TV0N7KUPGQdlk7MfkOlCtD">0</span></button>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="menu" data-page-node-id="nt02T4vcMhukDqK7KiSIXj"><span data-page-node-id="CbBGojrG7PwCd89BBYLetd"></span><span data-page-node-id="G202I6cVJ952IKk2xVEN78"></span><span data-page-node-id="30liwuf7yloInEvJkYPHV3"></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head coral-head" id="coralHead" data-page-node-id="g703pLBWur0mkl9wo8PHyh">
+  <div class="wrap" data-page-node-id="CHD4ySJ50ETeKmgFGnHBaw">
+    <div class="crumbs" data-page-node-id="wOtJHWpw532WjS0I9qr5yy"><a href="index.html" data-i18n="crumbs.home" data-page-node-id="4VKbOP1p4L8HGGGWRP77tx"></a> › <span data-i18n="nav.products" data-page-node-id="VOOOogGxvSvVDOaBaAUwts"></span></div>
+    <div class="eyebrow" data-i18n="hero.eyebrow" data-page-node-id="YGkAORXqf8YHiFPkYyZtJu"></div>
+    <h1 data-i18n="prod.title" data-page-node-id="AW9ZEy4wLGYnXGvOEC5FR0"></h1>
+    <p data-i18n="prod.sub" data-page-node-id="UpFG8tpplBN2uH7JhWpdoA"></p>
+  </div>
+</div>
+
+<section id="store" data-page-node-id="o42DW4EgAcTNbdyzTUE6IC">
+  <div class="wrap" data-page-node-id="MreJR2hRQmdbCwwSNl6lyd">
+    <div class="store-head" data-page-node-id="s4YavqlWd8GGqQUbB53ZFt">
+      <div class="chips" id="chips" data-page-node-id="0qFv99vWSShV2xPhhWdCCg"></div>
+    </div>
+    <div class="store" id="store-grid" data-page-node-id="cpcdmx8Fr9ZZI368kQdnNv"></div>
+  </div>
+</section>
+
+<footer data-page-node-id="dThvCB3vfyEYxUNHuFl3Mf">
+  <div class="wrap" data-page-node-id="BV9NDVoPOWlenBG6pwHGXJ">
+    <div data-i18n="footer.left" data-page-node-id="wehVK4X5INPNdhTdchKwwA"></div>
+    <div data-i18n="footer.right" data-page-node-id="vStzZdK0daONIC7w2gwvYo"></div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()" data-page-node-id="jXUz2UI60YmZEHMK29fXBD"></div>
+<aside class="drawer" id="drawer" data-page-node-id="d52GWzi2u1VYwiAcPXBmxx">
+  <header data-page-node-id="eoK7YF90BPxcCMQ0mAHbgZ"><h3 data-i18n="cart.title" data-page-node-id="rMD0GLpOxO3zZpEycsqcr6"></h3><button class="closex" onclick="closeCart()" data-page-node-id="uPQpzTSOfXbewJGf6n8gGE">×</button></header>
+  <div class="citems" id="citems" data-page-node-id="9Fvj5ETqVCf2NbdxtlOGMH"></div>
+  <div class="cfoot" data-page-node-id="eLSeGOJucMjHBi3xokH6Kb">
+    <div class="ctotal" data-page-node-id="sJOih3cnHd4Tl83aFfQCer"><span data-i18n="cart.total" data-page-node-id="zf822Ibvjy1kmAijvS2pPS"></span><span id="ctotal" data-page-node-id="2LNKZiurUCNG2gorMRFpbM">$0</span></div>
+    <div class="field" data-page-node-id="zfYD4OCXsZf1yojX5s6tHQ"><label data-i18n="cart.nameLabel" data-page-node-id="IPJbA2ifGB3wlU4ONGDrnL"></label><input id="oname" placeholder="" data-page-node-id="BgEXBQ9LXmGTLFv8TTFYRG"></div>
+    <div class="field" data-page-node-id="0za4aMvSVs9yjfVI3sTCkz"><label data-i18n="cart.phoneLabel" data-page-node-id="C5ZICgGW6Us3xoR984eMPR"></label><input id="ophone" placeholder="9XXXXXXX" data-page-node-id="6aX9QFawUlfSWCQ7awx0LX"></div>
+    <button class="wa-order-btn" onclick="waOrder()" data-i18n="cart.orderBtn" data-page-node-id="QLYvMgGeaJ19VNmsuCa5PH"></button>
+  </div>
+</aside>
+<div id="toast" data-page-node-id="BVG0qDjcDx2R7Umt0WJDyN"></div>
+
+<script src="js/app.js?v=20260915c"></script>
+<button class="motion-toggle" onclick="toggleCoralMotion(this)" aria-pressed="false" data-page-node-id="coralToggle">暫停背景動態</button>
+</body>
+</html>

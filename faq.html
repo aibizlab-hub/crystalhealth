@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzA0MjIyRSIvPjxwYXRoIGQ9Ik0xNiA1QzIwIDkgMjMgMTMgMjMgMThhNyA3IDAgMCAxLTE0IDBDOSAxMyAxMiA5IDE2IDVaIiBmaWxsPSIjMmY4ZjdmIi8+PHBhdGggZD0iTTE2IDl2MTQiIHN0cm9rZT0iI2Q5YjM2YSIgc3Ryb2tlLXdpZHRoPSIxLjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>常見問題 — Crystal Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Noto+Serif+HK:wght@500;700;900&family=Noto+Sans+HK:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20260915c">
+</head>
+<body class="has-bg">
+
+<!-- ===== 常見問題 · 全頁動態背景（同產品頁同一套規格）=====
+     只換 --bg 底圖（bg_faq.jpg ← Pinterest pin 31laMfAmT）。
+     四層保證「一定郁」：影片 → 底圖漂移 → 水光斑＋陽光柱 → 氣泡。 -->
+<div class="coral-bg tint-soft" id="coralBg" style="--bg:url(../img/hero_water_poster.jpg)" aria-hidden="true">
+  <div class="coral-still"></div>
+  <video class="coral-light" id="coralVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="img/hero_water_poster.jpg">
+    <source src="img/hero_water_hd.mp4" type="video/mp4">
+  </video>
+  <div class="coral-tint"></div>
+  <div class="coral-glow"></div>
+  <div class="coral-caustics"></div>
+  <div class="coral-shafts"></div>
+  <div class="coral-vignette"></div>
+  <div class="coral-bubbles" id="coralBubbles"></div>
+</div>
+
+<div class="demo-flag" data-i18n="demo.flag"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mk">康</span><div><span class="nm">康科尚品</span><small>CRYSTAL HEALTH GLOBAL TECH</small></div></a>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav.home"></a>
+      <a href="products.html" data-i18n="nav.products"></a>
+      <a href="about.html" data-i18n="nav.about"></a>
+      <a href="contact.html" data-i18n="nav.contact"></a>
+      <a href="faq.html" data-i18n="nav.faq"></a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button data-lang="zh" onclick="applyLang('zh')">中</button>
+        <button data-lang="cn" onclick="applyLang('cn')">简</button>
+        <button data-lang="en" onclick="applyLang('en')">EN</button>
+      </div>
+      <button class="share-btn" onclick="shareSite()" data-i18n="nav.share"></button>
+      <button class="wa-btn" onclick="openWa()"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> <span data-i18n="nav.whatsapp"></span></button>
+      <button class="cart-btn" onclick="openCart()"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> <span data-i18n="nav.cart"></span> <span class="badge" id="badge">0</span></button>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head coral-head">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html" data-i18n="crumbs.home"></a> › <span data-i18n="nav.faq"></span></div>
+    <div class="eyebrow" data-i18n="hero.eyebrow"></div>
+    <h1 data-i18n="faq.title"></h1>
+  </div>
+</div>
+
+<section class="faq" id="faq-sec" style="padding:78px 0">
+  <div class="wrap">
+    <div class="q"><b data-i18n="f1.q"></b><p data-i18n="f1.a"></p></div>
+    <div class="q"><b data-i18n="f2.q"></b><p data-i18n="f2.a"></p></div>
+    <div class="q"><b data-i18n="f3.q"></b><p data-i18n="f3.a"></p></div>
+    <div class="q"><b data-i18n="f4.q"></b><p data-i18n="f4.a"></p></div>
+    <div class="q"><b data-i18n="f5.q"></b><p data-i18n="f5.a"></p></div>
+
+    <div class="disc" style="margin-top:30px">
+      <b data-i18n="disc.title"></b><br>
+      • <span data-i18n="disc.b1"></span><br>
+      • <span data-i18n="disc.b2"></span><br>
+      • <span data-i18n="disc.b3"></span><br>
+      • <span data-i18n="disc.b4"></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div data-i18n="footer.left"></div>
+    <div data-i18n="footer.right"></div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="drawer" id="drawer">
+  <header><h3 data-i18n="cart.title"></h3><button class="closex" onclick="closeCart()">×</button></header>
+  <div class="citems" id="citems"></div>
+  <div class="cfoot">
+    <div class="ctotal"><span data-i18n="cart.total"></span><span id="ctotal">$0</span></div>
+    <div class="field"><label data-i18n="cart.nameLabel"></label><input id="oname" placeholder=""></div>
+    <div class="field"><label data-i18n="cart.phoneLabel"></label><input id="ophone" placeholder="9XXXXXXX"></div>
+    <button class="wa-order-btn" onclick="waOrder()" data-i18n="cart.orderBtn"></button>
+  </div>
+</aside>
+<div id="toast"></div>
+
+<script src="js/app.js?v=20260915c"></script>
+<button class="motion-toggle" onclick="toggleCoralMotion(this)" aria-pressed="false">暫停背景動態</button>
+</body>
+</html>
