@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>康科尚品 — 網站管理後台</title>
+<style>
+  :root{
+    --ink:#1A1A1A; --ink-soft:#4A4A4A; --page:#EEF2F1; --panel:#FFFFFF;
+    --deep:#0A2731; --deep-2:#0E3540; --gold:#C8A24B; --gold-soft:#E9DCB8;
+    --line:#D6DEDC; --danger:#D32F2F; --ok:#2E7D32; --warn:#B26A00;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"PingFang HK","Microsoft JhengHei","Noto Sans HK",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:20px; line-height:1.6; color:var(--ink); background:var(--page);
+    -webkit-text-size-adjust:100%;
+  }
+  h1,h2,h3{font-weight:700; line-height:1.3; margin:0}
+  h1{font-size:30px} h2{font-size:26px} h3{font-size:22px}
+  a{color:var(--deep)}
+  button{font-family:inherit; cursor:pointer}
+
+  /* ===== 頂欄 ===== */
+  .topbar{
+    background:var(--deep); color:#fff; padding:14px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    position:sticky; top:0; z-index:20;
+  }
+  .topbar .brand{display:flex; align-items:center; gap:12px; color:#fff; font-weight:700; font-size:22px}
+  .topbar .brand .mk{
+    width:42px;height:42px;border-radius:10px;background:var(--gold);
+    color:var(--deep); display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;
+  }
+  .topbar .who{font-size:16px; color:var(--gold-soft)}
+  .btn-logout{
+    background:transparent; color:#fff; border:2px solid rgba(255,255,255,.45);
+    border-radius:12px; padding:10px 18px; font-size:18px; min-height:48px;
+  }
+  .btn-logout:hover{border-color:#fff}
+
+  /* ===== 通用容器 ===== */
+  .wrap{max-width:880px; margin:0 auto; padding:24px 18px 120px}
+  .subview{display:none}
+  .subview.active{display:block}
+  #login-view{display:flex; min-height:100vh; align-items:center; justify-content:center; padding:20px}
+  #app-view{display:none}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:22px; margin-bottom:18px}
+  .lead{color:var(--ink-soft); font-size:18px; margin:6px 0 18px}
+
+  /* ===== 大掣 ===== */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    min-height:58px; padding:16px 26px; font-size:22px; font-weight:700;
+    border:none; border-radius:14px; background:var(--deep); color:#fff;
+    transition:transform .05s ease, background .15s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn.block{display:flex; width:100%}
+  .btn.gold{background:var(--gold); color:var(--deep)}
+  .btn.ghost{background:#fff; color:var(--deep); border:2px solid var(--line)}
+  .btn.danger{background:var(--danger); color:#fff}
+  .btn.ok{background:var(--ok); color:#fff}
+  .btn.sm{font-size:18px; min-height:48px; padding:12px 18px}
+  .btn:disabled{opacity:.5; cursor:not-allowed}
+
+  .big-actions{display:grid; gap:16px; margin-top:10px}
+  .big-actions .btn{justify-content:flex-start; padding-left:24px}
+  .big-actions .btn .sub{font-size:16px; font-weight:400; color:var(--gold-soft); margin-left:auto}
+  .btn.gold .sub{color:var(--deep-2)}
+
+  /* ===== 登入 ===== */
+  #login-view{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px}
+  .login-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:22px;
+    padding:36px 28px; max-width:460px; width:100%; text-align:center;
+    box-shadow:0 24px 60px rgba(10,39,49,.18);
+  }
+  .login-card .mk{
+    width:64px;height:64px;border-radius:16px;background:var(--gold);color:var(--deep);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:34px; margin:0 auto 14px;
+  }
+  .login-card h1{margin-bottom:8px}
+  .login-card p{color:var(--ink-soft); font-size:18px; margin:10px 0 22px}
+  .login-note{
+    margin-top:18px; font-size:16px; color:var(--ink-soft); background:#FBF7EC;
+    border:1px solid var(--gold-soft); border-radius:12px; padding:14px; text-align:left;
+  }
+
+  /* ===== 表單 ===== */
+  .field{margin-bottom:20px}
+  .field label{display:block; font-weight:700; font-size:20px; margin-bottom:8px}
+  .field .hint{font-weight:400; font-size:16px; color:var(--ink-soft); margin-top:6px}
+  input[type=text],input[type=number],select,textarea{
+    width:100%; font-family:inherit; font-size:20px; color:var(--ink);
+    padding:16px; min-height:58px; border:2px solid var(--line); border-radius:12px; background:#fff;
+  }
+  textarea{min-height:120px; resize:vertical; line-height:1.5}
+  input:focus,select:focus,textarea:focus{outline:none; border-color:var(--deep)}
+  .row2{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px}
+  @media(max-width:640px){.row2{grid-template-columns:1fr}}
+  .switch{display:inline-flex; align-items:center; gap:12px; font-size:20px; font-weight:700}
+  .switch input{width:26px;height:26px}
+
+  .img-pick{
+    display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+    border:2px dashed var(--line); border-radius:14px; padding:16px; background:#FBFCFC;
+  }
+  .img-pick img{width:120px;height:120px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+  .img-pick .ph{width:120px;height:120px;border-radius:10px;background:#E7ECEB;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:14px}
+
+  .product-item{
+    display:flex; align-items:center; gap:16px; padding:16px; border:1px solid var(--line);
+    border-radius:14px; background:#fff; margin-bottom:12px;
+  }
+  .product-item img{width:84px;height:84px;object-fit:cover;border-radius:10px;background:#E7ECEB;flex:0 0 auto}
+  .product-item .meta{flex:1; min-width:0}
+  .product-item .meta .nm{font-weight:700; font-size:20px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .product-item .meta .sub{font-size:16px; color:var(--ink-soft)}
+  .product-item .acts{display:flex; gap:10px; flex:0 0 auto}
+  .tag{display:inline-block; font-size:14px; padding:3px 10px; border-radius:999px; background:var(--deep); color:#fff; margin-left:8px}
+  .tag.demo{background:#8A9694}
+
+  .form-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
+  .form-actions .btn{flex:1; min-width:160px}
+
+  /* ===== 背景圖 ===== */
+  .page-row{display:flex; gap:16px; align-items:center; padding:16px; border:1px solid var(--line); border-radius:14px; background:#fff; margin-bottom:12px; flex-wrap:wrap}
+  .page-row .thumb{width:140px;height:88px;object-fit:cover;border-radius:10px;background:#E7ECEB;flex:0 0 auto}
+  .page-row .info{flex:1; min-width:200px}
+  .page-row .info .pg{font-weight:700; font-size:20px}
+  .page-row .info .nt{font-size:15px; color:var(--ink-soft)}
+  .page-row select{flex:1; min-width:200px}
+
+  /* ===== Toast / 撤銷 ===== */
+  #toast{
+    position:fixed; left:50%; bottom:26px; transform:translateX(-50%);
+    background:var(--deep); color:#fff; padding:14px 18px; border-radius:14px;
+    display:none; align-items:center; gap:14px; z-index:50; box-shadow:0 14px 40px rgba(0,0,0,.3); font-size:18px;
+  }
+  #toast.show{display:flex}
+  #toast button{background:var(--gold); color:var(--deep); border:none; border-radius:10px; padding:10px 16px; font-size:18px; font-weight:700; min-height:44px}
+
+  /* ===== 自訂確認彈窗 ===== */
+  #modal-bg{
+    position:fixed; inset:0; background:rgba(10,39,49,.55); display:none;
+    align-items:center; justify-content:center; z-index:60; padding:20px;
+  }
+  #modal-bg.show{display:flex}
+  .modal{background:#fff; border-radius:20px; padding:28px; max-width:480px; width:100%}
+  .modal h2{font-size:24px; margin-bottom:12px}
+  .modal p{font-size:19px; color:var(--ink-soft); margin:0 0 22px}
+  .modal .acts{display:flex; gap:12px}
+  .modal .acts .btn{flex:1}
+
+  /* ===== 警示橫幅 ===== */
+  .alert{background:#FDECEC; border:2px solid var(--danger); color:#7A1414; border-radius:14px; padding:16px 18px; font-size:18px; margin-bottom:16px; display:none}
+  .alert.show{display:block}
+  .alert b{color:var(--danger)}
+
+  .loading{opacity:.6; pointer-events:none}
+  .muted{color:var(--ink-soft); font-size:16px}
+  .back-link{display:inline-block; margin-bottom:14px; font-size:18px; color:var(--deep); font-weight:700; cursor:pointer}
+  hr.sep{border:none; border-top:1px solid var(--line); margin:22px 0}
+  .foot-note{font-size:15px; color:var(--ink-soft); margin-top:10px}
+</style>
+</head>
+<body>
+
+<!-- ===================== 登入 ===================== -->
+<div id="login-view">
+  <div class="login-card">
+    <div class="mk">康</div>
+    <h1>網站管理後台</h1>
+    <p>康科尚品 Crystal Health 網站內容管理</p>
+    <button class="btn gold block" id="btnLogin" style="font-size:24px;padding:20px">用 GitHub 登入</button>
+    <div class="login-note">
+      呢個後台用嚟自己改網站內容（產品、背景圖）。<br>
+      第一次用，撳上面掣用 <b>GitHub 帳號</b> 登入一次就得，之後會記住，唔使再登。<br>
+      <span class="muted">（如果你冇 GitHub 帳號，搵 KEN 幫你開一個，只係用嚟登入，好安全。）</span>
+    </div>
+    <div style="margin-top:18px">
+      <button class="back-link" id="btnTokenToggle" style="font-size:17px">▼ 或者用 KEN 專用碼登入（唔使 GitHub 帳號）</button>
+      <div id="tokenBox" style="display:none">
+        <input type="password" id="tokenInput" placeholder="貼上 KEN 專用碼（只限呢個網站，可隨時註銷）" style="width:100%;font-size:18px;padding:14px;min-height:54px;border:2px solid var(--line);border-radius:12px">
+        <button class="btn block" id="btnTokenLogin" style="margin-top:10px;background:var(--deep)">用呢個碼登入</button>
+        <p class="muted" style="font-size:15px;margin-top:10px">呢個碼係 KEN 專用、只可以改 crystalhealth.hk 呢個網站，隨時可以去 GitHub 註銷。交畀客戶用都安全。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 主程式 ===================== -->
+<div id="app-view">
+  <div class="topbar">
+    <div class="brand"><span class="mk">康</span> 網站管理後台</div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <span class="who" id="who">…</span>
+      <button class="btn-logout" id="btnLogout">登出</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- 儀表板 -->
+    <div id="dash-view" class="view active">
+      <h1>你想改咩？</h1>
+      <p class="lead">撳下面其中一個，跟指示做就掂。每一步都好簡單。</p>
+      <div class="big-actions">
+        <button class="btn block" data-go="product-list">產品管理<span class="sub">加產品・改價錢・換相</span></button>
+        <button class="btn gold block" data-go="banner">背景圖 / Banner<span class="sub">每頁換張靚圖</span></button>
+        <button class="btn ghost block" disabled data-go="" title="即將推出">頁面文字<span class="sub">關於／聯絡內容（下一步）</span></button>
+      </div>
+      <hr class="sep">
+      <p class="foot-note">改完撳「保存」，約 1–2 分鐘後網站就會更新。聯絡電話／WhatsApp／地址呢啲私隱資料，請搵 KEN 改，唔好喺呢度填。</p>
+    </div>
+
+    <!-- 產品列表 -->
+    <div id="product-list-view" class="view">
+      <span class="back-link" data-go="dash">← 返主頁</span>
+      <h1>產品管理</h1>
+      <p class="lead">下面是網站上所有產品。撳「修改」改資料，或者加一款新產品。</p>
+      <div id="product-list"></div>
+      <button class="btn block" id="btnAddProduct" style="margin-top:6px">＋ 加一款新產品</button>
+    </div>
+
+    <!-- 產品表單 -->
+    <div id="product-form-view" class="subview">
+      <span class="back-link" data-go="product-list">← 返產品列表</span>
+      <h1 id="formTitle">產品資料</h1>
+      <div class="alert" id="medAlert"></div>
+      <div class="card">
+        <div class="field">
+          <label>產品編號（英文，設咗之後唔好改）</label>
+          <input type="text" id="f-id" placeholder="例如 omega / vitc / bp" autocomplete="off">
+          <div class="hint">用嚟認住呢款產品。改咗會當做一款新產品。</div>
+        </div>
+        <div class="field">
+          <label>分類</label>
+          <select id="f-cat">
+            <option value="vitality">活力營養</option>
+            <option value="care">日常護理</option>
+            <option value="gut">腸道健康</option>
+            <option value="tech">健康儀器</option>
+            <option value="pet">寵物健康</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>售價（港幣，淨係打數字；唔填＝唔顯示價錢）</label>
+          <input type="number" id="f-price" min="0" placeholder="例如 168" inputmode="numeric">
+          <div class="hint">唔好打 $ 符號。</div>
+        </div>
+
+        <hr class="sep">
+        <h3>產品名（三種語文）</h3>
+        <div class="field"><label>繁體中文</label><input type="text" id="f-nm-zh" placeholder="例如 深海魚油 Omega-3"></div>
+        <div class="field"><label>简体中文</label><input type="text" id="f-nm-cn" placeholder="例如 深海鱼油 Omega-3"></div>
+        <div class="field"><label>English</label><input type="text" id="f-nm-en" placeholder="e.g. Deep-sea Fish Oil Omega-3"></div>
+
+        <hr class="sep">
+        <h3>規格／容量（三種語文）</h3>
+        <div class="field"><label>繁體中文</label><input type="text" id="f-sp-zh" placeholder="例如 EPA／DHA"></div>
+        <div class="field"><label>简体中文</label><input type="text" id="f-sp-cn" placeholder="例如 EPA／DHA"></div>
+        <div class="field"><label>English</label><input type="text" id="f-sp-en" placeholder="e.g. EPA / DHA"></div>
+
+        <hr class="sep">
+        <h3>產品簡介（三種語文）</h3>
+        <div class="field"><label>繁體中文</label><textarea id="f-de-zh" placeholder="一句簡單介紹呢款產品"></textarea></div>
+        <div class="field"><label>简体中文</label><textarea id="f-de-cn" placeholder="一句简单介绍这款产品"></textarea></div>
+        <div class="field"><label>English</label><textarea id="f-de-en" placeholder="A short description"></textarea></div>
+
+        <hr class="sep">
+        <div class="field">
+          <label>產品相片</label>
+          <div class="img-pick">
+            <div class="ph" id="imgPh">未揀相</div>
+            <div>
+              <input type="file" id="f-img" accept="image/*" style="font-size:16px;padding:8px 0;min-height:auto;border:none">
+              <div class="hint">撳「選擇檔案」揀張產品相。會自動縮細，唔使驚太大。<br>如果唔換相，留空就得（會用返舊相）。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="switch"><input type="checkbox" id="f-real" checked> 呢係真實產品（取消＝只做示範顯示）</label>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn ok block" id="btnSaveProduct">保存呢款產品</button>
+        <button class="btn ghost" id="btnCancelProduct">取消</button>
+        <button class="btn danger" id="btnDeleteProduct" style="display:none">刪除呢款</button>
+      </div>
+    </div>
+
+    <!-- 背景圖 -->
+    <div id="banner-view" class="view">
+      <span class="back-link" data-go="dash">← 返主頁</span>
+      <h1>背景圖 / Banner</h1>
+      <p class="lead">每頁可以揀唔同嘅背景圖。想換新圖，撳「上傳新圖」再揀返佢。</p>
+      <div id="banner-list"></div>
+      <div class="card">
+        <h3>上傳新背景圖</h3>
+        <p class="muted">揀一張靚嘅風景／海洋圖（橫向最好）。會自動縮細。</p>
+        <div class="img-pick" style="margin-top:10px">
+          <div class="ph" id="bgPh">未揀圖</div>
+          <div>
+            <input type="file" id="f-bgimg" accept="image/*" style="font-size:16px;padding:8px 0;min-height:auto;border:none">
+            <div class="hint">揀咗之後撳下面的「加入新圖」。</div>
+          </div>
+        </div>
+        <div class="field" style="margin-top:14px">
+          <label>呢張圖嘅名（畀自己記）</label>
+          <input type="text" id="f-bgname" placeholder="例如 珊瑚礁夕照">
+        </div>
+        <button class="btn gold block" id="btnAddBg">＋ 加入新圖去圖庫</button>
+      </div>
+      <button class="btn ok block" id="btnSaveBanner" style="margin-top:6px">保存背景設定</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Toast 撤銷 -->
+<div id="toast"><span id="toastMsg">已保存</span><button id="btnUndo">撤銷</button></div>
+
+<!-- 確認彈窗 -->
+<div id="modal-bg">
+  <div class="modal">
+    <h2 id="modalTitle">確定？</h2>
+    <p id="modalText"></p>
+    <div class="acts">
+      <button class="btn danger" id="modalOk">確定</button>
+      <button class="btn ghost" id="modalCancel">取消</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+/* ===== 設定（client_id 由 GitHub OAuth App 提供，公開無妨）===== */
+const CFG = {
+  owner: "aibizlab-hub",
+  repo: "crystalhealth",
+  branch: "main",
+  clientId: "REPLACE_WITH_OAUTH_CLIENT_ID"
+};
+const API = "https://api.github.com";
+const TOKEN_KEY = "ch_admin_token";
+const STATE_KEY = "ch_oauth_state";
+
+/* 醫療宣稱黑名單（犯《商品說明條例》）*/
+const MED_WORDS = ["治療","醫治","醫療","防癌","抗癌","治癒","根治","痊癒","療效","藥效","處方","醫好"];
+
+/* ===== 工具 ===== */
+function $(id){return document.getElementById(id);}
+function b64encode(str){return btoa(unescape(encodeURIComponent(str)));}
+function b64decode(b64){return decodeURIComponent(escape(atob(b64)));}
+function slug(s){return (s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"item";}
+function ua(){return {Authorization:"token "+localStorage.getItem(TOKEN_KEY), Accept:"application/vnd.github+json"};}
+
+/* ===== 登入（GitHub OAuth implicit grant，純瀏覽器，無伺服器）===== */
+function goLogin(){
+  if(CFG.clientId.indexOf("REPLACE_")===0){
+    alert("GitHub 一鍵登入仲未設定好（要 KEN 喺 GitHub 開一個 OAuth App）。\n\n暫時請用下面「KEN 專用碼」登入，一樣可以改網站。");
+    $("tokenBox").style.display="block";
+    return;
+  }
+  const redirect = location.origin + location.pathname;
+  const state = Math.random().toString(36).slice(2);
+  localStorage.setItem(STATE_KEY, state);
+  const url = "https://github.com/login/oauth/authorize?client_id="+CFG.clientId+
+    "&redirect_uri="+encodeURIComponent(redirect)+"&scope=repo&state="+state+"&allow_signup=false";
+  location.href = url;
+}
+function handleCallback(){
+  if(!location.hash.includes("access_token")) return false;
+  const p = new URLSearchParams(location.hash.slice(1));
+  const token = p.get("access_token");
+  const state = p.get("state");
+  if(state !== localStorage.getItem(STATE_KEY)){ alert("登入狀態唔啱，請再試一次。"); return false; }
+  if(!token){ alert("拎唔到登入憑證，請再試一次。"); return false; }
+  localStorage.setItem(TOKEN_KEY, token);
+  localStorage.removeItem(STATE_KEY);
+  history.replaceState(null,"",location.pathname);
+  return true;
+}
+function logout(){ localStorage.removeItem(TOKEN_KEY); location.reload(); }
+
+/* ===== GitHub API ===== */
+async function ghGet(path){
+  const r = await fetch(API+"/repos/"+CFG.owner+"/"+CFG.repo+"/contents/"+path+"?ref="+CFG.branch, {headers:ua()});
+  if(r.status===404) return null;
+  if(!r.ok) throw new Error("讀取失敗 ("+r.status+")");
+  const d = await r.json();
+  return { text: b64decode(d.content), sha: d.sha };
+}
+async function ghPut(path, text, sha, message){
+  const body = { message:message, content: b64encode(text), branch: CFG.branch };
+  if(sha) body.sha = sha;
+  const r = await fetch(API+"/repos/"+CFG.owner+"/"+CFG.repo+"/contents/"+path, {
+    method:"PUT", headers:Object.assign(ua(),{"Content-Type":"application/json"}),
+    body: JSON.stringify(body)
+  });
+  if(!r.ok) throw new Error("保存失敗 ("+r.status+")");
+  const d = await r.json();
+  return d.content ? d.content.sha : null;
+}
+/* 圖片：用 canvas 縮細 → base64 dataURL → 提取 base64 */
+function fileToResizedB64(file, maxW, quality){
+  return new Promise((resolve,reject)=>{
+    const fr = new FileReader();
+    fr.onload = ()=>{
+      const img = new Image();
+      img.onload = ()=>{
+        let w = img.width, h = img.height;
+        if(w>maxW){ h = Math.round(h*maxW/w); w = maxW; }
+        const cv = document.createElement("canvas"); cv.width=w; cv.height=h;
+        cv.getContext("2d").drawImage(img,0,0,w,h);
+        const dataUrl = cv.toDataURL("image/jpeg", quality);
+        resolve(dataUrl.split(",")[1]);
+      };
+      img.onerror = reject;
+      img.src = fr.result;
+    };
+    fr.onerror = reject;
+    fr.readAsDataURL(file);
+  });
+}
+
+/* ===== 全域狀態 ===== */
+let products = [];          // 現有產品陣列
+let productsSha = null;
+let bgCfg = null;           // backgrounds.json 物件
+let bgSha = null;
+let editing = null;         // 正在編輯嘅產品（null=新加）
+let undoData = null;        // {path, content, sha, timer}
+
+/* ===== 畫面切換 ===== */
+function show(view){
+  document.querySelectorAll(".subview").forEach(v=>v.classList.remove("active"));
+  $(view).classList.add("active");
+  window.scrollTo(0,0);
+}
+function bindNav(){
+  document.querySelectorAll("[data-go]").forEach(el=>{
+    el.addEventListener("click",()=>{
+      const t = el.getAttribute("data-go");
+      if(!t){ return; } // disabled（頁面文字）
+      show(t+"-view");
+      if(t==="product-list") renderProductList();
+      if(t==="banner") renderBanner();
+    });
+  });
+}
+
+/* ===== 產品列表 ===== */
+function renderProductList(){
+  const box = $("product-list"); box.innerHTML="";
+  products.forEach((p,i)=>{
+    const div = document.createElement("div");
+    div.className="product-item";
+    const img = p.img ? ("../img/products/"+p.img) : "";
+    div.innerHTML =
+      '<img src="'+img+'" alt="" onerror="this.style.visibility=\'hidden\'">'+
+      '<div class="meta"><div class="nm">'+esc(p.name&&p.name.zh||p.id)+
+        (p.real?'<span class="tag">真實</span>':'<span class="tag demo">示範</span>')+'</div>'+
+        '<div class="sub">'+(p.price!=null?('HK$ '+p.price+'　'):'')+(p.spec&&p.spec.zh||'')+'</div></div>'+
+      '<div class="acts"><button class="btn ghost sm" data-edit="'+i+'">修改</button></div>';
+    box.appendChild(div);
+  });
+  box.querySelectorAll("[data-edit]").forEach(b=>{
+    b.addEventListener("click",()=>openForm(products[+b.getAttribute("data-edit")]));
+  });
+}
+function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+/* ===== 產品表單 ===== */
+function openForm(p){
+  editing = p ? JSON.parse(JSON.stringify(p)) : null;
+  $("formTitle").textContent = p ? "修改產品" : "加一款新產品";
+  $("f-id").value   = p ? p.id : "";
+  $("f-cat").value  = p ? (p.catKey||"vitality") : "vitality";
+  $("f-price").value= p && p.price!=null ? p.price : "";
+  $("f-nm-zh").value= p&&p.name?p.name.zh:""; $("f-nm-cn").value=p&&p.name?p.name.cn:""; $("f-nm-en").value=p&&p.name?p.name.en:"";
+  $("f-sp-zh").value= p&&p.spec?p.spec.zh:""; $("f-sp-cn").value=p&&p.spec?p.spec.cn:""; $("f-sp-en").value=p&&p.spec?p.spec.en:"";
+  $("f-de-zh").value= p&&p.desc?p.desc.zh:""; $("f-de-cn").value=p&&p.desc?p.desc.cn:""; $("f-de-en").value=p&&p.desc?p.desc.en:"";
+  $("f-real").checked = p ? !!p.real : true;
+  $("f-img").value=""; $("imgPh").textContent="未揀相"; $("imgPh").className="ph";
+  if(p&&p.img){ const im=new Image(); im.onload=()=>{const ph=$("imgPh");ph.textContent="";ph.className="";ph.appendChild(im);im.style.cssText="width:120px;height:120px;object-fit:cover;border-radius:10px";}; im.src="../img/products/"+p.img; }
+  $("btnDeleteProduct").style.display = p ? "inline-flex" : "none";
+  $("medAlert").classList.remove("show");
+  show("product-form-view");
+}
+function collectForm(){
+  const id = slug($("f-id").value);
+  const catKey = $("f-cat").value;
+  const priceRaw = $("f-price").value.trim();
+  return {
+    id: id,
+    catKey: catKey,
+    cat: "cat."+catKey,
+    price: priceRaw==="" ? null : parseInt(priceRaw,10),
+    name:{zh:$("f-nm-zh").value.trim(), cn:$("f-nm-cn").value.trim(), en:$("f-nm-en").value.trim()},
+    spec:{zh:$("f-sp-zh").value.trim(), cn:$("f-sp-cn").value.trim(), en:$("f-sp-en").value.trim()},
+    desc:{zh:$("f-de-zh").value.trim(), cn:$("f-de-cn").value.trim(), en:$("f-de-en").value.trim()},
+    real: $("f-real").checked
+  };
+}
+function checkMedical(item){
+  const hay = [item.name.zh,item.name.cn,item.name.en,item.spec.zh,item.spec.cn,item.spec.en,item.desc.zh,item.desc.cn,item.desc.en].join(" ");
+  const hit = MED_WORDS.filter(w=>hay.includes(w));
+  return hit;
+}
+async function saveProduct(){
+  const item = collectForm();
+  if(!item.id){ return showMed("請填「產品編號」（用英文，例如 omega）。"); }
+  if(!item.name.zh && !item.name.cn && !item.name.en){ return showMed("請至少填一個語文嘅產品名。"); }
+  const hit = checkMedical(item);
+  if(hit.length){
+    return showMed("<b>注意：呢段文字可能係醫療宣稱</b>，犯《商品說明條例》，唔可以咁寫。<br>觸到嘅字："+hit.join("、")+"<br>請改成「支援／呵護／適合／日常補充」呢類字眼，或者搵 KEN 批準再上。");
+  }
+  const prevSha = productsSha, prevText = JSON.stringify(products,null,2);
+  try{
+    $("btnSaveProduct").classList.add("loading"); $("btnSaveProduct").disabled=true;
+    // 上傳新相（如果有）
+    const file = $("f-img").files[0];
+    if(file){
+      const b64 = await fileToResizedB64(file, 900, 0.85);
+      const fn = item.id + ".jpg";
+      await ghPut("img/products/"+fn, b64, null, "upload product image "+fn);
+      item.img = fn;
+    } else if(editing && editing.img){
+      item.img = editing.img; // 留返舊相
+    } else {
+      item.img = "";
+    }
+    item.gallery = item.img ? [item.img] : (editing&&editing.gallery?editing.gallery:[]);
+    if(editing && editing.gallery) item.gallery = editing.gallery.length?editing.gallery:item.gallery;
+    // 更新陣列
+    const idx = products.findIndex(p=>p.id===item.id);
+    if(idx>=0){ products[idx]=item; } else { products.push(item); }
+    const newSha = await ghPut("data/products.json", JSON.stringify(products,null,2), productsSha, "update product "+item.id);
+    productsSha = newSha;
+    undoData = {path:"data/products.json", content:prevText, sha:prevSha};
+    show("product-list-view"); renderProductList();
+    toast("已保存產品「"+(item.name.zh||item.id)+"」");
+  }catch(e){
+    alert("保存失敗："+e.message+"\n（可能網絡問題，或者你嘅 GitHub 帳號冇權限寫呢個網站。搵 KEN。）");
+  }finally{
+    $("btnSaveProduct").classList.remove("loading"); $("btnSaveProduct").disabled=false;
+  }
+}
+function showMed(html){ const a=$("medAlert"); a.innerHTML=html; a.classList.add("show"); a.scrollIntoView({behavior:"smooth",block:"center"}); }
+
+function deleteProduct(){
+  if(!editing) return;
+  confirmModal("刪除呢款產品？","「"+(editing.name&&editing.name.zh||editing.id)+"」會喺網站上消失。呢個動作可以之後搵 KEN 復原。確定刪除？", async ()=>{
+    const prevText = JSON.stringify(products,null,2);
+    products = products.filter(p=>p.id!==editing.id);
+    try{
+      const newSha = await ghPut("data/products.json", JSON.stringify(products,null,2), productsSha, "delete product "+editing.id);
+      productsSha = newSha;
+      undoData = {path:"data/products.json", content:prevText, sha:null};
+      show("product-list-view"); renderProductList();
+      toast("已刪除產品");
+    }catch(e){ alert("刪除失敗："+e.message); }
+  });
+}
+
+/* ===== 背景圖 ===== */
+async function renderBanner(){
+  const box = $("banner-list"); box.innerHTML="";
+  const pages = bgCfg.pages || [];
+  pages.forEach(pg=>{
+    const img = bgCfg.images.find(i=>i.id===pg.bg) || bgCfg.images[0];
+    const div = document.createElement("div");
+    div.className="page-row";
+    let opts = bgCfg.images.map(i=>'<option value="'+i.id+'"'+(i.id===pg.bg?' selected':'')+'>'+esc(i.name)+'</option>').join("");
+    div.innerHTML =
+      '<img class="thumb" src="'+(img?("../"+img.file):"")+'" alt="" onerror="this.style.visibility=\'hidden\'">'+
+      '<div class="info"><div class="pg">'+esc(pg.label)+'</div><div class="nt">'+(pg.note||"")+'</div></div>'+
+      '<select data-page="'+pg.key+'">'+opts+'</select>';
+    box.appendChild(div);
+  });
+  box.querySelectorAll("select[data-page]").forEach(s=>{
+    s.addEventListener("change",()=>{
+      const key=s.getAttribute("data-page");
+      const pg=bgCfg.pages.find(p=>p.key===key); if(pg) pg.bg=s.value;
+    });
+  });
+}
+async function addBg(){
+  const file = $("f-bgimg").files[0];
+  const name = $("f-bgname").value.trim();
+  if(!file){ alert("請先揀一張圖。"); return; }
+  if(!name){ alert("請填呢張圖嘅名（例如 珊瑚礁夕照）。"); return; }
+  try{
+    const b64 = await fileToResizedB64(file, 1600, 0.82);
+    const thumbB64 = await fileToResizedB64(file, 480, 0.7);
+    const id = "bg_"+slug(name);
+    const fn = id+".jpg";
+    await ghPut("img/bg/"+fn, b64, null, "upload bg "+fn);
+    await ghPut("img/bg/thumb_"+fn, thumbB64, null, "upload bg thumb "+fn);
+    bgCfg.images.push({id:id, code:"新", name:name, source:"客戶上傳", tone:"—", file:"img/bg/"+fn, thumb:"img/bg/thumb_"+fn});
+    $("f-bgimg").value=""; $("f-bgname").value=""; $("bgPh").textContent="未揀圖"; $("bgPh").className="ph";
+    renderBanner();
+    toast("新圖已加入圖庫，記得撳「保存背景設定」");
+  }catch(e){ alert("上傳失敗："+e.message); }
+}
+async function saveBanner(){
+  const prevText = JSON.stringify(bgCfg,null,2);
+  try{
+    $("btnSaveBanner").classList.add("loading"); $("btnSaveBanner").disabled=true;
+    const newSha = await ghPut("data/backgrounds.json", JSON.stringify(bgCfg,null,2), bgSha, "update backgrounds");
+    bgSha = newSha;
+    undoData = {path:"data/backgrounds.json", content:prevText, sha:null};
+    toast("已保存背景設定");
+  }catch(e){ alert("保存失敗："+e.message); }
+  finally{ $("btnSaveBanner").classList.remove("loading"); $("btnSaveBanner").disabled=false; }
+}
+
+/* ===== Toast / 撤銷 ===== */
+function toast(msg){
+  $("toastMsg").textContent = msg;
+  $("toast").classList.add("show");
+  if(undoData && undoData.timer) clearTimeout(undoData.timer);
+  if(undoData){
+    $("btnUndo").style.display="inline-flex";
+    undoData.timer = setTimeout(()=>{ $("toast").classList.remove("show"); undoData=null; }, 5000);
+  } else { $("btnUndo").style.display="none"; }
+}
+async function undo(){
+  if(!undoData) return;
+  const u = undoData; undoData=null; $("toast").classList.remove("show");
+  try{
+    await ghPut(u.path, u.content, u.sha, "undo last change");
+    if(u.path==="data/products.json"){ const d=await ghGet("data/products.json"); products=JSON.parse(d.text); productsSha=d.sha; }
+    if(u.path==="data/backgrounds.json"){ const d=await ghGet("data/backgrounds.json"); bgCfg=JSON.parse(d.text); bgSha=d.sha; }
+    toast("已撤銷");
+  }catch(e){ alert("撤銷失敗："+e.message); }
+}
+
+/* ===== 確認彈窗 ===== */
+let modalCb=null;
+function confirmModal(title,text,cb){
+  $("modalTitle").textContent=title; $("modalText").textContent=text;
+  modalCb=cb; $("modal-bg").classList.add("show");
+}
+$("modalOk").addEventListener("click",()=>{ $("modal-bg").classList.remove("show"); if(modalCb) modalCb(); });
+$("modalCancel").addEventListener("click",()=>{ $("modal-bg").classList.remove("show"); modalCb=null; });
+
+/* ===== 離開未存提示 ===== */
+window.addEventListener("beforeunload",(e)=>{ /* 簡單保護：若有編輯中 */
+  if($("product-form-view").classList.contains("active") && $("f-id").value){ e.preventDefault(); e.returnValue=""; }
+});
+
+/* ===== 啟動 ===== */
+async function boot(){
+  bindNav();
+  $("btnLogin").addEventListener("click", goLogin);
+  $("btnLogout").addEventListener("click", logout);
+  $("btnAddProduct").addEventListener("click",()=>openForm(null));
+  $("btnSaveProduct").addEventListener("click", saveProduct);
+  $("btnCancelProduct").addEventListener("click",()=>{ show("product-list-view"); renderProductList(); });
+  $("btnDeleteProduct").addEventListener("click", deleteProduct);
+  $("btnAddBg").addEventListener("click", addBg);
+  $("btnSaveBanner").addEventListener("click", saveBanner);
+  $("btnUndo").addEventListener("click", undo);
+  $("f-img").addEventListener("change",()=>{ if($("f-img").files[0]) $("imgPh").textContent="已揀相"; });
+  $("f-bgimg").addEventListener("change",()=>{ if($("f-bgimg").files[0]) $("bgPh").textContent="已揀圖"; });
+
+  // 處理 OAuth callback
+  if(location.hash.includes("access_token")){ handleCallback(); }
+
+  // token 專用碼登入（後備，唔使 GitHub 帳號）
+  $("btnTokenToggle").addEventListener("click",()=>{
+    const b=$("tokenBox"); b.style.display = b.style.display==="none"?"block":"none";
+  });
+  $("btnTokenLogin").addEventListener("click",()=>{
+    const t=$("tokenInput").value.trim();
+    if(!t){ alert("請貼上 KEN 專用碼。"); return; }
+    localStorage.setItem(TOKEN_KEY,t);
+    loadData();
+  });
+
+  const token = localStorage.getItem(TOKEN_KEY);
+  if(!token){ return; } // 預設：login-view 顯示、app-view 隱藏（CSS）
+  loadData();
+}
+
+/* 載入網站資料並入主介面 */
+async function loadData(){
+  $("login-view").style.display="none";
+  $("app-view").style.display="block";
+  try{
+    const me = await fetch(API+"/user",{headers:ua()}).then(r=>r.json());
+    $("who").textContent = me.login ? ("登入："+me.login) : "";
+  }catch(e){ $("who").textContent=""; }
+  try{
+    const pd = await ghGet("data/products.json");
+    products = pd ? JSON.parse(pd.text) : []; productsSha = pd?pd.sha:null;
+    const bd = await ghGet("data/backgrounds.json");
+    bgCfg = bd ? JSON.parse(bd.text) : {images:[],pages:[]}; bgSha = bd?bd.sha:null;
+    show("dash-view");
+  }catch(e){
+    alert("載入網站資料失敗："+e.message+"\n（可能你嘅 GitHub 帳號冇權限寫呢個網站，搵 KEN 加你做協作者。）");
+    show("dash-view");
+  }
+}
+boot();
+</script>
+</body>
+</html>
