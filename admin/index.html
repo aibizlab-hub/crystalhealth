@@ -358,7 +358,7 @@ function $(id){return document.getElementById(id);}
 function b64encode(str){return btoa(unescape(encodeURIComponent(str)));}
 function b64decode(b64){return decodeURIComponent(escape(atob(b64)));}
 function slug(s){return (s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"item";}
-function ua(){return {Authorization:"token "+localStorage.getItem(TOKEN_KEY), Accept:"application/vnd.github+json"};}
+function ua(){return {Authorization:"Bearer "+localStorage.getItem(TOKEN_KEY), Accept:"application/vnd.github+json"};}
 
 /* ===== 登入（GitHub OAuth implicit grant，純瀏覽器，無伺服器）===== */
 function goLogin(){
