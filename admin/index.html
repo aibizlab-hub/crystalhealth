@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="zh-HK" data-page-node-id="E2EhhSFGSb91F8mxnx5jo7">
+<head data-page-node-id="PUxs5Hpf8E30fqjz2DKIvZ">
+<meta charset="UTF-8" data-page-node-id="3S2Avy2lmWDadZy8bGfzYL">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="XC3GCRZErIrvD4inEx50BO">
 <title>康科尚品 — 網站管理後台</title>
 <style>
   :root{
@@ -166,173 +166,173 @@
   .foot-note{font-size:15px; color:var(--ink-soft); margin-top:10px}
 </style>
 </head>
-<body>
+<body data-page-node-id="ryKwtaAs2GGuOm7tCDCrYX">
 
 <!-- ===================== 登入 ===================== -->
-<div id="login-view">
-  <div class="login-card">
-    <div class="mk">康</div>
-    <h1>網站管理後台</h1>
-    <p>康科尚品 Crystal Health 網站內容管理</p>
-    <button class="btn gold block" id="btnLogin" style="font-size:24px;padding:20px">用 GitHub 登入</button>
-    <div class="login-note">
-      呢個後台用嚟自己改網站內容（產品、背景圖）。<br>
-      第一次用，撳上面掣用 <b>GitHub 帳號</b> 登入一次就得，之後會記住，唔使再登。<br>
-      <span class="muted">（如果你冇 GitHub 帳號，搵 KEN 幫你開一個，只係用嚟登入，好安全。）</span>
+<div id="login-view" data-page-node-id="uJRuGzYE4MHCv5BbX009Ve">
+  <div class="login-card" data-page-node-id="gRroBBMDxQ4qTABw5vill2">
+    <div class="mk" data-page-node-id="Qy7wXjdvr8sOLNoT6DZKRG">康</div>
+    <h1 data-page-node-id="S0IzcpGNtYfoAEmdhA7rUo">網站管理後台</h1>
+    <p data-page-node-id="lVraLVMPbC3CpoJDsQRnxN">康科尚品 Crystal Health 網站內容管理</p>
+    <button class="btn gold block" id="btnLogin" style="font-size:24px;padding:20px" data-page-node-id="ETbS0gbebFl0EANAVGHGeP">用 GitHub 登入</button>
+    <div class="login-note" data-page-node-id="TDJKghKNQzE28JpHSUTSjE">
+      呢個後台用嚟自己改網站內容（產品、背景圖）。<br data-page-node-id="TDIZzyn8hI7PNWjBcrwHRt">
+      第一次用，撳上面掣用 <b data-page-node-id="7YZ9bwIt3Drf2JBbbJS9PE">GitHub 帳號</b> 登入一次就得，之後會記住，唔使再登。<br data-page-node-id="z1EZB9zNmbY4nsIyPDn6Wr">
+      <span class="muted" data-page-node-id="NtFdOLvQPcoGsER5OLcrla">（如果你冇 GitHub 帳號，搵 KEN 幫你開一個，只係用嚟登入，好安全。）</span>
     </div>
-    <div style="margin-top:18px">
-      <button class="back-link" id="btnTokenToggle" style="font-size:17px">▼ 或者用 KEN 專用碼登入（唔使 GitHub 帳號）</button>
-      <div id="tokenBox" style="display:none">
-        <input type="password" id="tokenInput" placeholder="貼上 KEN 專用碼（只限呢個網站，可隨時註銷）" style="width:100%;font-size:18px;padding:14px;min-height:54px;border:2px solid var(--line);border-radius:12px">
-        <button class="btn block" id="btnTokenLogin" style="margin-top:10px;background:var(--deep)">用呢個碼登入</button>
-        <p class="muted" style="font-size:15px;margin-top:10px">呢個碼係 KEN 專用、只可以改 crystalhealth.hk 呢個網站，隨時可以去 GitHub 註銷。交畀客戶用都安全。</p>
+    <div style="margin-top:18px" data-page-node-id="AM2CSq7bETWsHENwAE2XHa">
+      <button class="back-link" id="btnTokenToggle" style="font-size:17px" data-page-node-id="HnuPOjMlKlx2WUBlqEXQ9b">▼ 或者用 KEN 專用碼登入（唔使 GitHub 帳號）</button>
+      <div id="tokenBox" style="display:none" data-page-node-id="48bZnAi1FHFfIbxqIPwjAH">
+        <input type="password" id="tokenInput" placeholder="貼上 KEN 專用碼（只限呢個網站，可隨時註銷）" style="width:100%;font-size:18px;padding:14px;min-height:54px;border:2px solid var(--line);border-radius:12px" data-page-node-id="Pq43rtZ3WPp5NXZva47cQZ">
+        <button class="btn block" id="btnTokenLogin" style="margin-top:10px;background:var(--deep)" data-page-node-id="WICoIxLWDwGac6FsoNm0dY">用呢個碼登入</button>
+        <p class="muted" style="font-size:15px;margin-top:10px" data-page-node-id="oA9CbXC744MRkcZ101dteE">呢個碼係 KEN 專用、只可以改 crystalhealth.hk 呢個網站，隨時可以去 GitHub 註銷。交畀客戶用都安全。</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ===================== 主程式 ===================== -->
-<div id="app-view">
-  <div class="topbar">
-    <div class="brand"><span class="mk">康</span> 網站管理後台</div>
-    <div style="display:flex;align-items:center;gap:14px">
-      <span class="who" id="who">…</span>
-      <button class="btn-logout" id="btnLogout">登出</button>
+<div id="app-view" data-page-node-id="KSk7UyoQnigbct5KaPyfkn">
+  <div class="topbar" data-page-node-id="i6ZHtWtXpZwkcDC0sGlBmF">
+    <div class="brand" data-page-node-id="9qM0ZDxRfYY6HM5I9oo3QD"><span class="mk" data-page-node-id="0T402SzIa8YOseeF3naNFV">康</span> 網站管理後台</div>
+    <div style="display:flex;align-items:center;gap:14px" data-page-node-id="ImdXq2HAn18H11BijIn6dE">
+      <span class="who" id="who" data-page-node-id="hcHViTuhqT1oR35MyzL5mY">…</span>
+      <button class="btn-logout" id="btnLogout" data-page-node-id="CAZMUnQS1Ga9zbLeWhLsIA">登出</button>
     </div>
   </div>
 
-  <div class="wrap">
+  <div class="wrap" data-page-node-id="ST3h3PvrfXR4SDaujnn5qt">
 
     <!-- 儀表板 -->
-    <div id="dash-view" class="view active">
-      <h1>你想改咩？</h1>
-      <p class="lead">撳下面其中一個，跟指示做就掂。每一步都好簡單。</p>
-      <div class="big-actions">
-        <button class="btn block" data-go="product-list">產品管理<span class="sub">加產品・改價錢・換相</span></button>
-        <button class="btn gold block" data-go="banner">背景圖 / Banner<span class="sub">每頁換張靚圖</span></button>
-        <button class="btn ghost block" disabled data-go="" title="即將推出">頁面文字<span class="sub">關於／聯絡內容（下一步）</span></button>
+    <div id="dash-view" class="view active" data-page-node-id="97kuT4nEjh0onJVhmYgreL">
+      <h1 data-page-node-id="h6AJuDpv9pdn6th87gx5l0">你想改咩？</h1>
+      <p class="lead" data-page-node-id="D4fQZR0SEB659OtpOBzMkr">撳下面其中一個，跟指示做就掂。每一步都好簡單。</p>
+      <div class="big-actions" data-page-node-id="1PMO2Pvl16xGF332dBJcSo">
+        <button class="btn block" data-go="product-list" data-page-node-id="rOxFkGZxVNdGWCU5UzhSEL">產品管理<span class="sub" data-page-node-id="z4wBTNx8pUht1ZlzfhXhEJ">加產品・改價錢・換相</span></button>
+        <button class="btn gold block" data-go="banner" data-page-node-id="sXY8zYsT3hpXUjIrKU0ois">背景圖 / Banner<span class="sub" data-page-node-id="P50LDAnmeLa43pjIQnQjnn">每頁換張靚圖</span></button>
+        <button class="btn ghost block" disabled data-go="" title="即將推出" data-page-node-id="Li3Dt5W9VoCEGuxjBLnoIV">頁面文字<span class="sub" data-page-node-id="3REwl9sOLUC930YkdOuEH2">關於／聯絡內容（下一步）</span></button>
       </div>
-      <hr class="sep">
-      <p class="foot-note">改完撳「保存」，約 1–2 分鐘後網站就會更新。聯絡電話／WhatsApp／地址呢啲私隱資料，請搵 KEN 改，唔好喺呢度填。</p>
+      <hr class="sep" data-page-node-id="8FkHqAs6xloYh1mLbvMyR2">
+      <p class="foot-note" data-page-node-id="ztLV330NRqMdvjalw4APJH">改完撳「保存」，約 1–2 分鐘後網站就會更新。聯絡電話／WhatsApp／地址呢啲私隱資料，請搵 KEN 改，唔好喺呢度填。</p>
     </div>
 
     <!-- 產品列表 -->
-    <div id="product-list-view" class="view">
-      <span class="back-link" data-go="dash">← 返主頁</span>
-      <h1>產品管理</h1>
-      <p class="lead">下面是網站上所有產品。撳「修改」改資料，或者加一款新產品。</p>
-      <div id="product-list"></div>
-      <button class="btn block" id="btnAddProduct" style="margin-top:6px">＋ 加一款新產品</button>
+    <div id="product-list-view" class="view" data-page-node-id="2tvkKK7lp8HMz4AyYFxA5w">
+      <span class="back-link" data-go="dash" data-page-node-id="UqYsqEtR7qCfCyspgjfKf4">← 返主頁</span>
+      <h1 data-page-node-id="GqcgWE00xmWnxlvspI022D">產品管理</h1>
+      <p class="lead" data-page-node-id="K5Xoo6L7lu8lpoMpWyEywL">下面是網站上所有產品。撳「修改」改資料，或者加一款新產品。</p>
+      <div id="product-list" data-page-node-id="w9Y7YGciLo6E3SntBdzaUe"></div>
+      <button class="btn block" id="btnAddProduct" style="margin-top:6px" data-page-node-id="cUXEZXUHRnkKeFRPJqj0lz">＋ 加一款新產品</button>
     </div>
 
     <!-- 產品表單 -->
-    <div id="product-form-view" class="subview">
-      <span class="back-link" data-go="product-list">← 返產品列表</span>
-      <h1 id="formTitle">產品資料</h1>
-      <div class="alert" id="medAlert"></div>
-      <div class="card">
-        <div class="field">
-          <label>產品編號（英文，設咗之後唔好改）</label>
-          <input type="text" id="f-id" placeholder="例如 omega / vitc / bp" autocomplete="off">
-          <div class="hint">用嚟認住呢款產品。改咗會當做一款新產品。</div>
+    <div id="product-form-view" class="subview" data-page-node-id="yCw6MHCMAK4dGd21rH9SjP">
+      <span class="back-link" data-go="product-list" data-page-node-id="vFObmoNtspr0dcKwyLFQpO">← 返產品列表</span>
+      <h1 id="formTitle" data-page-node-id="6oGEb9osHJRIiqyonVmnPC">產品資料</h1>
+      <div class="alert" id="medAlert" data-page-node-id="YE3nZiVV67WBhLULGQL76y"></div>
+      <div class="card" data-page-node-id="L4Dutv7vuIyF2k2y9BwxGt">
+        <div class="field" data-page-node-id="6Jl7nAJECTUQo5Dje6TOqE">
+          <label data-page-node-id="LS8y50N1D6wYc3WR4DlmsM">產品編號（英文，設咗之後唔好改）</label>
+          <input type="text" id="f-id" placeholder="例如 omega / vitc / bp" autocomplete="off" data-page-node-id="E43tUyr24vnCGYWrlqPLcb">
+          <div class="hint" data-page-node-id="Okb7Bou9lxEHsDhxqCsrNA">用嚟認住呢款產品。改咗會當做一款新產品。</div>
         </div>
-        <div class="field">
-          <label>分類</label>
-          <select id="f-cat">
-            <option value="vitality">活力營養</option>
-            <option value="care">日常護理</option>
-            <option value="gut">腸道健康</option>
-            <option value="tech">健康儀器</option>
-            <option value="pet">寵物健康</option>
+        <div class="field" data-page-node-id="bEKB83F8Fj5NjRoZ5yYbEs">
+          <label data-page-node-id="EH6dhuDcLdZkskOH0784JD">分類</label>
+          <select id="f-cat" data-page-node-id="4WdRdAz5C3XqqcMzdi8IPM">
+            <option value="vitality" data-page-node-id="VIRsdgrhPlPBTYRCjwfRZ7">活力營養</option>
+            <option value="care" data-page-node-id="3g6eXO63grQmHmoLBkNGPq">日常護理</option>
+            <option value="gut" data-page-node-id="PjaaCQacBKVce13Q2fDQDE">腸道健康</option>
+            <option value="tech" data-page-node-id="VrDA2KPhIjI28hxxZbSwSZ">健康儀器</option>
+            <option value="pet" data-page-node-id="kAdQfsuLomEG3F4osOGDU6">寵物健康</option>
           </select>
         </div>
-        <div class="field">
-          <label>售價（港幣，淨係打數字；唔填＝唔顯示價錢）</label>
-          <input type="number" id="f-price" min="0" placeholder="例如 168" inputmode="numeric">
-          <div class="hint">唔好打 $ 符號。</div>
+        <div class="field" data-page-node-id="xBrXRZRi3iMlr3g9PH433O">
+          <label data-page-node-id="BcsrZfGBs3j36zU5WkUlfi">售價（港幣，淨係打數字；唔填＝唔顯示價錢）</label>
+          <input type="number" id="f-price" min="0" placeholder="例如 168" inputmode="numeric" data-page-node-id="FmgdwUxbZUDsfEgDrEVJ1C">
+          <div class="hint" data-page-node-id="oWqIOPMbvrAAPsfbOKEwBk">唔好打 $ 符號。</div>
         </div>
 
-        <hr class="sep">
-        <h3>產品名（三種語文）</h3>
-        <div class="field"><label>繁體中文</label><input type="text" id="f-nm-zh" placeholder="例如 深海魚油 Omega-3"></div>
-        <div class="field"><label>简体中文</label><input type="text" id="f-nm-cn" placeholder="例如 深海鱼油 Omega-3"></div>
-        <div class="field"><label>English</label><input type="text" id="f-nm-en" placeholder="e.g. Deep-sea Fish Oil Omega-3"></div>
+        <hr class="sep" data-page-node-id="4l99UQVv4x2ZJwb9DyVwZ0">
+        <h3 data-page-node-id="5MrROGXkJ7slkaZ5UsHWD8">產品名（三種語文）</h3>
+        <div class="field" data-page-node-id="jRVXlxcY509Bgx5drH132X"><label data-page-node-id="EzIneOO3VLKjncLF0ru65V">繁體中文</label><input type="text" id="f-nm-zh" placeholder="例如 深海魚油 Omega-3" data-page-node-id="TjkNMCgkjFIyOaDGnsLpLj"></div>
+        <div class="field" data-page-node-id="0EwXpZtBGjAD7J0kNBdBfP"><label data-page-node-id="QjtdJvfumJyX1FfPm02nbf">简体中文</label><input type="text" id="f-nm-cn" placeholder="例如 深海鱼油 Omega-3" data-page-node-id="fAiBzPUgh51lZdGU1kgA5Z"></div>
+        <div class="field" data-page-node-id="UFBLua6ApHzoD6c9aHohoG"><label data-page-node-id="btuT3k1lzx0hFFhKJyc4WX">English</label><input type="text" id="f-nm-en" placeholder="e.g. Deep-sea Fish Oil Omega-3" data-page-node-id="LJzaqktI9D9EIEfABAtj1M"></div>
 
-        <hr class="sep">
-        <h3>規格／容量（三種語文）</h3>
-        <div class="field"><label>繁體中文</label><input type="text" id="f-sp-zh" placeholder="例如 EPA／DHA"></div>
-        <div class="field"><label>简体中文</label><input type="text" id="f-sp-cn" placeholder="例如 EPA／DHA"></div>
-        <div class="field"><label>English</label><input type="text" id="f-sp-en" placeholder="e.g. EPA / DHA"></div>
+        <hr class="sep" data-page-node-id="tlCUQhTHo0NtmbqalsYhaU">
+        <h3 data-page-node-id="ycjsfaEcoA9b8OLL1PDzSf">規格／容量（三種語文）</h3>
+        <div class="field" data-page-node-id="FZPm6ndrwIz5oxScMFVwsh"><label data-page-node-id="GK6y21BA10VWfrs8PPPl7Y">繁體中文</label><input type="text" id="f-sp-zh" placeholder="例如 EPA／DHA" data-page-node-id="zHAIUhtxNqmcnDI2DmrTk3"></div>
+        <div class="field" data-page-node-id="HrtpbKabGANN2U7BzdkwfK"><label data-page-node-id="5HCQusGCowI2enc5O4DoY9">简体中文</label><input type="text" id="f-sp-cn" placeholder="例如 EPA／DHA" data-page-node-id="qrFbY38oVvQPARMT4hdj1g"></div>
+        <div class="field" data-page-node-id="xY7tDbUKirY6lUfjRrpTD8"><label data-page-node-id="Ul829DGt1aHU0Wurx1xtOF">English</label><input type="text" id="f-sp-en" placeholder="e.g. EPA / DHA" data-page-node-id="AQmLMa5J27gAcEwMwzIM8k"></div>
 
-        <hr class="sep">
-        <h3>產品簡介（三種語文）</h3>
-        <div class="field"><label>繁體中文</label><textarea id="f-de-zh" placeholder="一句簡單介紹呢款產品"></textarea></div>
-        <div class="field"><label>简体中文</label><textarea id="f-de-cn" placeholder="一句简单介绍这款产品"></textarea></div>
-        <div class="field"><label>English</label><textarea id="f-de-en" placeholder="A short description"></textarea></div>
+        <hr class="sep" data-page-node-id="ObfGAvFTOsq2nTLKYziCqP">
+        <h3 data-page-node-id="EKyLAZDNJJJxFJciDB6XRt">產品簡介（三種語文）</h3>
+        <div class="field" data-page-node-id="7fZDgnkixHI5p4aWupiAiP"><label data-page-node-id="89zWMLpCDPVm54QKgTaoYg">繁體中文</label><textarea id="f-de-zh" placeholder="一句簡單介紹呢款產品"></textarea></div>
+        <div class="field" data-page-node-id="WrvriBjKleQpEjV9MftAAp"><label data-page-node-id="tUFB8HDcBckeN4jt6Tg3wN">简体中文</label><textarea id="f-de-cn" placeholder="一句简单介绍这款产品"></textarea></div>
+        <div class="field" data-page-node-id="PGrOuYilBFePypCtVNeQfh"><label data-page-node-id="j2PNsBYg8CDo5AQCBfslmm">English</label><textarea id="f-de-en" placeholder="A short description"></textarea></div>
 
-        <hr class="sep">
-        <div class="field">
-          <label>產品相片</label>
-          <div class="img-pick">
-            <div class="ph" id="imgPh">未揀相</div>
-            <div>
-              <input type="file" id="f-img" accept="image/*" style="font-size:16px;padding:8px 0;min-height:auto;border:none">
-              <div class="hint">撳「選擇檔案」揀張產品相。會自動縮細，唔使驚太大。<br>如果唔換相，留空就得（會用返舊相）。</div>
+        <hr class="sep" data-page-node-id="Hcg3LDLKZAEjhxRoK9BA6Z">
+        <div class="field" data-page-node-id="OPnkePRPNwYWQu3WsZTKHO">
+          <label data-page-node-id="B0jz5Fjolm3UZpw6iGJPnc">產品相片</label>
+          <div class="img-pick" data-page-node-id="35EBNHLzVV6NWG0fBJIajl">
+            <div class="ph" id="imgPh" data-page-node-id="Xktbi7cwSgRv8HQ1xXhpzG">未揀相</div>
+            <div data-page-node-id="FJ1xoc06urfimO3bEExXuh">
+              <input type="file" id="f-img" accept="image/*" style="font-size:16px;padding:8px 0;min-height:auto;border:none" data-page-node-id="qpfci4lZktAbbs0PJWgkmT">
+              <div class="hint" data-page-node-id="Vdmvr5fX03GyBfD10JbOgL">撳「選擇檔案」揀張產品相。會自動縮細，唔使驚太大。<br data-page-node-id="B4zJFJ0lY0CuGmw7vGEJa7">如果唔換相，留空就得（會用返舊相）。</div>
             </div>
           </div>
         </div>
 
-        <div class="field">
-          <label class="switch"><input type="checkbox" id="f-real" checked> 呢係真實產品（取消＝只做示範顯示）</label>
+        <div class="field" data-page-node-id="uDyFxRhwfEzDbRJUtA5GE7">
+          <label class="switch" data-page-node-id="ha0XestyMqAegI16W5rFdO"><input type="checkbox" id="f-real" checked data-page-node-id="0EIBXFpT85ZgwwJEas1PHV"> 呢係真實產品（取消＝只做示範顯示）</label>
         </div>
       </div>
 
-      <div class="form-actions">
-        <button class="btn ok block" id="btnSaveProduct">保存呢款產品</button>
-        <button class="btn ghost" id="btnCancelProduct">取消</button>
-        <button class="btn danger" id="btnDeleteProduct" style="display:none">刪除呢款</button>
+      <div class="form-actions" data-page-node-id="JwZ0qzKPYsW2c08XoZmF3r">
+        <button class="btn ok block" id="btnSaveProduct" data-page-node-id="jaGjGS0JXpCWGIG4ba235L">保存呢款產品</button>
+        <button class="btn ghost" id="btnCancelProduct" data-page-node-id="pnTlLJ7iXiRqkGaaEJsONd">取消</button>
+        <button class="btn danger" id="btnDeleteProduct" style="display:none" data-page-node-id="a9GDsR3kOGN6mkyk0cPrOe">刪除呢款</button>
       </div>
     </div>
 
     <!-- 背景圖 -->
-    <div id="banner-view" class="view">
-      <span class="back-link" data-go="dash">← 返主頁</span>
-      <h1>背景圖 / Banner</h1>
-      <p class="lead">每頁可以揀唔同嘅背景圖。想換新圖，撳「上傳新圖」再揀返佢。</p>
-      <div id="banner-list"></div>
-      <div class="card">
-        <h3>上傳新背景圖</h3>
-        <p class="muted">揀一張靚嘅風景／海洋圖（橫向最好）。會自動縮細。</p>
-        <div class="img-pick" style="margin-top:10px">
-          <div class="ph" id="bgPh">未揀圖</div>
-          <div>
-            <input type="file" id="f-bgimg" accept="image/*" style="font-size:16px;padding:8px 0;min-height:auto;border:none">
-            <div class="hint">揀咗之後撳下面的「加入新圖」。</div>
+    <div id="banner-view" class="view" data-page-node-id="GU1bSZ5HBzlllnWTuzQwD1">
+      <span class="back-link" data-go="dash" data-page-node-id="HAybFB7VETZT3hMq1WlnvD">← 返主頁</span>
+      <h1 data-page-node-id="F9tJzLK7QbaSCpwoUzjYV7">背景圖 / Banner</h1>
+      <p class="lead" data-page-node-id="fenFG83eLGJ1thn5phtoBb">每頁可以揀唔同嘅背景圖。想換新圖，撳「上傳新圖」再揀返佢。</p>
+      <div id="banner-list" data-page-node-id="2HmpUGFTqWQZK2BtaRJhLH"></div>
+      <div class="card" data-page-node-id="EV02vkbpuVF1XL2BvHIngg">
+        <h3 data-page-node-id="bYtaJh8jxIOHDfO3cbROjn">上傳新背景圖</h3>
+        <p class="muted" data-page-node-id="YIbSxH27qk1EjlNkCDjaQI">揀一張靚嘅風景／海洋圖（橫向最好）。會自動縮細。</p>
+        <div class="img-pick" style="margin-top:10px" data-page-node-id="8Q6zTxGdvEOW1x0RA0AOHS">
+          <div class="ph" id="bgPh" data-page-node-id="tl6u2KMsWs454TqWXGotxQ">未揀圖</div>
+          <div data-page-node-id="l8CWovwIvVYfpmgHkHjgiQ">
+            <input type="file" id="f-bgimg" accept="image/*" style="font-size:16px;padding:8px 0;min-height:auto;border:none" data-page-node-id="qZSrGOgiriTeFKzWTIDD3H">
+            <div class="hint" data-page-node-id="KvepHC5G1OWWSQ6JJDVe2r">揀咗之後撳下面的「加入新圖」。</div>
           </div>
         </div>
-        <div class="field" style="margin-top:14px">
-          <label>呢張圖嘅名（畀自己記）</label>
-          <input type="text" id="f-bgname" placeholder="例如 珊瑚礁夕照">
+        <div class="field" style="margin-top:14px" data-page-node-id="WZC9iEGz0ekEH7RzKFe9N1">
+          <label data-page-node-id="CF9OWHbLvglI6hCU48Z43R">呢張圖嘅名（畀自己記）</label>
+          <input type="text" id="f-bgname" placeholder="例如 珊瑚礁夕照" data-page-node-id="V0OaalS6LayR8orvgKRh1M">
         </div>
-        <button class="btn gold block" id="btnAddBg">＋ 加入新圖去圖庫</button>
+        <button class="btn gold block" id="btnAddBg" data-page-node-id="0bjKtDlpMYBjOwCpsnATs8">＋ 加入新圖去圖庫</button>
       </div>
-      <button class="btn ok block" id="btnSaveBanner" style="margin-top:6px">保存背景設定</button>
+      <button class="btn ok block" id="btnSaveBanner" style="margin-top:6px" data-page-node-id="3UgGDwIHm2YtX1OrQVGTL9">保存背景設定</button>
     </div>
 
   </div>
 </div>
 
 <!-- Toast 撤銷 -->
-<div id="toast"><span id="toastMsg">已保存</span><button id="btnUndo">撤銷</button></div>
+<div id="toast" data-page-node-id="2K07yda9TcqSf5Tdz9dO9N"><span id="toastMsg" data-page-node-id="swMf62d8B4hUikKPU5cn8F">已保存</span><button id="btnUndo" data-page-node-id="87weu90A3qRc7uHR439FSE">撤銷</button></div>
 
 <!-- 確認彈窗 -->
-<div id="modal-bg">
-  <div class="modal">
-    <h2 id="modalTitle">確定？</h2>
-    <p id="modalText"></p>
-    <div class="acts">
-      <button class="btn danger" id="modalOk">確定</button>
-      <button class="btn ghost" id="modalCancel">取消</button>
+<div id="modal-bg" data-page-node-id="A8cueFBwieer6McUhlVwtk">
+  <div class="modal" data-page-node-id="YwZPzdVpTxNAX1JXZEqLLh">
+    <h2 id="modalTitle" data-page-node-id="YqRWz1Ot6KGDLx7FJiP1cl">確定？</h2>
+    <p id="modalText" data-page-node-id="PC25nECrxaJg7k2J0EPpcm"></p>
+    <div class="acts" data-page-node-id="ASkG4ecqCgirEqU2nQkxFq">
+      <button class="btn danger" id="modalOk" data-page-node-id="arN98BOSBEVOOm8xM8xo3x">確定</button>
+      <button class="btn ghost" id="modalCancel" data-page-node-id="v3iynhEXDvsPLYJ6W88WPS">取消</button>
     </div>
   </div>
 </div>
@@ -367,7 +367,7 @@ function goLogin(){
     $("tokenBox").style.display="block";
     return;
   }
-  const redirect = location.origin + location.pathname;
+  const redirect = location.origin + "/admin/";
   const state = Math.random().toString(36).slice(2);
   localStorage.setItem(STATE_KEY, state);
   const url = "https://github.com/login/oauth/authorize?client_id="+CFG.clientId+
