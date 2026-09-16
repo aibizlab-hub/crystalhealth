@@ -339,6 +339,16 @@ async function loadProducts(){
     }
   }catch(e){}
 }
+/* ===== 頁面文字 override（後台 data/content.json 改到）=====
+   喺 applyLang 之前 merge 入 I18N，about/contact/pay 等文字就變成客戶可改。 */
+async function loadContent(){
+  try{
+    const r=await fetch('data/content.json',{cache:'no-store'});
+    if(!r.ok) return;
+    const ov=await r.json();
+    ['zh','cn','en'].forEach(l=>{ if(ov&&ov[l]) Object.assign(I18N[l], ov[l]); });
+  }catch(e){}
+}
 function applyLang(l){
   curLang = l;
   localStorage.setItem('ch_lang', l);
@@ -698,10 +708,12 @@ function enquire(id){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  loadProducts();
-  applyLang(curLang);
-  renderCart();
-  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('nav-open')));
+  loadContent().then(()=>{
+    loadProducts();
+    applyLang(curLang);
+    renderCart();
+    document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('nav-open')));
+  });
 });
 function closeNav(){
   document.body.classList.remove('nav-open');

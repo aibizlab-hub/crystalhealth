@@ -87,12 +87,14 @@
     margin-top:18px; font-size:16px; color:var(--ink-soft); background:#FBF7EC;
     border:1px solid var(--gold-soft); border-radius:12px; padding:14px; text-align:left;
   }
+  .secret-box{margin-top:14px; text-align:left; border:1px dashed var(--line); border-radius:12px; padding:14px; background:#FBFCFC}
+  .secret-box label{display:block; font-weight:700; font-size:17px; margin-bottom:8px}
 
   /* ===== 表單 ===== */
   .field{margin-bottom:20px}
   .field label{display:block; font-weight:700; font-size:20px; margin-bottom:8px}
   .field .hint{font-weight:400; font-size:16px; color:var(--ink-soft); margin-top:6px}
-  input[type=text],input[type=number],select,textarea{
+  input[type=text],input[type=number],input[type=password],select,textarea{
     width:100%; font-family:inherit; font-size:20px; color:var(--ink);
     padding:16px; min-height:58px; border:2px solid var(--line); border-radius:12px; background:#fff;
   }
@@ -132,6 +134,20 @@
   .page-row .info .pg{font-weight:700; font-size:20px}
   .page-row .info .nt{font-size:15px; color:var(--ink-soft)}
   .page-row select{flex:1; min-width:200px}
+
+  /* ===== 多圖 gallery ===== */
+  .gallery-list{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px}
+  .gitem{position:relative; width:110px;height:110px; border-radius:10px; overflow:hidden; border:1px solid var(--line); background:#E7ECEB}
+  .gitem img{width:100%;height:100%;object-fit:cover}
+  .gitem .gdel{position:absolute; top:4px; right:4px; width:30px;height:30px; border:none; border-radius:50%; background:var(--danger); color:#fff; font-size:20px; line-height:1; display:flex; align-items:center; justify-content:center}
+  .gitem .gmain{position:absolute; bottom:4px; left:4px; background:var(--deep); color:#fff; font-size:12px; padding:2px 8px; border-radius:999px}
+  .gitem .gnew{position:absolute; bottom:4px; left:4px; background:var(--ok); color:#fff; font-size:12px; padding:2px 8px; border-radius:999px}
+
+  /* ===== 訂單 / 查詢 ===== */
+  .order-item{border:1px solid var(--line); border-radius:14px; background:#fff; padding:16px; margin-bottom:12px}
+  .order-item .om{font-weight:700; font-size:20px; display:flex; align-items:center; gap:10px}
+  .ost{font-size:14px; padding:3px 10px; border-radius:999px; background:var(--deep); color:#fff; font-weight:400}
+  .order-item .osub{font-size:16px; color:var(--ink-soft); margin-top:4px}
 
   /* ===== Toast / 撤銷 ===== */
   #toast{
@@ -176,9 +192,14 @@
     <p data-page-node-id="lVraLVMPbC3CpoJDsQRnxN">康科尚品 Crystal Health 網站內容管理</p>
     <button class="btn gold block" id="btnLogin" style="font-size:24px;padding:20px" data-page-node-id="ETbS0gbebFl0EANAVGHGeP">用 GitHub 登入</button>
     <div class="login-note" data-page-node-id="TDJKghKNQzE28JpHSUTSjE">
-      呢個後台用嚟自己改網站內容（產品、背景圖）。<br data-page-node-id="TDIZzyn8hI7PNWjBcrwHRt">
+      呢個後台用嚟自己改網站內容（產品、背景圖、頁面文字、訂單）。<br data-page-node-id="TDIZzyn8hI7PNWjBcrwHRt">
       第一次用，撳上面掣用 <b data-page-node-id="7YZ9bwIt3Drf2JBbbJS9PE">GitHub 帳號</b> 登入一次就得，之後會記住，唔使再登。<br data-page-node-id="z1EZB9zNmbY4nsIyPDn6Wr">
       <span class="muted" data-page-node-id="NtFdOLvQPcoGsER5OLcrla">（如果你冇 GitHub 帳號，搵 KEN 幫你開一個，只係用嚟登入，好安全。）</span>
+    </div>
+    <div class="secret-box" data-page-node-id="secBox">
+      <label>OAuth 密鑰（一次性，可唔填）</label>
+      <input type="password" id="secretInput" placeholder="喺 GitHub OAuth App 設定頁拎 client secret" style="width:100%;font-size:17px;padding:12px;min-height:50px;border:2px solid var(--line);border-radius:12px">
+      <p class="muted" style="font-size:14px;margin-top:8px">填咗會記落呢部機，下次一撳就登入。唔填就用下面嘅「KEN 專用碼」。</p>
     </div>
     <div style="margin-top:18px" data-page-node-id="AM2CSq7bETWsHENwAE2XHa">
       <button class="back-link" id="btnTokenToggle" style="font-size:17px" data-page-node-id="HnuPOjMlKlx2WUBlqEXQ9b">▼ 或者用 KEN 專用碼登入（唔使 GitHub 帳號）</button>
@@ -208,12 +229,13 @@
       <h1 data-page-node-id="h6AJuDpv9pdn6th87gx5l0">你想改咩？</h1>
       <p class="lead" data-page-node-id="D4fQZR0SEB659OtpOBzMkr">撳下面其中一個，跟指示做就掂。每一步都好簡單。</p>
       <div class="big-actions" data-page-node-id="1PMO2Pvl16xGF332dBJcSo">
-        <button class="btn block" data-go="product-list" data-page-node-id="rOxFkGZxVNdGWCU5UzhSEL">產品管理<span class="sub" data-page-node-id="z4wBTNx8pUht1ZlzfhXhEJ">加產品・改價錢・換相</span></button>
+        <button class="btn block" data-go="product-list" data-page-node-id="rOxFkGZxVNdGWCU5UzhSEL">產品管理<span class="sub" data-page-node-id="z4wBTNx8pUht1ZlzfhXhEJ">加產品・改價錢・換相・多圖</span></button>
         <button class="btn gold block" data-go="banner" data-page-node-id="sXY8zYsT3hpXUjIrKU0ois">背景圖 / Banner<span class="sub" data-page-node-id="P50LDAnmeLa43pjIQnQjnn">每頁換張靚圖</span></button>
-        <button class="btn ghost block" disabled data-go="" title="即將推出" data-page-node-id="Li3Dt5W9VoCEGuxjBLnoIV">頁面文字<span class="sub" data-page-node-id="3REwl9sOLUC930YkdOuEH2">關於／聯絡內容（下一步）</span></button>
+        <button class="btn ghost block" data-go="content" data-page-node-id="ctVw">頁面文字<span class="sub" data-page-node-id="ctVs">關於／聯絡內容</span></button>
+        <button class="btn ghost block" data-go="orders" data-page-node-id="odVw">訂單 / 查詢<span class="sub" data-page-node-id="odVs">記低收到嘅 enquiry</span></button>
       </div>
       <hr class="sep" data-page-node-id="8FkHqAs6xloYh1mLbvMyR2">
-      <p class="foot-note" data-page-node-id="ztLV330NRqMdvjalw4APJH">改完撳「保存」，約 1–2 分鐘後網站就會更新。聯絡電話／WhatsApp／地址呢啲私隱資料，請搵 KEN 改，唔好喺呢度填。</p>
+      <p class="foot-note" data-page-node-id="ztLV330NRqMdvjalw4APJH">改完撳「保存」，約 1–2 分鐘後網站就會更新。聯絡電話／WhatsApp／電郵地址呢啲私隱資料，請搵 KEN 改，唔好喺「頁面文字」度填。</p>
     </div>
 
     <!-- 產品列表 -->
@@ -247,7 +269,7 @@
           </select>
         </div>
         <div class="field" data-page-node-id="xBrXRZRi3iMlr3g9PH433O">
-          <label data-page-node-id="BcsrZfGBs3j36zU5WkUlfi">售價（港幣，淨係打數字；唔填＝唔顯示價錢）</label>
+          <label data-page-node-id="EH6dhuDcLdZkskOH0784JD">售價（港幣，淨係打數字；唔填＝唔顯示價錢）</label>
           <input type="number" id="f-price" min="0" placeholder="例如 168" inputmode="numeric" data-page-node-id="FmgdwUxbZUDsfEgDrEVJ1C">
           <div class="hint" data-page-node-id="oWqIOPMbvrAAPsfbOKEwBk">唔好打 $ 符號。</div>
         </div>
@@ -272,13 +294,15 @@
 
         <hr class="sep" data-page-node-id="Hcg3LDLKZAEjhxRoK9BA6Z">
         <div class="field" data-page-node-id="OPnkePRPNwYWQu3WsZTKHO">
-          <label data-page-node-id="B0jz5Fjolm3UZpw6iGJPnc">產品相片</label>
+          <label data-page-node-id="B0jz5Fjolm3UZpw6iGJPnc">產品相片（可加多張，第一張做主圖）</label>
+          <div id="galleryList" class="gallery-list"></div>
           <div class="img-pick" data-page-node-id="35EBNHLzVV6NWG0fBJIajl">
             <div class="ph" id="imgPh" data-page-node-id="Xktbi7cwSgRv8HQ1xXhpzG">未揀相</div>
             <div data-page-node-id="FJ1xoc06urfimO3bEExXuh">
-              <input type="file" id="f-img" accept="image/*" style="font-size:16px;padding:8px 0;min-height:auto;border:none" data-page-node-id="qpfci4lZktAbbs0PJWgkmT">
-              <div class="hint" data-page-node-id="Vdmvr5fX03GyBfD10JbOgL">撳「選擇檔案」揀張產品相。會自動縮細，唔使驚太大。<br data-page-node-id="B4zJFJ0lY0CuGmw7vGEJa7">如果唔換相，留空就得（會用返舊相）。</div>
+              <input type="file" id="f-img" accept="image/*" multiple style="font-size:16px;padding:8px 0;min-height:auto;border:none" data-page-node-id="qpfci4lZktAbbs0PJWgkmT">
+              <div class="hint" data-page-node-id="Vdmvr5fX03GyBfD10JbOgL">撳「選擇檔案」一次揀多張（或者逐張揀）。會自動縮細。<br data-page-node-id="B4zJFJ0lY0CuGmw7vGEJa7">如果唔換相，留空就得（會用返舊相）。</div>
             </div>
+            <button class="btn ghost sm" id="btnAddImgs" type="button" data-page-node-id="addImgs">＋ 加入呢批相</button>
           </div>
         </div>
 
@@ -319,6 +343,45 @@
       <button class="btn ok block" id="btnSaveBanner" style="margin-top:6px" data-page-node-id="3UgGDwIHm2YtX1OrQVGTL9">保存背景設定</button>
     </div>
 
+    <!-- 頁面文字 -->
+    <div id="content-view" class="view" data-page-node-id="ctView">
+      <span class="back-link" data-go="dash" data-page-node-id="ctBack">← 返主頁</span>
+      <h1 data-page-node-id="ctH1">頁面文字</h1>
+      <p class="lead" data-page-node-id="ctLead">改關於／聯絡頁嘅文字（電話、電郵、地址等私隱資料唔喺呢度改，搵 KEN）。三種語文都要填。改完撳「保存」，網站約 1–2 分鐘更新。</p>
+      <div class="alert" id="contentAlert" data-page-node-id="ctAlert"></div>
+      <div id="content-fields" data-page-node-id="ctFields"></div>
+      <button class="btn ok block" id="btnSaveContent" data-page-node-id="ctSave">保存頁面文字</button>
+    </div>
+
+    <!-- 訂單 / 查詢 -->
+    <div id="orders-view" class="view" data-page-node-id="odView">
+      <span class="back-link" data-go="dash" data-page-node-id="odBack">← 返主頁</span>
+      <h1 data-page-node-id="odH1">訂單 / 查詢</h1>
+      <p class="lead" data-page-node-id="odLead">下面係你收到嘅查詢同落單（用手機／WhatsApp／電郵收到嘅，喺呢度記低）。撳「新查詢」記低一單。</p>
+      <div id="orders-list" data-page-node-id="odList"></div>
+      <button class="btn block" id="btnAddOrder" style="margin-top:6px" data-page-node-id="odAdd">＋ 新查詢 / 落單</button>
+      <div class="card" id="order-form-card" style="display:none" data-page-node-id="odForm">
+        <h3 id="orderFormTitle" data-page-node-id="odFormT">新查詢 / 落單</h3>
+        <div class="field"><label>姓名／稱呼</label><input type="text" id="o-name" placeholder="例如 陳小姐"></div>
+        <div class="field"><label>聯絡方式（電話／WhatsApp／email）</label><input type="text" id="o-contact" placeholder="例如 9XXX XXXX"></div>
+        <div class="field"><label>產品／項目</label><input type="text" id="o-items" placeholder="例如 深海魚油 Omega-3 x2"></div>
+        <div class="field"><label>數量</label><input type="number" id="o-qty" min="0" placeholder="例如 2" inputmode="numeric"></div>
+        <div class="field"><label>備註</label><textarea id="o-note" placeholder="例如 想送貨上門"></textarea></div>
+        <div class="field"><label>狀態</label><select id="o-status">
+          <option value="new">新查詢</option>
+          <option value="quoted">已報價</option>
+          <option value="paid">已落單</option>
+          <option value="done">已完成</option>
+          <option value="cancel">取消</option>
+        </select></div>
+        <div class="form-actions">
+          <button class="btn ok block" id="btnSaveOrder" data-page-node-id="odSave">保存</button>
+          <button class="btn ghost" id="btnCancelOrder" data-page-node-id="odCancel">取消</button>
+          <button class="btn danger" id="btnDeleteOrder" style="display:none" data-page-node-id="odDel">刪除</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -339,16 +402,18 @@
 
 <script>
 "use strict";
-/* ===== 設定（client_id 由 GitHub OAuth App 提供，公開無妨）===== */
+/* ===== 設定（client_id 由 GitHub OAuth App 提供，公開無妨；client_secret 由客戶喺登入頁填一次，或下面硬編）===== */
 const CFG = {
   owner: "aibizlab-hub",
   repo: "crystalhealth",
   branch: "main",
-  clientId: "REPLACE_WITH_OAUTH_CLIENT_ID"
+  clientId: "Ov23liKhMfR9QOM2cBlH",
+  clientSecret: "REPLACE_WITH_OAUTH_CLIENT_SECRET"
 };
 const API = "https://api.github.com";
 const TOKEN_KEY = "ch_admin_token";
 const STATE_KEY = "ch_oauth_state";
+const SECRET_KEY = "ch_oauth_secret";
 
 /* 醫療宣稱黑名單（犯《商品說明條例》）*/
 const MED_WORDS = ["治療","醫治","醫療","防癌","抗癌","治癒","根治","痊癒","療效","藥效","處方","醫好"];
@@ -359,8 +424,11 @@ function b64encode(str){return btoa(unescape(encodeURIComponent(str)));}
 function b64decode(b64){return decodeURIComponent(escape(atob(b64)));}
 function slug(s){return (s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"item";}
 function ua(){return {Authorization:"Bearer "+localStorage.getItem(TOKEN_KEY), Accept:"application/vnd.github+json"};}
+function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 
-/* ===== 登入（GitHub OAuth implicit grant，純瀏覽器，無伺服器）===== */
+/* ===== 登入（GitHub OAuth 授權碼流程，純瀏覽器，無伺服器）=====
+   GitHub 唔支援 implicit grant，所以：redirect 後 GitHub 畀 ?code=，
+   再用 client_id + client_secret POST github.com/login/oauth/access_token 換 access_token。 */
 function goLogin(){
   if(CFG.clientId.indexOf("REPLACE_")===0){
     alert("GitHub 一鍵登入仲未設定好（要 KEN 喺 GitHub 開一個 OAuth App）。\n\n暫時請用下面「KEN 專用碼」登入，一樣可以改網站。");
@@ -375,16 +443,35 @@ function goLogin(){
   location.href = url;
 }
 function handleCallback(){
-  if(!location.hash.includes("access_token")) return false;
-  const p = new URLSearchParams(location.hash.slice(1));
-  const token = p.get("access_token");
-  const state = p.get("state");
+  // 授權碼流程：GitHub 用 ?code=...&state=... 跳返嚟
+  const params = new URLSearchParams(location.search.slice(1));
+  const code = params.get("code");
+  const state = params.get("state");
+  if(!code){ return false; }
   if(state !== localStorage.getItem(STATE_KEY)){ alert("登入狀態唔啱，請再試一次。"); return false; }
-  if(!token){ alert("拎唔到登入憑證，請再試一次。"); return false; }
-  localStorage.setItem(TOKEN_KEY, token);
-  localStorage.removeItem(STATE_KEY);
-  history.replaceState(null,"",location.pathname);
+  const secret = CFG.clientSecret.indexOf("REPLACE_")!==0 ? CFG.clientSecret : localStorage.getItem(SECRET_KEY);
+  if(!secret){
+    alert("未設定 OAuth 密鑰。\n\n請喺登入頁「OAuth 密鑰」度填一次（喺 GitHub OAuth App 設定頁拎 client secret），或者繼續用 KEN 專用碼登入。");
+    $("tokenBox").style.display="block";
+    return false;
+  }
+  exchangeCode(code, secret);
   return true;
+}
+async function exchangeCode(code, secret){
+  try{
+    const r = await fetch("https://github.com/login/oauth/access_token", {
+      method:"POST",
+      headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body: JSON.stringify({client_id:CFG.clientId, client_secret:secret, code:code, redirect_uri:location.origin+"/admin/"})
+    });
+    const d = await r.json();
+    if(!d.access_token){ alert("OAuth 換取失敗："+(d.error_description||d.error||"未知錯誤")); return; }
+    localStorage.setItem(TOKEN_KEY, d.access_token);
+    localStorage.removeItem(STATE_KEY);
+    history.replaceState(null,"",location.pathname);
+    loadData();
+  }catch(e){ alert("OAuth 換取失敗："+e.message); }
 }
 function logout(){ localStorage.removeItem(TOKEN_KEY); location.reload(); }
 
@@ -435,6 +522,12 @@ let productsSha = null;
 let bgCfg = null;           // backgrounds.json 物件
 let bgSha = null;
 let editing = null;         // 正在編輯嘅產品（null=新加）
+let pendingImgs = [];       // 待上傳嘅新相（File 物件）
+let content = {zh:{},cn:{},en:{}};  // 頁面文字 override
+let contentSha = null;
+let orders = [];            // 訂單／查詢陣列
+let ordersSha = null;
+let editingOrder = null;    // 正在編輯嘅訂單（null=新加）
 let undoData = null;        // {path, content, sha, timer}
 
 /* ===== 畫面切換 ===== */
@@ -447,10 +540,12 @@ function bindNav(){
   document.querySelectorAll("[data-go]").forEach(el=>{
     el.addEventListener("click",()=>{
       const t = el.getAttribute("data-go");
-      if(!t){ return; } // disabled（頁面文字）
+      if(!t){ return; }
       show(t+"-view");
       if(t==="product-list") renderProductList();
       if(t==="banner") renderBanner();
+      if(t==="content") renderContentFields();
+      if(t==="orders") renderOrders();
     });
   });
 }
@@ -461,12 +556,13 @@ function renderProductList(){
   products.forEach((p,i)=>{
     const div = document.createElement("div");
     div.className="product-item";
-    const img = p.img ? ("../img/products/"+p.img) : "";
+    const img = (p.gallery && p.gallery[0]) ? ("../img/products/"+p.gallery[0]) : (p.img ? ("../img/products/"+p.img) : "");
+    const galN = (p.gallery && p.gallery.length) ? ("　圖:"+p.gallery.length+"張") : "";
     div.innerHTML =
       '<img src="'+img+'" alt="" onerror="this.style.visibility=\'hidden\'">'+
       '<div class="meta"><div class="nm">'+esc(p.name&&p.name.zh||p.id)+
         (p.real?'<span class="tag">真實</span>':'<span class="tag demo">示範</span>')+'</div>'+
-        '<div class="sub">'+(p.price!=null?('HK$ '+p.price+'　'):'')+(p.spec&&p.spec.zh||'')+'</div></div>'+
+        '<div class="sub">'+(p.price!=null?('HK$ '+p.price+'　'):'')+(p.spec&&p.spec.zh||'')+galN+'</div></div>'+
       '<div class="acts"><button class="btn ghost sm" data-edit="'+i+'">修改</button></div>';
     box.appendChild(div);
   });
@@ -474,11 +570,12 @@ function renderProductList(){
     b.addEventListener("click",()=>openForm(products[+b.getAttribute("data-edit")]));
   });
 }
-function esc(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 
 /* ===== 產品表單 ===== */
 function openForm(p){
   editing = p ? JSON.parse(JSON.stringify(p)) : null;
+  if(editing && !Array.isArray(editing.gallery)) editing.gallery = editing.img ? [editing.img] : [];
+  pendingImgs = [];
   $("formTitle").textContent = p ? "修改產品" : "加一款新產品";
   $("f-id").value   = p ? p.id : "";
   $("f-cat").value  = p ? (p.catKey||"vitality") : "vitality";
@@ -488,10 +585,31 @@ function openForm(p){
   $("f-de-zh").value= p&&p.desc?p.desc.zh:""; $("f-de-cn").value=p&&p.desc?p.desc.cn:""; $("f-de-en").value=p&&p.desc?p.desc.en:"";
   $("f-real").checked = p ? !!p.real : true;
   $("f-img").value=""; $("imgPh").textContent="未揀相"; $("imgPh").className="ph";
-  if(p&&p.img){ const im=new Image(); im.onload=()=>{const ph=$("imgPh");ph.textContent="";ph.className="";ph.appendChild(im);im.style.cssText="width:120px;height:120px;object-fit:cover;border-radius:10px";}; im.src="../img/products/"+p.img; }
   $("btnDeleteProduct").style.display = p ? "inline-flex" : "none";
   $("medAlert").classList.remove("show");
+  renderGallery();
   show("product-form-view");
+}
+function renderGallery(){
+  const box = $("galleryList"); box.innerHTML="";
+  const cur = (editing && editing.gallery) ? editing.gallery.slice() : [];
+  cur.forEach((fn,idx)=>{
+    const d=document.createElement("div"); d.className="gitem";
+    d.innerHTML = '<img src="../img/products/'+fn+'" alt="" onerror="this.style.visibility=\'hidden\'"><button type="button" class="gdel" data-del="cur-'+idx+'">×</button>'+(idx===0?'<span class="gmain">主圖</span>':'');
+    box.appendChild(d);
+  });
+  pendingImgs.forEach((f,idx)=>{
+    const d=document.createElement("div"); d.className="gitem";
+    d.innerHTML = '<img alt=""><button type="button" class="gdel" data-del="pen-'+idx+'">×</button><span class="gnew">新</span>';
+    box.appendChild(d);
+    const im=d.querySelector("img"); const url=URL.createObjectURL(f); im.src=url;
+  });
+  box.querySelectorAll(".gdel").forEach(b=>b.addEventListener("click",()=>{
+    const v=b.getAttribute("data-del");
+    if(v.indexOf("cur-")===0){ cur.splice(+v.slice(4),1); if(editing) editing.gallery=cur; }
+    else { pendingImgs.splice(+v.slice(4),1); }
+    renderGallery();
+  }));
 }
 function collectForm(){
   const id = slug($("f-id").value);
@@ -524,20 +642,17 @@ async function saveProduct(){
   const prevSha = productsSha, prevText = JSON.stringify(products,null,2);
   try{
     $("btnSaveProduct").classList.add("loading"); $("btnSaveProduct").disabled=true;
-    // 上傳新相（如果有）
-    const file = $("f-img").files[0];
-    if(file){
-      const b64 = await fileToResizedB64(file, 900, 0.85);
-      const fn = item.id + ".jpg";
+    // 整合 gallery：現有 + 新上傳
+    let gallery = (editing && editing.gallery) ? editing.gallery.slice() : [];
+    for(const f of pendingImgs){
+      const b64 = await fileToResizedB64(f, 900, 0.85);
+      const fn = item.id + "-" + Date.now() + "-" + Math.floor(Math.random()*1000) + ".jpg";
       await ghPut("img/products/"+fn, b64, null, "upload product image "+fn);
-      item.img = fn;
-    } else if(editing && editing.img){
-      item.img = editing.img; // 留返舊相
-    } else {
-      item.img = "";
+      gallery.push(fn);
     }
-    item.gallery = item.img ? [item.img] : (editing&&editing.gallery?editing.gallery:[]);
-    if(editing && editing.gallery) item.gallery = editing.gallery.length?editing.gallery:item.gallery;
+    pendingImgs = [];
+    item.gallery = gallery;
+    item.img = gallery.length ? gallery[0] : "";
     // 更新陣列
     const idx = products.findIndex(p=>p.id===item.id);
     if(idx>=0){ products[idx]=item; } else { products.push(item); }
@@ -621,6 +736,128 @@ async function saveBanner(){
   finally{ $("btnSaveBanner").classList.remove("loading"); $("btnSaveBanner").disabled=false; }
 }
 
+/* ===== 頁面文字 ===== */
+const CONTENT_FIELDS = [
+  {k:"about.title", label:"關於 — 大標題（可用 <br> 換行）"},
+  {k:"about.lead",  label:"關於 — 引言"},
+  {k:"about.p1",    label:"關於 — 段落一"},
+  {k:"about.p2",    label:"關於 — 段落二"},
+  {k:"contact.sub", label:"聯絡 — 副標題"},
+  {k:"c wa.p",     label:"WhatsApp 卡 — 說明"},
+  {k:"c wa.hours", label:"WhatsApp 卡 — 辦公時間"},
+  {k:"c em.p",     label:"電郵卡 — 說明"},
+  {k:"c wx.p",     label:"WeChat 卡 — 說明"},
+  {k:"c wx.note",  label:"WeChat 卡 — 備註"},
+  {k:"pay.sub",    label:"付款 — 副標題"},
+  {k:"pay1.p",     label:"付款 1 — 說明"},
+  {k:"pay2.p",     label:"付款 2 — 說明"},
+  {k:"pay3.p",     label:"付款 3 — 說明"}
+];
+function renderContentFields(){
+  const box = $("content-fields"); box.innerHTML="";
+  CONTENT_FIELDS.forEach(f=>{
+    const card=document.createElement("div"); card.className="card";
+    let inner='<h3>'+f.label+'</h3>';
+    [["zh","繁中"],["cn","简中"],["en","EN"]].forEach(([l,lab])=>{
+      inner+='<div class="field"><label>'+lab+'</label><textarea data-f="'+f.k+'" data-l="'+l+'">'+(content[l][f.k]||"")+'</textarea></div>';
+    });
+    card.innerHTML=inner;
+    box.appendChild(card);
+  });
+}
+function collectContent(){
+  const out={zh:{},cn:{},en:{}};
+  document.querySelectorAll("#content-fields textarea[data-f]").forEach(ta=>{
+    out[ta.dataset.l][ta.dataset.f]=ta.value;
+  });
+  return out;
+}
+async function saveContent(){
+  const item = collectContent();
+  const hay = JSON.stringify(item);
+  const hit = MED_WORDS.filter(w=>hay.includes(w));
+  if(hit.length){
+    return showContentAlert("<b>注意：呢段文字可能係醫療宣稱</b>，犯《商品說明條例》。觸到嘅字："+hit.join("、")+"<br>請改成「支援／呵護／適合／日常補充」呢類字眼，或者搵 KEN 批準。");
+  }
+  try{
+    $("btnSaveContent").classList.add("loading"); $("btnSaveContent").disabled=true;
+    const prevSha = contentSha, prevText = JSON.stringify(content,null,2);
+    const newSha = await ghPut("data/content.json", JSON.stringify(item,null,2), contentSha, "update page content");
+    contentSha = newSha; content = item;
+    undoData = {path:"data/content.json", content:prevText, sha:prevSha};
+    toast("已保存頁面文字");
+  }catch(e){ alert("保存失敗："+e.message); }
+  finally{ $("btnSaveContent").classList.remove("loading"); $("btnSaveContent").disabled=false; }
+}
+function showContentAlert(html){ const a=$("contentAlert"); a.innerHTML=html; a.classList.add("show"); a.scrollIntoView({behavior:"smooth",block:"center"}); }
+
+/* ===== 訂單 / 查詢 ===== */
+function statusLabel(s){ return {new:"新查詢",quoted:"已報價",paid:"已落單",done:"已完成",cancel:"取消"}[s]||s; }
+async function renderOrders(){
+  const box=$("orders-list"); box.innerHTML="";
+  if(!orders.length){ box.innerHTML='<p class="muted">暫時無記錄。</p>'; return; }
+  orders.forEach((o,i)=>{
+    const d=document.createElement("div"); d.className="order-item";
+    d.innerHTML='<div class="om"><b>'+(o.name||"（無名）")+'</b> <span class="ost">'+statusLabel(o.status)+'</span></div>'+
+      '<div class="osub">'+(o.items||"")+(o.qty?(' × '+o.qty):'')+'</div>'+
+      '<div class="osub">'+(o.contact||"")+'</div>'+
+      (o.note?'<div class="osub muted">'+esc(o.note)+'</div>':'')+
+      '<div class="acts" style="margin-top:8px"><button class="btn ghost sm" data-edit="'+i+'">修改</button></div>';
+    box.appendChild(d);
+  });
+  box.querySelectorAll("[data-edit]").forEach(b=>{
+    b.addEventListener("click",()=>openOrderForm(orders[+b.getAttribute("data-edit")]));
+  });
+}
+function openOrderForm(o){
+  editingOrder = o ? JSON.parse(JSON.stringify(o)) : null;
+  $("orderFormTitle").textContent = o ? "修改查詢" : "新查詢 / 落單";
+  $("o-name").value=o?o.name:""; $("o-contact").value=o?o.contact:"";
+  $("o-items").value=o?o.items:""; $("o-qty").value=o&&o.qty!=null?o.qty:"";
+  $("o-note").value=o?o.note:""; $("o-status").value=o?o.status:"new";
+  $("btnDeleteOrder").style.display=o?"inline-flex":"none";
+  $("order-form-card").style.display="block";
+  $("order-form-card").scrollIntoView({behavior:"smooth",block:"center"});
+}
+async function saveOrder(){
+  const item={
+    name:$("o-name").value.trim(),
+    contact:$("o-contact").value.trim(),
+    items:$("o-items").value.trim(),
+    qty: $("o-qty").value.trim()===""?null:parseInt($("o-qty").value,10),
+    note:$("o-note").value.trim(),
+    status:$("o-status").value
+  };
+  if(!item.name && !item.items){ alert("請填姓名或者產品。"); return; }
+  try{
+    $("btnSaveOrder").classList.add("loading"); $("btnSaveOrder").disabled=true;
+    if(editingOrder && editingOrder.id){ item.id=editingOrder.id; }
+    else { item.id="o"+Date.now(); item.created=new Date().toISOString().slice(0,10); }
+    const idx = orders.findIndex(x=>x.id===item.id);
+    if(idx>=0) orders[idx]=item; else orders.push(item);
+    const prevSha=ordersSha, prevText=JSON.stringify(orders,null,2);
+    const newSha=await ghPut("data/orders.json", JSON.stringify(orders,null,2), ordersSha, "update orders");
+    ordersSha=newSha;
+    undoData={path:"data/orders.json", content:prevText, sha:prevSha};
+    $("order-form-card").style.display="none";
+    renderOrders();
+    toast("已保存查詢");
+  }catch(e){ alert("保存失敗："+e.message); }
+  finally{ $("btnSaveOrder").classList.remove("loading"); $("btnSaveOrder").disabled=false; }
+}
+function deleteOrder(){
+  if(!editingOrder) return;
+  confirmModal("刪除呢個查詢？","「"+(editingOrder.name||editingOrder.items||"查詢")+"」會刪除。", async ()=>{
+    const prevText=JSON.stringify(orders,null,2);
+    orders=orders.filter(x=>x.id!==editingOrder.id);
+    try{
+      const newSha=await ghPut("data/orders.json", JSON.stringify(orders,null,2), ordersSha, "delete order");
+      ordersSha=newSha; undoData={path:"data/orders.json", content:prevText, sha:null};
+      $("order-form-card").style.display="none"; renderOrders(); toast("已刪除");
+    }catch(e){ alert("刪除失敗："+e.message); }
+  });
+}
+
 /* ===== Toast / 撤銷 ===== */
 function toast(msg){
   $("toastMsg").textContent = msg;
@@ -638,6 +875,8 @@ async function undo(){
     await ghPut(u.path, u.content, u.sha, "undo last change");
     if(u.path==="data/products.json"){ const d=await ghGet("data/products.json"); products=JSON.parse(d.text); productsSha=d.sha; }
     if(u.path==="data/backgrounds.json"){ const d=await ghGet("data/backgrounds.json"); bgCfg=JSON.parse(d.text); bgSha=d.sha; }
+    if(u.path==="data/content.json"){ const d=await ghGet("data/content.json"); content=JSON.parse(d.text); contentSha=d.sha; }
+    if(u.path==="data/orders.json"){ const d=await ghGet("data/orders.json"); orders=JSON.parse(d.text); ordersSha=d.sha; }
     toast("已撤銷");
   }catch(e){ alert("撤銷失敗："+e.message); }
 }
@@ -652,14 +891,14 @@ $("modalOk").addEventListener("click",()=>{ $("modal-bg").classList.remove("show
 $("modalCancel").addEventListener("click",()=>{ $("modal-bg").classList.remove("show"); modalCb=null; });
 
 /* ===== 離開未存提示 ===== */
-window.addEventListener("beforeunload",(e)=>{ /* 簡單保護：若有編輯中 */
+window.addEventListener("beforeunload",(e)=>{
   if($("product-form-view").classList.contains("active") && $("f-id").value){ e.preventDefault(); e.returnValue=""; }
 });
 
 /* ===== 啟動 ===== */
 async function boot(){
   bindNav();
-  $("btnLogin").addEventListener("click", goLogin);
+  $("btnLogin").addEventListener("click",()=>{ const s=$("secretInput").value.trim(); if(s) localStorage.setItem(SECRET_KEY,s); goLogin(); });
   $("btnLogout").addEventListener("click", logout);
   $("btnAddProduct").addEventListener("click",()=>openForm(null));
   $("btnSaveProduct").addEventListener("click", saveProduct);
@@ -670,9 +909,23 @@ async function boot(){
   $("btnUndo").addEventListener("click", undo);
   $("f-img").addEventListener("change",()=>{ if($("f-img").files[0]) $("imgPh").textContent="已揀相"; });
   $("f-bgimg").addEventListener("change",()=>{ if($("f-bgimg").files[0]) $("bgPh").textContent="已揀圖"; });
+  $("btnAddImgs").addEventListener("click",()=>{
+    const files = Array.from($("f-img").files||[]);
+    if(files.length){ pendingImgs = pendingImgs.concat(files); $("f-img").value=""; $("imgPh").textContent="已揀相"; renderGallery(); }
+    else { alert("請先撳「選擇檔案」揀相，再撳「加入呢批相」。"); }
+  });
 
-  // 處理 OAuth callback
-  if(location.hash.includes("access_token")){ handleCallback(); }
+  // 頁面文字
+  $("btnSaveContent").addEventListener("click", saveContent);
+  // 訂單
+  $("btnAddOrder").addEventListener("click",()=>openOrderForm(null));
+  $("btnSaveOrder").addEventListener("click", saveOrder);
+  $("btnCancelOrder").addEventListener("click",()=>{ $("order-form-card").style.display="none"; });
+  $("btnDeleteOrder").addEventListener("click", deleteOrder);
+
+  // 處理 OAuth callback（授權碼流程：?code= ；舊 implicit 流程：#access_token）
+  if(location.search.indexOf("code=")>=0){ handleCallback(); }
+  else if(location.hash.includes("access_token")){ handleCallback(); }
 
   // token 專用碼登入（後備，唔使 GitHub 帳號）
   $("btnTokenToggle").addEventListener("click",()=>{
@@ -684,6 +937,9 @@ async function boot(){
     localStorage.setItem(TOKEN_KEY,t);
     loadData();
   });
+  // 預填 OAuth 密鑰
+  const savedSecret = localStorage.getItem(SECRET_KEY);
+  if(savedSecret) $("secretInput").value = savedSecret;
 
   const token = localStorage.getItem(TOKEN_KEY);
   if(!token){ return; } // 預設：login-view 顯示、app-view 隱藏（CSS）
@@ -703,6 +959,10 @@ async function loadData(){
     products = pd ? JSON.parse(pd.text) : []; productsSha = pd?pd.sha:null;
     const bd = await ghGet("data/backgrounds.json");
     bgCfg = bd ? JSON.parse(bd.text) : {images:[],pages:[]}; bgSha = bd?bd.sha:null;
+    const cd = await ghGet("data/content.json");
+    content = cd ? JSON.parse(cd.text) : {zh:{},cn:{},en:{}}; contentSha = cd?cd.sha:null;
+    const od = await ghGet("data/orders.json");
+    orders = od ? JSON.parse(od.text) : []; ordersSha = od?od.sha:null;
     show("dash-view");
   }catch(e){
     alert("載入網站資料失敗："+e.message+"\n（可能你嘅 GitHub 帳號冇權限寫呢個網站，搵 KEN 加你做協作者。）");
