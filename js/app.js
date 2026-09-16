@@ -40,7 +40,7 @@ const I18N = {
     "about.p2":"落單更簡單——睇啱就加入購物車，一撳經 WhatsApp 發出，唔使開戶、唔使填長表格。",
     "about.imgalt":"健康生活",
     "contact.title":"聯絡我們","contact.sub":"有咩想問？歡迎隨時 WhatsApp 我哋，或於正式上線後用電郵聯絡。",
-    "c wa.h":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><path d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z'/></svg> WhatsApp 落單／查詢","c wa.p":"掣一撳就開對話，最方便。","c wa.num":"9886 2636","c wa.hours":"辦公時間：星期一至六 12:00–19:00、星期日 12:00–18:00",
+    "c wa.h":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><path d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z'/></svg> WhatsApp 落單／查詢","c wa.p":"掣一撳就開對話，最方便。","c wa.num":"9100 8027","c wa.hours":"辦公時間：星期一至六 12:00–19:00、星期日 12:00–18:00",
     "c em.h":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><rect x='2' y='4.5' width='20' height='15' rx='2.5'/><path d='m2.6 6.6 9.4 5.8 9.4-5.8'/></svg> 電郵聯絡","c em.p":"詳細查詢或合作歡迎電郵。","c em.addr":"www.crystalhealth.com","c em.pend":"聯絡方式待確認",
     "c wx.p":"掃碼或搜尋 ID 加客服微信，一樣可以落單同查詢。","c wx.note":"想放真．QR 碼？send 圖俾我換上。","c wx.btn":"睇 WeChat ID",
     "pay.title":"付款方式","pay.sub":"先展示付款入口；正式接通前不會收取款項。目前網站以展示產品為主，落單後職員會於 WhatsApp 同你安排。",
@@ -57,7 +57,7 @@ const I18N = {
     "disc.b1":"康科尚品購物平台（Crystal Health Global Tech）<b>並非醫療機構</b>，所售產品為一般保健品／營養補充品，<b>不作診斷、治療或預防任何疾病</b>。",
     "disc.b2":"如有不適或緊急情況，請立即聯絡緊急服務或合資格醫護人員，切勿倚賴本網站產品替代專業醫療。",
     "disc.b3":"產品名稱、圖片、價錢、評價均為<b>設計示範佔位</b>，正式上線前會按客戶提供資料替換；文中數字僅供排版示範。",
-    "disc.b4":"此頁為 <b>設計示範原型</b>：購物車同 WhatsApp 落單流程為真實可運作，商戶 WhatsApp 號碼（9886 2636）已接駁，可即時落單試用。",
+    "disc.b4":"此頁為 <b>設計示範原型</b>：購物車同 WhatsApp 落單流程為真實可運作，商戶 WhatsApp 號碼（9100 8027）已接駁，可即時落單試用。",
     "wa.order.default":"你好，我想喺「康科尚品購物平台」落單：",
     "wa.query":"你好，我想查詢／落單康科尚品嘅產品。",
     "wa.hello":"你好","wa.name":"姓名","wa.phone":"聯絡電話／WhatsApp","wa.total":"合計","toast.added":"已加入：","toast.empty":"購物車係空嘅，先揀啲嘢啦","toast.done":"已開啟 WhatsApp，send 出就完成落單","toast.copied":"分享連結已複製",
@@ -102,7 +102,7 @@ const I18N = {
     "about.p2":"下单更简单——看中就加入购物车，一按经 WhatsApp 发出，不用开户、不用填长表格。",
     "about.imgalt":"健康生活",
     "contact.title":"联络我们","contact.sub":"有什么想问？欢迎随时 WhatsApp 我们，或于正式上线后用电邮联络。",
-    "c wa.h":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><path d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z'/></svg> WhatsApp 下单／查询","c wa.p":"按一按就开对话，最方便。","c wa.num":"9886 2636","c wa.hours":"办公时间：星期一至六 12:00–19:00、星期日 12:00–18:00",
+    "c wa.h":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><path d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z'/></svg> WhatsApp 下单／查询","c wa.p":"按一按就开对话，最方便。","c wa.num":"9100 8027","c wa.hours":"办公时间：星期一至六 12:00–19:00、星期日 12:00–18:00",
     "c em.h":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><rect x='2' y='4.5' width='20' height='15' rx='2.5'/><path d='m2.6 6.6 9.4 5.8 9.4-5.8'/></svg> 电邮联络","c em.p":"详细查询或合作欢迎电邮。","c em.addr":"www.crystalhealth.com","c em.pend":"联络方式待确认",
     "c wx.p":"扫码或搜索 ID 加客服微信，一样可以下单和查询。","c wx.note":"想放真实 QR 码？发图给我换上。","c wx.btn":"看 WeChat ID",
     "pay.title":"付款方式","pay.sub":"先展示付款入口；正式接通前不会收取款项。目前网站以展示产品为主，下单后职员会于 WhatsApp 跟你安排。",
@@ -119,7 +119,7 @@ const I18N = {
     "disc.b1":"康科尚品购物平台（Crystal Health Global Tech）<b>并非医疗机构</b>，所售产品为一般保健品／营养补充品，<b>不作诊断、治疗或预防任何疾病</b>。",
     "disc.b2":"如有不适或紧急情况，请立即联络紧急服务或合资格医护人员，切勿倚赖本网站产品替代专业医疗。",
     "disc.b3":"产品名称、图片、价钱、评价均为<b>设计示范占位</b>，正式上线前会按客户提供资料替换；文中数字仅供排版示范。",
-    "disc.b4":"此页为 <b>设计示范原型</b>：购物车同 WhatsApp 下单流程为真实可运作，商户 WhatsApp 号码（9886 2636）已接驳，可即时下单试用。",
+    "disc.b4":"此页为 <b>设计示范原型</b>：购物车同 WhatsApp 下单流程为真实可运作，商户 WhatsApp 号码（9100 8027）已接驳，可即时下单试用。",
     "wa.order.default":"你好，我想喺「康科尚品购物平台」下单：",
     "wa.query":"你好，我想查询／下单康科尚品的产品。",
     "wa.hello":"你好","wa.name":"姓名","wa.phone":"联络电话／WhatsApp","wa.total":"合计","toast.added":"已加入：","toast.empty":"购物车是空的，先挑点东西吧","toast.done":"已开启 WhatsApp，send 出就完成下单","toast.copied":"分享链接已复制",
@@ -164,7 +164,7 @@ const I18N = {
     "about.p2":"Ordering is simpler — add to cart when you like it, send with one tap via WhatsApp. No account, no long forms.",
     "about.imgalt":"Healthy living",
     "contact.title":"Contact","contact.sub":"Any questions? WhatsApp us anytime, or email after the official launch.",
-    "c wa.h":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><path d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z'/></svg> WhatsApp Order / Enquiry","c wa.p":"One tap opens the chat — easiest way.","c wa.num":"9886 2636","c wa.hours":"Office: Mon–Sat 12:00–19:00, Sun 12:00–18:00",
+    "c wa.h":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><path d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z'/></svg> WhatsApp Order / Enquiry","c wa.p":"One tap opens the chat — easiest way.","c wa.num":"9100 8027","c wa.hours":"Office: Mon–Sat 12:00–19:00, Sun 12:00–18:00",
     "c em.h":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><rect x='2' y='4.5' width='20' height='15' rx='2.5'/><path d='m2.6 6.6 9.4 5.8 9.4-5.8'/></svg> Email","c em.p":"For detailed enquiries or partnerships.","c em.addr":"www.crystalhealth.com","c em.pend":"Contact pending",
     "c wx.p":"Scan or search our ID to add us on WeChat — you can order and enquire there too.","c wx.note":"Want a real QR code? Send us the image to swap in.","c wx.btn":"View WeChat ID",
     "pay.title":"Payment Methods","pay.sub":"We show payment entries first; no charges before activation. The site mainly showcases products; staff will arrange via WhatsApp after you order.",
@@ -181,7 +181,7 @@ const I18N = {
     "disc.b1":"Crystal Health Global Tech is <b>not a medical institution</b>. Products sold are general health / nutritional supplements, <b>not for diagnosing, treating or preventing any disease</b>.",
     "disc.b2":"If unwell or in an emergency, contact emergency services or qualified medical staff immediately. Do not rely on this site’s products as a substitute for professional care.",
     "disc.b3":"Product names, images, prices and reviews are <b>design placeholders</b>, to be replaced with client data before launch; numbers are for layout demo only.",
-    "disc.b4":"This is a <b>design prototype</b>: cart and WhatsApp order flow are functional; merchant WhatsApp (9886 2636) is connected and ready for live orders.",
+    "disc.b4":"This is a <b>design prototype</b>: cart and WhatsApp order flow are functional; merchant WhatsApp (9100 8027) is connected and ready for live orders.",
     "wa.order.default":"Hello, I’d like to order from “Crystal Health”:",
     "wa.query":"Hello, I’d like to enquire / order Crystal Health products.",
     "wa.hello":"Hello","wa.name":"Name","wa.phone":"Phone / WhatsApp","wa.total":"Total","toast.added":"Added: ","toast.empty":"Cart is empty, pick something first","toast.done":"WhatsApp opened, send to finish","toast.copied":"Share link copied",
@@ -435,11 +435,11 @@ function buildWaMsg(){
 }
 function waOrder(){
   if(cart.length===0){toast(t('toast.empty'));return;}
-  const url='https://wa.me/85298862636?text='+encodeURIComponent(buildWaMsg());
+  const url='https://wa.me/85291008027?text='+encodeURIComponent(buildWaMsg());
   window.open(url,'_blank'); closeCart(); toast(t('toast.done'));
 }
 function openWa(){
-  const url='https://wa.me/85298862636?text='+encodeURIComponent(t('wa.query'));
+  const url='https://wa.me/85291008027?text='+encodeURIComponent(t('wa.query'));
   window.open(url,'_blank');
 }
 function toast(m){const x=document.getElementById('toast'); if(!x)return; x.textContent=m; x.classList.add('show'); setTimeout(()=>x.classList.remove('show'),2600);}
@@ -704,7 +704,7 @@ function enquire(id){
   const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
   const msg = curLang==='en' ? `Hello, I would like to ask about the price of: ${p.name.en}`
             : (curLang==='cn' ? `你好，我想查询这款产品的价钱：${p.name.cn}` : `你好，我想查詢呢款產品嘅價錢：${p.name.zh}`);
-  window.open('https://wa.me/85298862636?text='+encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/85291008027?text='+encodeURIComponent(msg), '_blank');
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
