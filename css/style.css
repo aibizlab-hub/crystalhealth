@@ -540,10 +540,10 @@ body.home .ecg-path{stroke:#8FF0CB;filter:drop-shadow(0 0 6px rgba(127,227,196,.
 body.home .ecg-scan{background:linear-gradient(#8FF0CB,transparent);
   box-shadow:0 0 14px 3px rgba(127,227,196,.7)}
 /* 首頁三柱：去白卡，直接喺水景上用亮字，更乾淨高級 */
-body.home .pil{background:transparent;border:0;box-shadow:none;padding:14px}
-body.home .pil .n{color:#9FE7C9;text-shadow:0 2px 14px rgba(0,0,0,.45)}
-body.home .pil h3{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.45)}
-body.home .pil p{color:rgba(255,255,255,.86);text-shadow:0 1px 12px rgba(0,0,0,.4)}
+body.home .pil{background:rgba(8,30,22,.46);border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 44px rgba(0,18,13,.30);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:18px;padding:30px 26px}
+body.home .pil .n{color:#BDF2DC;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+body.home .pil h3{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.5)}
+body.home .pil p{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.45)}
 body.home .carousel{box-shadow:0 26px 62px rgba(0,20,14,.36)}
 body.home .carousel-dot{background:rgba(255,255,255,.45)}
 body.home .carousel-dot.on{background:#fff}
