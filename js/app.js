@@ -2,11 +2,11 @@
 
 const I18N = {
   zh:{ /* 繁體中文 */
-    "site.title":"康科尚品購物平台 — Crystal Health Global Tech｜優雅健康生活選物",
+    "site.title":"康科尚品購物平台 — Crystal Health｜優雅健康生活選物",
     "nav.home":"首頁","nav.products":"產品","nav.about":"關於","nav.contact":"聯絡","nav.faq":"常見問題",
     "nav.share":"分享","nav.whatsapp":"WhatsApp","nav.wechat":"WeChat 微信","nav.cart":"購物車",
-    "demo.flag":'此為 <b>設計示範版（優雅健康選物風格）</b>：頭 10 款產品已用 <b>客戶真實相片同名稱</b>，價錢待客戶確認；其餘產品圖片、價錢及部分資料仍為 <b>佔位示範</b>。',
-    "footer.left":"康科尚品購物平台 · Crystal Health Global Tech<br>示範原型由 AI Business Lab 製作 · aibizlab.work@gmail.com",
+    "demo.flag":'部分產品價格仍在確認中，落單前歡迎先透過 WhatsApp 向我們查詢。',
+    "footer.left":"康科尚品 Crystal Health<br>康妍投資有限公司 CRYSTAL HEALTH INVESTMENT LIMITED · BR 63066788-000-03-26-A",
     "footer.right":"私隱政策 · 條款及細則 · © 2026 Crystal Health",
     "cart.title":"購物車","cart.empty":"購物車空空如也<br>上去產品選集揀啲嘢啦","cart.total":"合計",
     "cart.sub":"小計","cart.disc":"會員九五折（滿 $300）","cart.ship":"運費","cart.freeship":"免運費",
@@ -31,12 +31,12 @@ const I18N = {
     "p2.n":"日常可用","p2.d":"由關節到腸道、由睡眠到護眼，照顧每日嘅小需要。",
     "p3.n":"安心選擇","p3.d":"每件產品都經挑選，長者友善設計，家人幫手都易。",
     "idx.cta":"開始選購",
-    "prod.title":"健康產品，仔細挑選。","prod.sub":"最前面 10 款為客戶真實貨品，相片由客戶提供；價錢待客戶確認，可先 WhatsApp 問價。其餘為示範佔位，正式上線前會按真實資料更新。",
-    "chip.all":"全部","cat.vitality":"活力營養","cat.care":"日常護理","cat.gut":"腸道健康","cat.pet":"寵物專區","cat.tech":"生活科技",
+    "prod.title":"健康產品，仔細挑選。","prod.sub":"產品相片由客戶提供；部分價格待確認，可先 WhatsApp 問價。",
+    "chip.all":"全部","cat.vitality":"活力營養","cat.care":"日常護理","cat.gut":"腸道健康","cat.pet":"寵物專區","cat.tech":"生活科技","cat.appliance":"家用電器",
     "add":"加入","prod.imgph":"圖片待換","prod.enquire":"查詢","prod.real":"客戶真品","prod.zoom":"放大","prod.prev":"上一張","prod.next":"下一張","prod.close":"關閉",
     "about.title":'健康，不需要<br>變得很複雜。',
     "about.lead":"我哋把優質健康產品放在同一個簡單入口，讓你更容易搵到需要嘅資訊，也更容易作出適合自己嘅選擇。",
-    "about.p1":"康科尚品購物平台（Crystal Health Global Tech）相信，照顧自己應該係一件從容嘅事。由日常護理到活力營養，每件產品都經挑選，資料寫得清楚，長者都睇得明。",
+    "about.p1":"康科尚品購物平台相信，照顧自己應該係一件從容嘅事。由日常護理到活力營養，每件產品都經挑選，資料寫得清楚，長者都睇得明。",
     "about.p2":"落單更簡單——睇啱就加入購物車，一撳經 WhatsApp 發出，唔使開戶、唔使填長表格。",
     "about.imgalt":"健康生活",
     "contact.title":"聯絡我們","contact.sub":"有咩想問？歡迎隨時 WhatsApp 我哋，或於正式上線後用電郵聯絡。",
@@ -54,21 +54,21 @@ const I18N = {
     "f4.q":"缺貨點算？","f4.a":"賣緊嘅產品會標「可預訂」，你照樣落單，到貨我哋主動 WhatsApp 通知你。",
     "f5.q":"長者唔識用怎辦？","f5.a":"我哋特意做大字、大掣、少步驟；家人或職員可以幫手填，亦可以經 WhatsApp 直接同我哋講想買咩。",
     "disc.title":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><path d='M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z'/><path d='M12 9.2v4.4'/><path d='M12 17.1h.01'/></svg> 重要聲明（正式上線前必須清楚標示）：",
-    "disc.b1":"康科尚品購物平台（Crystal Health Global Tech）<b>並非醫療機構</b>，所售產品為一般保健品／營養補充品，<b>不作診斷、治療或預防任何疾病</b>。",
+    "disc.b1":"康科尚品購物平台<b>並非醫療機構</b>，所售產品為一般保健品／營養補充品，<b>不作診斷、治療或預防任何疾病</b>。",
     "disc.b2":"如有不適或緊急情況，請立即聯絡緊急服務或合資格醫護人員，切勿倚賴本網站產品替代專業醫療。",
-    "disc.b3":"產品名稱、圖片、價錢、評價均為<b>設計示範佔位</b>，正式上線前會按客戶提供資料替換；文中數字僅供排版示範。",
-    "disc.b4":"此頁為 <b>設計示範原型</b>：購物車同 WhatsApp 落單流程為真實可運作，商戶 WhatsApp 號碼（9100 8027）已接駁，可即時落單試用。",
+    "disc.b3":"產品資料以實物為準；如有疑問，歡迎透過 WhatsApp 查詢。",
+    "disc.b4":"落單請透過 WhatsApp 與我們聯絡，我們會盡快回覆。",
     "wa.order.default":"你好，我想喺「康科尚品購物平台」落單：",
     "wa.query":"你好，我想查詢／落單康科尚品嘅產品。",
     "wa.hello":"你好","wa.name":"姓名","wa.phone":"聯絡電話／WhatsApp","wa.total":"合計","toast.added":"已加入：","toast.empty":"購物車係空嘅，先揀啲嘢啦","toast.done":"已開啟 WhatsApp，send 出就完成落單","toast.copied":"分享連結已複製",
     "crumbs.home":"首頁"
   },
   cn:{ /* 简体中文 */
-    "site.title":"康科尚品购物平台 — Crystal Health Global Tech｜优雅健康生活选物",
+    "site.title":"康科尚品购物平台 — Crystal Health｜优雅健康生活选物",
     "nav.home":"首页","nav.products":"产品","nav.about":"关于","nav.contact":"联络","nav.faq":"常见问题",
     "nav.share":"分享","nav.whatsapp":"WhatsApp","nav.wechat":"WeChat 微信","nav.cart":"购物车",
-    "demo.flag":'此为 <b>设计示范版（优雅健康选物风格）</b>：头 10 款产品已用 <b>客户真实照片同名称</b>，价钱待客户确认；其余产品图片、价钱及部分资料仍为 <b>占位示范</b>。',
-    "footer.left":"康科尚品购物平台 · Crystal Health Global Tech<br>示范原型由 AI Business Lab 制作 · aibizlab.work@gmail.com",
+    "demo.flag":'部分产品价格仍在确认中，下单前欢迎先通过 WhatsApp 向我们查询。',
+    "footer.left":"康科尚品 Crystal Health<br>康妍投资有限公司 CRYSTAL HEALTH INVESTMENT LIMITED · BR 63066788-000-03-26-A",
     "footer.right":"隐私政策 · 条款及细则 · © 2026 Crystal Health",
     "cart.title":"购物车","cart.empty":"购物车空空如也<br>去产品选集挑点东西吧","cart.total":"合计",
     "cart.sub":"小计","cart.disc":"会员九五折（满 $300）","cart.ship":"运费","cart.freeship":"免运费",
@@ -93,12 +93,12 @@ const I18N = {
     "p2.n":"日常可用","p2.d":"由关节到肠道、由睡眠到护眼，照顾每日的小需要。",
     "p3.n":"安心选择","p3.d":"每件产品都经挑选，长者友善设计，家人帮忙都易。",
     "idx.cta":"开始选购",
-    "prod.title":"健康产品，仔细挑选。","prod.sub":"最前面 10 款为客戸真实货品，照片由客户提供；价钱待客户确认，可先 WhatsApp 询价。其余为示范占位，正式上线前会按真实资料更新。",
+    "prod.title":"健康产品，仔细挑选。","prod.sub":"产品相片由客户提供；部分价格待确认，可先 WhatsApp 问价。",
     "chip.all":"全部","cat.vitality":"活力营养","cat.care":"日常护理","cat.gut":"肠道健康","cat.pet":"宠物专区","cat.tech":"生活科技",
     "add":"加入","prod.imgph":"图片待换","prod.enquire":"询价","prod.real":"客户真品","prod.zoom":"放大","prod.prev":"上一张","prod.next":"下一张","prod.close":"关闭",
     "about.title":'健康，不需要<br>变得很复杂。',
     "about.lead":"我们把优质健康产品放在同一个简单入口，让你更容易找到需要的资讯，也更容易作出适合自己的选择。",
-    "about.p1":"康科尚品购物平台（Crystal Health Global Tech）相信，照顾自己应该是一件从容的事。由日常护理到活力营养，每件产品都经挑选，资料写得清楚，长者都看得明。",
+    "about.p1":"康科尚品购物平台相信，照顾自己应该是一件从容的事。由日常护理到活力营养，每件产品都经挑选，资料写得清楚，长者都看得明。",
     "about.p2":"下单更简单——看中就加入购物车，一按经 WhatsApp 发出，不用开户、不用填长表格。",
     "about.imgalt":"健康生活",
     "contact.title":"联络我们","contact.sub":"有什么想问？欢迎随时 WhatsApp 我们，或于正式上线后用电邮联络。",
@@ -116,21 +116,21 @@ const I18N = {
     "f4.q":"缺货怎么办？","f4.a":"在售的产品会标「可预订」，你照样下单，到货我们主动 WhatsApp 通知你。",
     "f5.q":"长者不会用怎么办？","f5.a":"我们特意做大字、大按钮、少步骤；家人或职员可以帮忙填，亦可以经 WhatsApp 直接同我们讲想买什么。",
     "disc.title":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><path d='M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z'/><path d='M12 9.2v4.4'/><path d='M12 17.1h.01'/></svg> 重要声明（正式上线前必须清楚标示）：",
-    "disc.b1":"康科尚品购物平台（Crystal Health Global Tech）<b>并非医疗机构</b>，所售产品为一般保健品／营养补充品，<b>不作诊断、治疗或预防任何疾病</b>。",
+    "disc.b1":"康科尚品购物平台<b>并非医疗机构</b>，所售产品为一般保健品／营养补充品，<b>不作诊断、治疗或预防任何疾病</b>。",
     "disc.b2":"如有不适或紧急情况，请立即联络紧急服务或合资格医护人员，切勿倚赖本网站产品替代专业医疗。",
-    "disc.b3":"产品名称、图片、价钱、评价均为<b>设计示范占位</b>，正式上线前会按客户提供资料替换；文中数字仅供排版示范。",
-    "disc.b4":"此页为 <b>设计示范原型</b>：购物车同 WhatsApp 下单流程为真实可运作，商户 WhatsApp 号码（9100 8027）已接驳，可即时下单试用。",
+    "disc.b3":"产品资料以实物为准；如有疑问，欢迎透过 WhatsApp 查询。",
+    "disc.b4":"下单请透过 WhatsApp 与我们联络，我们会尽快回复。",
     "wa.order.default":"你好，我想喺「康科尚品购物平台」下单：",
     "wa.query":"你好，我想查询／下单康科尚品的产品。",
     "wa.hello":"你好","wa.name":"姓名","wa.phone":"联络电话／WhatsApp","wa.total":"合计","toast.added":"已加入：","toast.empty":"购物车是空的，先挑点东西吧","toast.done":"已开启 WhatsApp，send 出就完成下单","toast.copied":"分享链接已复制",
     "crumbs.home":"首页"
   },
   en:{ /* English */
-    "site.title":"Crystal Health Global Tech — Elegant Curator of Healthy Living",
+    "site.title":"Crystal Health — Elegant Curator of Healthy Living",
     "nav.home":"Home","nav.products":"Products","nav.about":"About","nav.contact":"Contact","nav.faq":"FAQ",
     "nav.share":"Share","nav.whatsapp":"WhatsApp","nav.wechat":"WeChat","nav.cart":"Cart",
-    "demo.flag":'<b>Design Preview (Elegant Wellness Curator style)</b>: the first 10 products use the <b>client’s real photos and names</b> (pricing pending confirmation); the remaining images, prices and some content are still <b>placeholders</b>.',
-    "footer.left":"Crystal Health Global Tech<br>Demo prototype by AI Business Lab · aibizlab.work@gmail.com",
+    "demo.flag":'Some product prices are still being confirmed — feel free to check with us on WhatsApp before ordering.',
+    "footer.left":"Crystal Health<br>Crystal Health Investment Limited · BR 63066788-000-03-26-A",
     "footer.right":"Privacy · Terms · © 2026 Crystal Health",
     "cart.title":"Cart","cart.empty":"Your cart is empty<br>Go pick something from the collection","cart.total":"Total",
     "cart.sub":"Subtotal","cart.disc":"Member 5% off (over $300)","cart.ship":"Shipping","cart.freeship":"FREE",
@@ -155,12 +155,12 @@ const I18N = {
     "p2.n":"Daily usable","p2.d":"From joints to gut, sleep to eyes — care for everyday little needs.",
     "p3.n":"Reassuring choice","p3.d":"Every product is curated, elder-friendly by design, easy for family to help.",
     "idx.cta":"Start Shopping",
-    "prod.title":"Wellness products, carefully curated.","prod.sub":"The first 10 items are the client's real products with photos supplied by the client; pricing is pending confirmation — enquire on WhatsApp. The rest are placeholders to be replaced with real data before launch.",
-    "chip.all":"All","cat.vitality":"Vitality","cat.care":"Daily Care","cat.gut":"Gut Health","cat.pet":"Pet Care","cat.tech":"Lifestyle Tech",
+    "prod.title":"Wellness products, carefully curated.","prod.sub":"Product photos supplied by the client; some prices pending confirmation — enquire on WhatsApp.",
+    "chip.all":"All","cat.vitality":"Vitality","cat.care":"Daily Care","cat.gut":"Gut Health","cat.pet":"Pet Care","cat.tech":"Lifestyle Tech","cat.appliance":"Home Appliance",
     "add":"Add","prod.imgph":"Image","prod.enquire":"Enquire","prod.real":"Client product","prod.zoom":"Zoom","prod.prev":"Previous","prod.next":"Next","prod.close":"Close",
     "about.title":'Wellness doesn’t<br>need to be complicated.',
     "about.lead":"We bring quality wellness products into one simple entry point, so you can find what you need and make choices that fit you.",
-    "about.p1":"Crystal Health Global Tech believes taking care of yourself should be a calm affair. From daily care to vitality nutrition, every product is curated with clear information that elders can read.",
+    "about.p1":"Crystal Health believes taking care of yourself should be a calm affair. From daily care to vitality nutrition, every product is curated with clear information that elders can read.",
     "about.p2":"Ordering is simpler — add to cart when you like it, send with one tap via WhatsApp. No account, no long forms.",
     "about.imgalt":"Healthy living",
     "contact.title":"Contact","contact.sub":"Any questions? WhatsApp us anytime, or email after the official launch.",
@@ -178,10 +178,10 @@ const I18N = {
     "f4.q":"What if it’s out of stock?","f4.a":"Available products are marked “pre-orderable” — order as usual and we’ll WhatsApp you when restocked.",
     "f5.q":"What if elders can’t use it?","f5.a":"We use large text, big buttons and few steps; family or staff can help fill, or simply tell us via WhatsApp what they want.",
     "disc.title":"<svg class='ic' viewBox='0 0 24 24' aria-hidden='true' focusable='false'><path d='M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z'/><path d='M12 9.2v4.4'/><path d='M12 17.1h.01'/></svg> Important Disclaimer (must be clearly shown before launch):",
-    "disc.b1":"Crystal Health Global Tech is <b>not a medical institution</b>. Products sold are general health / nutritional supplements, <b>not for diagnosing, treating or preventing any disease</b>.",
+    "disc.b1":"Crystal Health is <b>not a medical institution</b>. Products sold are general health / nutritional supplements, <b>not for diagnosing, treating or preventing any disease</b>.",
     "disc.b2":"If unwell or in an emergency, contact emergency services or qualified medical staff immediately. Do not rely on this site’s products as a substitute for professional care.",
-    "disc.b3":"Product names, images, prices and reviews are <b>design placeholders</b>, to be replaced with client data before launch; numbers are for layout demo only.",
-    "disc.b4":"This is a <b>design prototype</b>: cart and WhatsApp order flow are functional; merchant WhatsApp (9100 8027) is connected and ready for live orders.",
+    "disc.b3":"Product details are subject to the actual item; feel free to reach us on WhatsApp with any questions.",
+    "disc.b4":"To order, reach us on WhatsApp — we will get back to you shortly.",
     "wa.order.default":"Hello, I’d like to order from “Crystal Health”:",
     "wa.query":"Hello, I’d like to enquire / order Crystal Health products.",
     "wa.hello":"Hello","wa.name":"Name","wa.phone":"Phone / WhatsApp","wa.total":"Total","toast.added":"Added: ","toast.empty":"Cart is empty, pick something first","toast.done":"WhatsApp opened, send to finish","toast.copied":"Share link copied",
@@ -244,83 +244,17 @@ let PRODUCTS = [
     spec:{zh:'5 合 1 益生菌',cn:'5 合 1 益生菌',en:'5-in-1 probiotic'},
     desc:{zh:'5 合 1 益生菌配方，支援寵物腸道健康。',cn:'5 合 1 益生菌配方，支援宠物肠道健康。',en:"5-in-1 probiotic formula supporting your pet's gut health."},
     price:null},
-  /* ===== 以下為示範樣板（圖片待換，價錢為示範）===== */
-  {id:'vitc', img:'vitc.png', cat:'cat.vitality', catKey:'vitality',
-    name:{zh:'維他命 C 免疫配方',cn:'维他命 C 免疫配方',en:'Vitamin C Immunity'},
-    spec:{zh:'每日補充',cn:'每日补充',en:'Daily supplement'},
-    desc:{zh:'每日補充維他命 C，支援免疫力，適合一家大細日常保健。',cn:'每日补充维他命 C，支援免疫力，适合一家大细日常保健。',en:'Daily vitamin C to support immunity, for everyday family wellness.'},
-    price:128},
-  {id:'omega', img:'omega.png', cat:'cat.vitality', catKey:'vitality',
-    name:{zh:'深海魚油 Omega-3',cn:'深海鱼油 Omega-3',en:'Deep-sea Fish Oil Omega-3'},
-    spec:{zh:'EPA／DHA',cn:'EPA／DHA',en:'EPA / DHA'},
-    desc:{zh:'富含 EPA／DHA，呵護心腦血管同眼睛健康。',cn:'富含 EPA／DHA，呵护心脑血管同眼睛健康。',en:'Rich in EPA/DHA for heart, brain and eye health.'},
-    price:168},
-  {id:'cal', img:'cal.png', cat:'cat.care', catKey:'care',
-    name:{zh:'鈣＋維他命 D 骨骼配方',cn:'钙＋维他命 D 骨骼配方',en:'Calcium + Vit D Bone'},
-    spec:{zh:'骨骼健康',cn:'骨骼健康',en:'Bone health'},
-    desc:{zh:'補鈣同維他命 D，幫助骨骼同牙齒健康，長者適用。',cn:'补钙同维他命 D，帮助骨骼同牙齿健康，长者适用。',en:'Calcium with vitamin D for bones and teeth, suitable for elders.'},
-    price:145},
-  {id:'pro', img:'pro.png', cat:'cat.gut', catKey:'gut',
-    name:{zh:'益生菌腸道配方',cn:'益生菌肠道配方',en:'Probiotic Gut Formula'},
-    spec:{zh:'活性益生菌',cn:'活性益生菌',en:'Live probiotics'},
-    desc:{zh:'活性益生菌，調節腸道菌群，改善消化同舒適感。',cn:'活性益生菌，调节肠道菌群，改善消化同舒适感。',en:'Live probiotics to balance gut flora and comfort digestion.'},
-    price:199},
-  {id:'reishi', img:'reishi.png', cat:'cat.vitality', catKey:'vitality',
-    name:{zh:'靈芝孢子粉',cn:'灵芝孢子粉',en:'Reishi Spore Powder'},
-    spec:{zh:'養生配方',cn:'养生配方',en:'Wellness formula'},
-    desc:{zh:'傳統養生配方，適合注重體質調理嘅人士。',cn:'传统养生配方，适合注重体质调理的人士。',en:'Traditional wellness formula for those who care about balance.'},
-    price:268},
-  {id:'mela', img:'mela.png', cat:'cat.care', catKey:'care',
-    name:{zh:'褪黑素安睡配方',cn:'褪黑素安睡配方',en:'Melatonin Sleep'},
-    spec:{zh:'睡眠支援',cn:'睡眠支援',en:'Sleep support'},
-    desc:{zh:'幫助入睡、改善睡眠質素，適合作息不規律嘅人士。',cn:'帮助入睡、改善睡眠质素，适合作息不规律的人士。',en:'Helps fall asleep and improve sleep quality.'},
-    price:138},
-  {id:'lutein', img:'lutein.png', cat:'cat.care', catKey:'care',
-    name:{zh:'葉黃素護眼配方',cn:'叶黄素护眼配方',en:'Lutein Eye Care'},
-    spec:{zh:'眼睛呵護',cn:'眼睛呵护',en:'Eye care'},
-    desc:{zh:'葉黃素＋玉米黃質，呵護眼睛，長時間用眼的必備。',cn:'叶黄素＋玉米黄质，呵护眼睛，长时间用眼的必备。',en:'Lutein + zeaxanthin to care for eyes during long screen time.'},
-    price:188},
-  {id:'colla', img:'colla.png', cat:'cat.vitality', catKey:'vitality',
-    name:{zh:'膠原蛋白飲品',cn:'胶原蛋白饮品',en:'Collagen Drink'},
-    spec:{zh:'每日一包',cn:'每日一包',en:'One sachet daily'},
-    desc:{zh:'每日一包，補充膠原蛋白，呵護皮膚同關節。',cn:'每日一包，补充胶原蛋白，呵护皮肤同关节。',en:'One sachet a day to replenish collagen for skin and joints.'},
-    price:228},
-  {id:'turm', img:'turm.png', cat:'cat.vitality', catKey:'vitality',
-    name:{zh:'薑黃素抗發炎配方',cn:'姜黄素抗发炎配方',en:'Turmeric Anti-inflammatory'},
-    spec:{zh:'舒緩配方',cn:'舒缓配方',en:'Soothing formula'},
-    desc:{zh:'薑黃素配合黑胡椒素，幫助舒緩同抗發炎。',cn:'姜黄素配合黑胡椒素，帮助舒缓同抗发炎。',en:'Turmeric with black pepper extract for soothing comfort.'},
-    price:158},
-  {id:'glu', img:'glu.png', cat:'cat.care', catKey:'care',
-    name:{zh:'血糖平衡配方',cn:'血糖平衡配方',en:'Blood Sugar Balance'},
-    spec:{zh:'日常調理',cn:'日常调理',en:'Daily support'},
-    desc:{zh:'配合飲食同運動，幫助維持健康血糖狀態。',cn:'配合饮食同运动，帮助维持健康血糖状态。',en:'With diet and exercise, helps maintain healthy blood sugar.'},
-    price:215},
-  {id:'joint', img:'joint.png', cat:'cat.care', catKey:'care',
-    name:{zh:'關節軟骨素配方',cn:'关节软骨素配方',en:'Joint Glucosamine'},
-    spec:{zh:'關節靈活',cn:'关节灵活',en:'Joint flexibility'},
-    desc:{zh:'軟骨素＋葡萄糖胺，呵護關節靈活，長者活動自如。',cn:'软骨素＋葡萄糖胺，呵护关节灵活，长者活动自如。',en:'Chondroitin + glucosamine for flexible joints, great for elders.'},
-    price:198},
-  {id:'liver', img:'liver.png', cat:'cat.care', catKey:'care',
-    name:{zh:'護肝片',cn:'护肝片',en:'Liver Care'},
-    spec:{zh:'肝臟健康',cn:'肝脏健康',en:'Liver health'},
-    desc:{zh:'奶薊草配方，幫助肝臟健康，適合需要調理嘅人士。',cn:'奶蓟草配方，帮助肝脏健康，适合需要调理的人士。',en:'Milk thistle formula to support liver health.'},
-    price:175},
-  {id:'bp', img:'bp.png', cat:'cat.tech', catKey:'tech',
-    name:{zh:'電子血壓計',cn:'电子血压计',en:'Digital Blood Pressure Monitor'},
-    spec:{zh:'上臂式・大字顯示',cn:'上臂式・大字显示',en:'Upper arm · large display'},
-    desc:{zh:'家用上臂式電子血壓計，大屏幕大字，長者都睇得清、用得易。',cn:'家用上臂式电子血压计，大屏幕大字，长者都看得清、用得易。',en:'Home upper-arm monitor with a large screen and big digits, easy for elders to read and use.'},
-    price:328},
-  {id:'thermo', img:'thermo.png', cat:'cat.tech', catKey:'tech',
-    name:{zh:'紅外線額溫槍',cn:'红外线额温枪',en:'Infrared Forehead Thermometer'},
-    spec:{zh:'一秒測溫・靜音',cn:'一秒测温・静音',en:'1-second · silent'},
-    desc:{zh:'一秒非接觸測溫，靜音唔會吵醒人，全家四季都啱用。',cn:'一秒非接触测温，静音不会吵醒人，全家四季都啱用。',en:'One-second contactless reading, silent so it will not wake anyone, suitable all year round.'},
-    price:158},
-  {id:'massager', img:'massager.png', cat:'cat.tech', catKey:'tech',
-    name:{zh:'肩頸按摩披肩',cn:'肩颈按摩披肩',en:'Neck & Shoulder Massager'},
-    spec:{zh:'多檔力度',cn:'多档力度',en:'Multiple intensity levels'},
-    desc:{zh:'居家放鬆好幫手，多檔力度揉捏，舒緩肩頸同背部疲勞。',cn:'居家放松好帮手，多档力度揉捏，舒缓肩颈同背部疲劳。',en:'A relaxing helper at home with multiple kneading intensities to ease neck, shoulder and back fatigue.'},
-    price:398}
-];
+  /* ===== 新增：家用電器（Kadyn，已審核文案；無產品相，gallery 留空）===== */
+  {id:'kadyn-hydrogen', img:'', gallery:[], real:false, cat:'cat.appliance', catKey:'appliance',
+    name:{zh:'Kadyn 家用氫水機',cn:'Kadyn 家用氢水机',en:'Kadyn Home Hydrogen Water Maker'},
+    spec:{zh:'型號待確認',cn:'型号待确认',en:'Model TBC'},
+    desc:{zh:'無需插電的家用氫水機，加入飲用水即可製作氫水；規格、保養及使用說明請參閱產品頁。',cn:'无需插电的家用氢水机，加入饮用水即可制作氢水；规格、保养及使用说明请参阅产品页。',en:'A plug-free home hydrogen water maker — just add drinking water. See the product page for specifications, care and usage instructions.'},
+    price:null},
+  {id:'kadyn-purifier', img:'', gallery:[], real:false, cat:'cat.appliance', catKey:'appliance',
+    name:{zh:'Kadyn 淨水機（四重過濾）',cn:'Kadyn 净水机（四重过滤）',en:'Kadyn Water Purifier (4-Stage Filtration)'},
+    spec:{zh:'型號待確認',cn:'型号待确认',en:'Model TBC'},
+    desc:{zh:'四重過濾家用淨水機，附濾芯規格、更換周期及安裝說明。',cn:'四重过滤家用净水机，附滤芯规格、更换周期及安装说明。',en:'A four-stage home water purifier with filter specifications, replacement schedule and installation guide included.'},
+    price:null}];
 
 /* ===== i18n 切換 ===== */
 let curLang = localStorage.getItem('ch_lang') || 'zh';
@@ -452,11 +386,20 @@ function shareSite(){
 }
 function goProducts(){ window.location.href='products.html'; }
 
-/* ===== WeChat 聯絡（第3項升級）=====
-   換真 WeChat ID：改下面 WX_ID 一個值就全站更新（暫用佔位 aibizlab）
+/* ===== WeChat 聯絡 =====
+   PDPO 風險：WX_ID='aibizlab' 係代理公司（agency）ID，唔可以用嚟做客戶網站聯絡方式。
+   暫時 WX_ENABLED=false 全站隱藏 WeChat 入口；等客戶提供真 WeChat ID 先重開。
    想換真 QR 碼：send 圖俾我，我會替換 .wxqr 個 background 圖案 */
-const WX_ID = "aibizlab";
-function syncWxId(){ document.querySelectorAll('#wxIdText,#wxIdCard').forEach(e=>{ if(e) e.textContent=WX_ID; }); }
+const WX_ID = "aibizlab";          // TODO: 等客戶提供真 WeChat ID 先重開（PDPO: 唔可以用 agency ID "aibizlab"）
+const WX_ENABLED = false;
+function applyWxVisibility(){
+  if(WX_ENABLED) return;
+  document.querySelectorAll('.wx-btn, .wx-entry, #wxModal, #wxIdText, #wxIdCard').forEach(e=>{ if(e) e.style.display='none'; });
+}
+function syncWxId(){
+  if(!WX_ENABLED) return;
+  document.querySelectorAll('#wxIdText,#wxIdCard').forEach(e=>{ if(e) e.textContent=WX_ID; });
+}
 function openWx(){ const m=document.getElementById('wxModal'); if(m) m.classList.add('open'); }
 function closeWx(){ const m=document.getElementById('wxModal'); if(m) m.classList.remove('open'); }
 function copyWx(){ const id=WX_ID; if(navigator.clipboard){ navigator.clipboard.writeText(id).then(()=>toast('WeChat ID 已複製')).catch(()=>toast(id)); } else { toast(id); } }
@@ -616,14 +559,14 @@ function applyPageBackground(){
     bg.style.setProperty('--bg','url(../img/bg/'+id+'.jpg)');
   }).catch(function(){});
 }
-if(document.readyState!=='loading'){ syncWxId(); carouselInit(); heroShimmerInit(); heroVideoKick(); coralInit(); applyPageBackground(); }
-else { document.addEventListener('DOMContentLoaded',()=>{ syncWxId(); carouselInit(); heroShimmerInit(); heroVideoKick(); coralInit(); applyPageBackground(); }); }
+if(document.readyState!=='loading'){ applyWxVisibility(); syncWxId(); carouselInit(); heroShimmerInit(); heroVideoKick(); coralInit(); applyPageBackground(); }
+else { document.addEventListener('DOMContentLoaded',()=>{ applyWxVisibility(); syncWxId(); carouselInit(); heroShimmerInit(); heroVideoKick(); coralInit(); applyPageBackground(); }); }
 
 /* ===== 產品渲染（products.html 用） ===== */
 function renderProducts(){
   const grid=document.getElementById('store-grid'); if(!grid)return;
   const chips=document.getElementById('chips'); if(chips && !chips.dataset.built){
-    const cats=['all','vitality','care','gut','pet','tech'];
+    const cats=['all','vitality','care','gut','pet','tech','appliance'];
     chips.innerHTML = cats.map((c,i)=>`<button class="chip ${i===0?'on':''}" data-filter="${c}">${i===0?t('chip.all'):t('cat.'+c)}</button>`).join('');
     chips.dataset.built='1';
     chips.addEventListener('click',function(e){ if(!e.target.classList.contains('chip'))return;
@@ -636,6 +579,10 @@ function renderProducts(){
   }
   grid.innerHTML = PRODUCTS.map(p=>{
     const gal = (p.gallery && p.gallery.length) ? p.gallery : [p.img];
+    const hasImg = !!(gal && gal.length>0 && gal[0]);
+    const imgHtml = hasImg
+      ? `<img class="phimg" src="${IMG(gal[0])}" alt="${p.name[curLang]}" loading="lazy" onerror="this.style.display='none'">`
+      : `<div class="ph-noimg" aria-hidden="true"><svg class="ph-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>`;
     const thumbs = gal.length>1
       ? `<div class="thumbs">${gal.slice(1).map((g,i)=>`<img src="${IMG(g)}" alt="${p.name[curLang]} 圖${i+2}" loading="lazy" data-gal="${p.id}" data-i="${i+1}">`).join('')}</div>`
       : '';
@@ -646,7 +593,7 @@ function renderProducts(){
       : `<div class="price">$${p.price}</div><button class="add-btn" onclick="addItem('${p.id}')">${t('add')}</button>`;
     return `
     <div class="prod${p.real?' is-real':''}" data-catkey="${p.catKey}">
-      <div class="ph${p.real?' real':''}"><img class="phimg" src="${IMG(gal[0])}" alt="${p.name[curLang]}" loading="lazy" data-gal="${p.id}" data-i="0" onerror="this.style.display='none'">${badge}<span class="cat">${t(p.cat)}</span>${thumbs}</div>
+      <div class="ph${p.real?' real':''}">${imgHtml}${badge}<span class="cat">${t(p.cat)}</span>${thumbs}</div>
       <div class="body">
         <h3>${p.name[curLang]}</h3>
         <div class="spec">${p.spec[curLang]}</div>

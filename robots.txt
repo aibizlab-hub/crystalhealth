@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block the CMS admin login + build/dev tooling from public indexing only.
+# NOTE: do NOT block /css/ /js/ /img/ /data/ — Google needs them to render the page.
+Disallow: /admin/
+Disallow: /_build-tools/
+
+Sitemap: https://crystalhealth.hk/sitemap.xml
