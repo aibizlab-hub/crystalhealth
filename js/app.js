@@ -3,6 +3,7 @@
 const I18N = {
   zh:{ /* 繁體中文 */
     "site.title":"康科尚品購物平台 — Crystal Health｜優雅健康生活選物",
+    "title.index":"康科尚品購物平台 — Crystal Health","title.about":"關於我們 — Crystal Health","title.contact":"聯絡我們 — Crystal Health","title.faq":"常見問題 — Crystal Health","title.products":"產品選集 — Crystal Health",
     "nav.home":"首頁","nav.products":"產品","nav.about":"關於","nav.contact":"聯絡","nav.faq":"常見問題",
     "nav.share":"分享","nav.whatsapp":"WhatsApp","nav.wechat":"WeChat 微信","nav.cart":"購物車",
     "demo.flag":'部分產品價格仍在確認中，落單前歡迎先透過 WhatsApp 向我們查詢。',
@@ -83,6 +84,7 @@ const I18N = {
   },
   cn:{ /* 简体中文 */
     "site.title":"康科尚品购物平台 — Crystal Health｜优雅健康生活选物",
+    "title.index":"康科尚品购物平台 — Crystal Health","title.about":"关于我们 — Crystal Health","title.contact":"联络我们 — Crystal Health","title.faq":"常见问题 — Crystal Health","title.products":"产品选集 — Crystal Health",
     "nav.home":"首页","nav.products":"产品","nav.about":"关于","nav.contact":"联络","nav.faq":"常见问题",
     "nav.share":"分享","nav.whatsapp":"WhatsApp","nav.wechat":"WeChat 微信","nav.cart":"购物车",
     "demo.flag":'部分产品价格仍在确认中，下单前欢迎先通过 WhatsApp 向我们查询。',
@@ -163,6 +165,7 @@ const I18N = {
   },
   en:{ /* English */
     "site.title":"Crystal Health — Elegant Curator of Healthy Living",
+    "title.index":"Crystal Health — Elegant Curator of Healthy Living","title.about":"About — Crystal Health","title.contact":"Contact — Crystal Health","title.faq":"FAQ — Crystal Health","title.products":"Products — Crystal Health",
     "nav.home":"Home","nav.products":"Products","nav.about":"About","nav.contact":"Contact","nav.faq":"FAQ",
     "nav.share":"Share","nav.whatsapp":"WhatsApp","nav.wechat":"WeChat","nav.cart":"Cart",
     "demo.flag":'Some product prices are still being confirmed — feel free to check with us on WhatsApp before ordering.',
@@ -244,7 +247,7 @@ const I18N = {
 };
 
 /* 產品資料（三語 + 真實圖片） */
-const IMG = file => `img/products/${file}`;
+const IMG = file => `/img/products/${file}`;
 let PRODUCTS = [
   /* ===== 客戶真實貨品（2026-09-13 客戶經 WhatsApp 提供相片同名稱）=====
      順序 = 網站顯示順序，真品排最前，示範樣板跟後面。價錢待客戶確認 → price:null 顯示「查詢」。 */
@@ -311,13 +314,22 @@ let PRODUCTS = [
     price:null}];
 
 /* ===== i18n 切換 ===== */
+/* 初始語言：
+   - /en/ 子目錄 → 英文；/zh-CN/ 子目錄 → 簡中；
+   - 根目錄頁維持 localStorage 預設（繁中 zh-HK）。
+   呢個偵測喺 applyLang 之前跑，鎖死子目錄頁語言，避免「先閃繁中後變英文」嘅 flash。 */
 let curLang = localStorage.getItem('ch_lang') || 'zh';
+(function detectDirLang(){
+  var p = location.pathname || '';
+  if (p.indexOf('/en/') !== -1) curLang = 'en';
+  else if (p.indexOf('/zh-CN/') !== -1) curLang = 'cn';
+})();
 function t(key){ return (I18N[curLang] && I18N[curLang][key]!==undefined) ? I18N[curLang][key] : (I18N.zh[key]||key); }
 /* ===== 產品資料外置（CMS / Google Sheet 都係改 data/products.json）=====
    讀到 JSON 就用 JSON；讀唔到（例如直接開本地檔）就用上面內置嗰 15 款，網站唔會白屏。 */
 async function loadProducts(){
   try{
-    const r=await fetch('data/products.json',{cache:'no-store'});
+    const r=await fetch('/data/products.json',{cache:'no-store'});
     if(!r.ok) return;
     const j=await r.json();
     if(Array.isArray(j)&&j.length){
@@ -331,11 +343,24 @@ async function loadProducts(){
    喺 applyLang 之前 merge 入 I18N，about/contact/pay 等文字就變成客戶可改。 */
 async function loadContent(){
   try{
-    const r=await fetch('data/content.json',{cache:'no-store'});
+    const r=await fetch('/data/content.json',{cache:'no-store'});
     if(!r.ok) return;
     const ov=await r.json();
     ['zh','cn','en'].forEach(l=>{ if(ov&&ov[l]) Object.assign(I18N[l], ov[l]); });
   }catch(e){}
+}
+/* 子目錄頁（/en/、/zh-CN/）嘅語言切換器：唔做 client-side 切換，
+   改為跳轉去對應語言目錄嘅同頁（例如 /en/about.html → ../about.html 或 ../zh-CN/about.html）。
+   root 頁唔會 call 呢個（root 按鈕仍係 applyLang 做 client-side 切換）。 */
+function goLang(lang){
+  var p = location.pathname || '';
+  var file = p.split('/').pop();
+  if (!file) file = 'index.html';
+  var inEn = p.indexOf('/en/') !== -1;
+  var inCn = p.indexOf('/zh-CN/') !== -1;
+  if (!inEn && !inCn) { applyLang(lang); return; }   // 安全網：root 頁退化做 client-side
+  var target = (lang==='zh') ? '' : (lang==='cn' ? 'zh-CN/' : 'en/');
+  location.href = '../' + target + file;
 }
 function applyLang(l){
   curLang = l;
@@ -602,7 +627,7 @@ function applyPageBackground(){
     return;                                  // 預覽模式：唔用設定檔覆蓋
   }
   if(!window.fetch) return;
-  fetch('data/backgrounds.json',{cache:'no-store'}).then(function(r){ return r.json(); }).then(function(cfg){
+  fetch('/data/backgrounds.json',{cache:'no-store'}).then(function(r){ return r.json(); }).then(function(cfg){
     var id=null, key=bgPageKey();
     if(cfg && cfg.pages){
       if(cfg.pages.length){                  // 陣列格式
