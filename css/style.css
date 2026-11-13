@@ -238,6 +238,9 @@ h2{font-family:"Noto Serif HK",serif;font-size:34px;font-weight:700;letter-spaci
 .disc b{color:#8a6d1f;font-weight:800}
 
 footer{background:#1E4D3B;color:#a9c6bd;padding:42px 0;font-size:14px;margin-top:30px;border-top:1px solid var(--gold-line)}
+footer .foot-right{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+footer .foot-privacy{color:#e6c984;text-decoration:underline;text-underline-offset:3px}
+footer .foot-privacy:hover{color:#fff}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;line-height:1.9}
 
 /* cart drawer */
