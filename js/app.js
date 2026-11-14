@@ -35,7 +35,7 @@ const I18N = {
     "idx.cta":"開始選購",
     "prod.title":"健康產品，仔細挑選。","prod.sub":"產品相片由客戶提供；部分價格待確認，可先 WhatsApp 問價。",
     "chip.all":"全部","cat.vitality":"活力營養","cat.care":"日常護理","cat.gut":"腸道健康","cat.pet":"寵物專區","cat.tech":"生活科技","cat.appliance":"家用電器",
-    "add":"加入","prod.imgph":"圖片待換","prod.enquire":"查詢","prod.real":"客戶真品","prod.zoom":"放大","prod.prev":"上一張","prod.next":"下一張","prod.close":"關閉",
+    "add":"加入","prod.imgph":"圖片待換","prod.enquire":"查詢","prod.real":"客戶真品","prod.more":"詳細資料","prod.zoom":"放大","prod.prev":"上一張","prod.next":"下一張","prod.close":"關閉",
     "about.title":'健康，不需要<br>變得很複雜。',
     "about.lead":"我哋把優質健康產品放在同一個簡單入口，讓你更容易搵到需要嘅資訊，也更容易作出適合自己嘅選擇。",
     "about.p1":"康科尚品購物平台相信，照顧自己應該係一件從容嘅事。由日常護理到活力營養，每件產品都經挑選，資料寫得清楚，長者都睇得明。",
@@ -116,7 +116,7 @@ const I18N = {
     "idx.cta":"开始选购",
     "prod.title":"健康产品，仔细挑选。","prod.sub":"产品相片由客户提供；部分价格待确认，可先 WhatsApp 问价。",
     "chip.all":"全部","cat.vitality":"活力营养","cat.care":"日常护理","cat.gut":"肠道健康","cat.pet":"宠物专区","cat.tech":"生活科技",
-    "add":"加入","prod.imgph":"图片待换","prod.enquire":"询价","prod.real":"客户真品","prod.zoom":"放大","prod.prev":"上一张","prod.next":"下一张","prod.close":"关闭",
+    "add":"加入","prod.imgph":"图片待换","prod.enquire":"询价","prod.real":"客户真品","prod.more":"详细资料","prod.zoom":"放大","prod.prev":"上一张","prod.next":"下一张","prod.close":"关闭",
     "about.title":'健康，不需要<br>变得很复杂。',
     "about.lead":"我们把优质健康产品放在同一个简单入口，让你更容易找到需要的资讯，也更容易作出适合自己的选择。",
     "about.p1":"康科尚品购物平台相信，照顾自己应该是一件从容的事。由日常护理到活力营养，每件产品都经挑选，资料写得清楚，长者都看得明。",
@@ -197,7 +197,7 @@ const I18N = {
     "idx.cta":"Start Shopping",
     "prod.title":"Wellness products, carefully curated.","prod.sub":"Product photos supplied by the client; some prices pending confirmation — enquire on WhatsApp.",
     "chip.all":"All","cat.vitality":"Vitality","cat.care":"Daily Care","cat.gut":"Gut Health","cat.pet":"Pet Care","cat.tech":"Lifestyle Tech","cat.appliance":"Home Appliance",
-    "add":"Add","prod.imgph":"Image","prod.enquire":"Enquire","prod.real":"Client product","prod.zoom":"Zoom","prod.prev":"Previous","prod.next":"Next","prod.close":"Close",
+    "add":"Add","prod.imgph":"Image","prod.enquire":"Enquire","prod.real":"Client product","prod.more":"View details","prod.zoom":"Zoom","prod.prev":"Previous","prod.next":"Next","prod.close":"Close",
     "about.title":'Wellness doesn’t<br>need to be complicated.',
     "about.lead":"We bring quality wellness products into one simple entry point, so you can find what you need and make choices that fit you.",
     "about.p1":"Crystal Health believes taking care of yourself should be a calm affair. From daily care to vitality nutrition, every product is curated with clear information that elders can read.",
@@ -366,7 +366,7 @@ function applyLang(l){
   curLang = l;
   localStorage.setItem('ch_lang', l);
   document.documentElement.lang = (l==='zh'?'zh-HK':(l==='cn'?'zh-CN':'en'));
-  document.title = t('site.title');
+  if (!document.querySelector('title[data-pd]')) document.title = t('site.title');   // 產品獨立頁用 data-pd 保留靜態 title
   document.querySelectorAll('[data-i18n]').forEach(el=>{ el.innerHTML = t(el.dataset.i18n); });
   document.querySelectorAll('.lang-switch button').forEach(b=>{
     b.classList.toggle('active', b.dataset.lang===l);
@@ -670,6 +670,9 @@ function renderProducts(){
     const row = noPrice
       ? `<div class="price enq">${t('prod.enquire')}</div><button class="add-btn enq-btn" onclick="enquire('${p.id}')">${t('prod.enquire')}</button>`
       : `<div class="price">$${p.price}</div><button class="add-btn" onclick="addItem('${p.id}')">${t('add')}</button>`;
+    // 詳細資料 → 獨立產品頁（依當前語言目錄）
+    const pdir = (location.pathname.indexOf('/en/')!==-1) ? '/en/p/' : (location.pathname.indexOf('/zh-CN/')!==-1 ? '/zh-CN/p/' : '/p/');
+    const more = `<a class="more-link" href="${pdir}${p.id}.html">${t('prod.more')} →</a>`;
     return `
     <div class="prod${p.real?' is-real':''}" data-catkey="${p.catKey}">
       <div class="ph${p.real?' real':''}">${imgHtml}${badge}<span class="cat">${t(p.cat)}</span>${thumbs}</div>
@@ -678,6 +681,7 @@ function renderProducts(){
         <div class="spec">${p.spec[curLang]}</div>
         <div class="desc">${p.desc[curLang]}</div>
         <div class="row">${row}</div>
+        ${more}
       </div>
     </div>`;}).join('');
 }
